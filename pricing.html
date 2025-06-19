@@ -10,8 +10,9 @@
   <meta property="og:description" content="أنظمة إدارة متكاملة للشركات والمصانع مع باقات أسعار تناسب كل احتياج.">
   <meta property="og:url" content="https://wael2.github.io/waset/pricing.html">
   <meta property="og:image" content="https://wael2.github.io/waset/images/logo.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -23,27 +24,37 @@
     }
 
     header {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       padding: 1rem;
       text-align: center;
     }
 
     nav {
-      background: #388e3c;
-      padding: 0.5rem;
+      background: #b3e6c3;
+      padding: 0.7rem;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     nav a {
-      color: white;
+      color: #1b4d3e;
+      background-color: #ffffff;
+      border: 2px solid #5ea089;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
       text-decoration: none;
-      margin: 0 1rem;
       font-weight: bold;
+      transition: all 0.3s ease;
     }
 
+    nav a:hover,
     nav a.active {
-      text-decoration: underline;
+      background-color: #5ea089;
+      color: white;
     }
 
     .pricing-section {
@@ -72,6 +83,12 @@
       padding: 30px;
       width: 300px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
     .pricing-card h3 {
@@ -81,7 +98,7 @@
     }
 
     .pricing-card p {
-      font-size: 18px;
+      font-size: 16px;
       margin: 10px 0;
     }
 
@@ -94,7 +111,7 @@
     .pricing-btn {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #388e3c;
+      background-color: #5ea089;
       color: white;
       border: none;
       border-radius: 8px;
@@ -104,15 +121,30 @@
     }
 
     .pricing-btn:hover {
-      background-color: #2e7d32;
+      background-color: #3f7e6c;
     }
 
     footer {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      .pricing-title {
+        font-size: 28px;
+      }
+
+      .pricing-card {
+        width: 90%;
+      }
+
+      nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -127,14 +159,16 @@
     <a href="features.html">المميزات</a>
     <a href="pricing.html" class="active">الباقات</a>
     <a href="support.html">الدعم الفني</a>
-    <a href="description.html">الموزعين</a>
-    <a href="download.html">تحميل النسخة التجريبية</a>
+    <a href="distributors.html">الموزعين</a>
+    <a href="offers.html">العروض</a>
+    <a href="feedback.html">آراء المستخدمين</a>
+    <a href="services.html">الخدمات</a>
+    <a href="programs.html">البرامج</a>
   </nav>
 
   <section class="pricing-section">
     <h1 class="pricing-title">باقات الأسعار</h1>
 
-    <!-- فقرة SEO بسيطة -->
     <p style="max-width: 800px; margin: auto; font-size: 18px; margin-bottom: 30px;">
       اختر الباقة المناسبة لاحتياجات شركتك من بين الباقة المجانية للتجربة، أو الباقات المدفوعة التي تقدم مزايا إضافية ودعم فني متواصل.
     </p>
@@ -210,6 +244,7 @@
 
   <footer>
     <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
+    <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
   </footer>
 </body>
 </html>
