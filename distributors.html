@@ -4,24 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- العنوان ووصف الصفحة -->
   <title>الموزعين المعتمدين لبرنامج وسيط</title>
   <meta name="description" content="تواصل مع أقرب موزع معتمد لبرنامج وسيط واحصل على الدعم المحلي والعروض الخاصة في منطقتك.">
-
-  <!-- كود التحقق من ملكية الموقع في Google -->
   <meta name="google-site-verification" content="googlee5b8455c93702154.html" />
-
-  <!-- OG tags للسوشيال -->
   <meta property="og:title" content="الموزعين المعتمدين - برنامج وسيط">
   <meta property="og:description" content="تعرف على أقرب موزع معتمد واحصل على الدعم والعروض المميزة في منطقتك.">
   <meta property="og:url" content="https://wael2.github.io/waset/distributors.html">
   <meta property="og:image" content="https://wael2.github.io/waset/images/logo.png">
 
-  <!-- أيقونات وخطوط -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <!-- تنسيق داخلي إضافي -->
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -33,27 +26,36 @@
     }
 
     header {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       padding: 1rem;
       text-align: center;
     }
 
     nav {
-      background: #388e3c;
-      padding: 0.5rem;
+      background: #b3e6c3;
+      padding: 0.7rem;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     nav a {
-      color: white;
+      color: #1b4d3e;
+      background-color: #ffffff;
+      border: 2px solid #5ea089;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
       text-decoration: none;
-      margin: 0 1rem;
       font-weight: bold;
+      transition: all 0.3s ease;
     }
 
-    nav a.active {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      background-color: #5ea089;
+      color: white;
     }
 
     .container {
@@ -105,11 +107,18 @@
     }
 
     footer {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -126,7 +135,10 @@
     <a href="pricing.html">الباقات</a>
     <a href="support.html">الدعم الفني</a>
     <a href="distributors.html" class="active">الموزعين</a>
-    <a href="download.html">تحميل النسخة التجريبية</a>
+    <a href="offers.html">العروض</a>
+    <a href="feedback.html">آراء المستخدمين</a>
+    <a href="services.html">الخدمات</a>
+    <a href="programs.html">البرامج</a>
   </nav>
 
   <main class="container">
@@ -154,51 +166,24 @@
 
       <div class="agent-card">
         <h3>موزع الدلتا</h3>
-       <h3> https://elgendypro.com/ar</h3>
+        <h3><a href="https://elgendypro.com/ar" target="_blank">elgendypro.com</a></h3>
         <p><strong>الهاتف:</strong> 01061686899</p>
         <p><strong>العنوان:</strong> المحله، ميدان الشون </p>
       </div>
 
-      <div class="agent-card">
-        <h3>موزع الصعيد</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> أسيوط، شارع الجامعة</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع القناة</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> الإسماعيلية، حي السلام</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع سيناء</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> العريش، حي الزهور</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع البحيرة</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> دمنهور، شارع النصر</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع الشرقية</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> الزقازيق، شارع الجيش</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع مطروح</h3>
-        <p><strong>الهاتف:</strong> </p>
-        <p><strong>العنوان:</strong> مرسى مطروح، الكورنيش</p>
-      </div>
+      <!-- باقي الموزعين -->
+      <div class="agent-card"><h3>موزع الصعيد</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> أسيوط، شارع الجامعة</p></div>
+      <div class="agent-card"><h3>موزع القناة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الإسماعيلية، حي السلام</p></div>
+      <div class="agent-card"><h3>موزع سيناء</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> العريش، حي الزهور</p></div>
+      <div class="agent-card"><h3>موزع البحيرة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> دمنهور، شارع النصر</p></div>
+      <div class="agent-card"><h3>موزع الشرقية</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الزقازيق، شارع الجيش</p></div>
+      <div class="agent-card"><h3>موزع مطروح</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> مرسى مطروح، الكورنيش</p></div>
     </div>
   </main>
 
   <footer>
     <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
+    <p>© 2025 شركه الجندى للبرمجيات وتكنولوجيا المعلومات</p>
   </footer>
 
 </body>
