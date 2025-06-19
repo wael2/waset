@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تواصل معنا - برنامج وسيط</title>
   <meta name="description" content="تواصل معنا للحصول على الدعم أو الاستفسار عن برنامج وسيط لإدارة الشركات والمصانع.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f8fdf9;
+      background-color: #f7fdf8;
       margin: 0;
       padding: 0;
-      color: #2e473e;
+      color: #1b4d3e;
+      line-height: 1.8;
     }
 
     header {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       padding: 1rem;
       text-align: center;
     }
 
     nav {
-      background: #388e3c;
-      padding: 0.5rem;
+      background: #b3e6c3;
+      padding: 0.7rem;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     nav a {
-      color: white;
+      color: #1b4d3e;
+      background-color: #ffffff;
+      border: 2px solid #5ea089;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
       text-decoration: none;
-      margin: 0 1rem;
       font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #5ea089;
+      color: white;
     }
 
     .contact-section {
@@ -64,11 +79,22 @@
     }
 
     footer {
-      background-color: #4CAF50;
+      background-color: #5ea089;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-section h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -85,7 +111,10 @@
     <a href="pricing.html">الباقات</a>
     <a href="support.html">الدعم الفني</a>
     <a href="distributors.html">الموزعين</a>
-    <a href="download.html">تحميل النسخة التجريبية</a>
+    <a href="offers.html">العروض</a>
+    <a href="feedback.html">آراء المستخدمين</a>
+    <a href="services.html">الخدمات</a>
+    <a href="programs.html">البرامج</a>
   </nav>
 
   <section class="contact-section">
@@ -98,6 +127,7 @@
 
   <footer>
     <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
+    <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
   </footer>
 
 </body>
