@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>وسيط لإدارة المشروعات التجارية والصناعية</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      direction: rtl;
+      text-align: right;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      color: white; 
+      font-weight: 900; 
+      font-size: 28px; 
+      font-family: 'Cairo', sans-serif;
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    header .nav-links li a:hover {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding-top: 70px;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1em;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #c0392b;
+    }
+
+    .about {
+      background-color: white;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: right;
+    }
+
+    .about h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #2c3e50;
+    }
+
+    .about p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .services {
+      background-color: #ecf0f1;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+      text-align: center;
+      flex-wrap: wrap;
+      border-radius: 8px;
+    }
+
+    .service {
+      background: white;
+      padding: 25px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .service i {
+      font-size: 3.5em;
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      font-size: 1.5em;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    .service p {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .contact {
+      background-color: white;
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: right;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #2c3e50;
+    }
+
+    .contact ul {
+      list-style: none;
+      font-size: 1.1em;
+      color: #555;
+      line-height: 2;
+      padding-right: 10px;
+    }
+
+    .contact ul li {
+      margin-bottom: 10px;
+    }
+
+    .contact ul li a {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .services {
+        flex-direction: column;
+        max-width: 90%;
+        margin: 40px auto;
+      }
+
+      header .nav-links {
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+
+  <!-- Cairo font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        وسيط
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="features.html">المميزات</a></li>
+        <li><a href="pricing.html">الباقات</a></li>
+        <li><a href="support.html">الدعم الفني</a></li>
+        <li><a href="distributors.html">الموزعين</a></li>
+        <li><a href="offers.html">العروض</a></li>
+        <li><a href="feedback.html">آراء المستخدمين</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="programs.html">البرامج</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>وسيط لإدارة المشروعات التجارية والصناعية</h1>
+    <p>حلول مبتكرة لإدارة أعمالك بكل احترافية</p>
+    <a href="#contact" class="cta-button">تواصل معنا الآن</a>
+  </section>
+
+  <section id="about" class="about">
+    <h2>من نحن</h2>
+    <p>نحن في "وسيط" نقدم حلولاً متكاملة لإدارة المشروعات التجارية والصناعية، مع التركيز على تحسين الأداء وزيادة الإنتاجية.</p>
+  </section>
+
+  <section id="services" class="services">
+    <div class="service">
+      <i class="fas fa-cogs"></i>
+      <h3>إدارة المشروعات</h3>
+      <p>نظام متكامل لإدارة المشروعات من البداية للنهاية.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-users"></i>
+      <h3>إدارة الموارد البشرية</h3>
+      <p>حلول لإدارة الموظفين والرواتب والإجازات.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-chart-line"></i>
+      <h3>تحليل البيانات</h3>
+      <p>أدوات لتحليل الأداء واتخاذ القرارات الاستراتيجية.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>تواصل معنا</h2>
+    <ul>
+      <li><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/waset.services" target="_blank" rel="noopener">صفحتنا على فيسبوك</a></li>
+      <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201060350015" target="_blank" rel="noopener">الدعم الفني عبر واتساب</a></li>
+      <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201061686899" target="_blank" rel="noopener">المبيعات عبر واتساب</a></li>
+      <li><i class="fas fa-envelope"></i> <a href="mailto:customerservice@elgendypro.com">customerservice@elgendypro.com</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 وسيط. جميع الحقوق محفوظة.</p>
+  </footer>
+
+</body>
+</html>
