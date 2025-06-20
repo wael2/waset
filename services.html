@@ -4,55 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الخدمات - برنامج وسيط</title>
-  <meta name="description" content="خدمات مكملة لبرنامج وسيط: تصميم مواقع، تسويق إلكتروني، صيانة، تركيب سيرفرات، إدارة سوشيال ميديا، والمزيد. اطلب الخدمة الآن.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #f7fdf8;
-      color: #1b4d3e;
+    * {
       margin: 0;
       padding: 0;
-      line-height: 1.8;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      direction: rtl;
+      text-align: right;
     }
 
     header {
-      background-color: #5ea089;
-      color: white;
-      padding: 1rem;
-      text-align: center;
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
     }
 
-    nav {
-      background: #b3e6c3;
-      padding: 0.7rem;
-      text-align: center;
+    header nav {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
     }
 
-    nav a {
-      color: #1b4d3e;
-      background-color: #ffffff;
-      border: 2px solid #5ea089;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
+    header .logo {
+      color: white;
+      font-weight: 900;
+      font-size: 28px;
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header .nav-links li a {
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 1em;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 5px;
     }
 
-    nav a:hover {
-      background-color: #5ea089;
+    header .nav-links li a:hover,
+    header .nav-links li a.active {
+      background-color: #e74c3c;
       color: white;
     }
 
     .container {
-      padding: 2rem;
+      padding: 120px 20px 60px;
       max-width: 1200px;
       margin: auto;
+    }
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+      color: #2c3e50;
     }
 
     .services-grid {
@@ -62,39 +88,39 @@
     }
 
     .service-card {
-      background-color: #ffffff;
-      border: 1px solid #cce8dc;
+      background-color: white;
       border-radius: 12px;
-      padding: 20px;
+      padding: 25px 15px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: 0.3s ease;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     .service-card i {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #5ea089;
+      font-size: 3em;
+      margin-bottom: 15px;
+      color: #e74c3c;
     }
 
     .service-card h3 {
-      font-size: 1.2rem;
-      margin: 10px 0;
+      font-size: 1.4em;
+      color: #2c3e50;
+      margin-bottom: 10px;
     }
 
     .service-card p {
-      font-size: 0.95rem;
-      color: #444;
+      font-size: 1em;
+      color: #555;
     }
 
     .price {
-      font-weight: bold;
       margin-top: 10px;
+      font-weight: bold;
       color: #1b4d3e;
     }
 
@@ -102,30 +128,36 @@
       display: inline-block;
       margin-top: 15px;
       padding: 8px 20px;
-      background-color: #5ea089;
+      background-color: #e74c3c;
       color: white;
       text-decoration: none;
       border-radius: 6px;
-      transition: 0.3s ease;
-      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
     }
 
     .service-card a:hover {
-      background-color: #3f7e6c;
+      background-color: #c0392b;
     }
 
     footer {
-      background-color: #5ea089;
+      background-color: #2c3e50;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      padding: 20px 0;
+      font-size: 0.9em;
+      margin-top: 60px;
     }
 
-    @media (max-width: 600px) {
-      nav a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 10px;
       }
     }
   </style>
@@ -133,31 +165,31 @@
 
 <body>
   <header>
-    <h1>🚀 خدمات إضافية من فريق وسيط</h1>
-    <p>وسع دايرة شغلك مع خدمات احترافية تكمل نجاحك</p>
+    <nav>
+      <div class="logo">وسيط</div>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="features.html">المميزات</a></li>
+        <li><a href="pricing.html">الباقات</a></li>
+        <li><a href="support.html">الدعم الفني</a></li>
+        <li><a href="distributors.html">الموزعين</a></li>
+        <li><a href="offers.html">العروض</a></li>
+        <li><a href="feedback.html">آراء المستخدمين</a></li>
+        <li><a href="services.html" class="active">الخدمات</a></li>
+        <li><a href="programs.html">البرامج</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="features.html">المميزات</a>
-    <a href="pricing.html">الباقات</a>
-    <a href="support.html">الدعم الفني</a>
-    <a href="distributors.html">الموزعين</a>
-    <a href="offers.html">العروض</a>
-    <a href="feedback.html">آراء المستخدمين</a>
-    <a href="services.html" class="active">الخدمات</a>
-    <a href="programs.html">البرامج</a>
-  </nav>
-
   <div class="container">
-    <h2 style="text-align:center; margin-bottom: 30px;">🛠 جميع الخدمات اللي ممكن تحتاجها</h2>
+    <h2 class="section-title">🛠 جميع الخدمات اللي ممكن تحتاجها</h2>
     <div class="services-grid">
       <div class="service-card">
         <i class="fas fa-laptop-code"></i>
         <h3>تصميم موقع إلكتروني</h3>
         <p>موقع احترافي متجاوب للموبايل والكمبيوتر.</p>
         <div class="price">ابتداءً من 2500 جنيه</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة تصميم موقع إلكتروني" target="_blank">طلب الخدمة</a>
       </div>
 
       <div class="service-card">
@@ -165,7 +197,7 @@
         <h3>إعلانات ممولة</h3>
         <p>تصميم وإدارة حملات على فيسبوك وإنستجرام.</p>
         <div class="price">ابتداءً من 800 جنيه</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة إعلانات ممولة" target="_blank">طلب الخدمة</a>
       </div>
 
       <div class="service-card">
@@ -173,7 +205,7 @@
         <h3>تركيب سيرفر وربط فروع</h3>
         <p>سيرفر داخلي أو سحابي مع إعداد كامل وربط الشبكات.</p>
         <div class="price">ابتداءً من 1500 جنيه</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة تركيب سيرفر وربط فروع" target="_blank">طلب الخدمة</a>
       </div>
 
       <div class="service-card">
@@ -181,7 +213,7 @@
         <h3>صيانة السيستم والأجهزة</h3>
         <p>حل مشاكل النظام والويندوز والطابعات وربط الأجهزة.</p>
         <div class="price">ابتداءً من 300 جنيه</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة صيانة السيستم والأجهزة" target="_blank">طلب الخدمة</a>
       </div>
 
       <div class="service-card">
@@ -189,7 +221,7 @@
         <h3>إدارة صفحات السوشيال</h3>
         <p>إدارة كاملة لصفحتك ونشر محتوى بشكل منتظم.</p>
         <div class="price">ابتداءً من 1000 جنيه / شهريًا</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة إدارة صفحات السوشيال" target="_blank">طلب الخدمة</a>
       </div>
 
       <div class="service-card">
@@ -197,14 +229,13 @@
         <h3>تدريب على البرنامج</h3>
         <p>تدريبك أو تدريب موظفينك على استخدام وسيط.</p>
         <div class="price">150 جنيه / للساعة</div>
-        <a href="https://forms.gle/YOUR_GOOGLE_FORM" target="_blank">طلب الخدمة</a>
+        <a href="https://wa.me/201060350015?text=مرحبًا، أرغب في خدمة تدريب على البرنامج" target="_blank">طلب الخدمة</a>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
-    <p>© 2025 شركه الجندى للبرمجيات وتكنولوجيا المعلومات</p>
+    <p>© 2025 وسيط. جميع الحقوق محفوظة.</p>
   </footer>
 </body>
 </html>
