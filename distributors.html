@@ -1,190 +1,161 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>الموزعين المعتمدين لبرنامج وسيط</title>
-  <meta name="description" content="تواصل مع أقرب موزع معتمد لبرنامج وسيط واحصل على الدعم المحلي والعروض الخاصة في منطقتك.">
-  <meta name="google-site-verification" content="googlee5b8455c93702154.html" />
-  <meta property="og:title" content="الموزعين المعتمدين - برنامج وسيط">
-  <meta property="og:description" content="تعرف على أقرب موزع معتمد واحصل على الدعم والعروض المميزة في منطقتك.">
-  <meta property="og:url" content="https://wael2.github.io/waset/distributors.html">
-  <meta property="og:image" content="https://wael2.github.io/waset/images/logo.png">
-
-  <!-- أيقونات -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
+  <title>الموزعين المعتمدين - وسيط</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f7fdf8;
-      margin: 0;
-      padding: 0;
-      color: #1b4d3e;
-      line-height: 1.8;
+      background-color: #f4f4f4;
+      color: #333;
+      direction: rtl;
+      text-align: right;
     }
-
     header {
-      background-color: #5ea089;
-      color: white;
-      padding: 1rem;
-      text-align: center;
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
     }
-
-    nav {
-      background: #b3e6c3;
-      padding: 0.7rem;
-      text-align: center;
+    header nav {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
     }
-
-    nav a {
-      color: #1b4d3e;
-      background-color: #ffffff;
-      border: 2px solid #5ea089;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
+    header .logo {
+      color: white; 
+      font-weight: 900; 
+      font-size: 28px; 
+    }
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    header .nav-links li a {
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 1em;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 5px;
     }
-
-    nav a:hover, nav a.active {
-      background-color: #5ea089;
+    header .nav-links li a:hover,
+    header .nav-links li a.active {
+      background-color: #e74c3c;
       color: white;
     }
-
     .container {
-      padding: 2rem;
       max-width: 1000px;
-      margin: auto;
+      margin: 100px auto 50px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     .section-title {
-      font-size: 2rem;
-      color: #1b4d3e;
-      margin-bottom: 1rem;
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #2c3e50;
       text-align: center;
     }
-
     .section-description {
       text-align: center;
-      margin-bottom: 2rem;
-      color: #444;
+      margin-bottom: 30px;
+      color: #666;
     }
-
     .agents-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-
     .agent-card {
-      background: #ffffff;
-      border: 1px solid #c8e6c9;
-      border-radius: 10px;
+      background: #ecf0f1;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: 0.3s ease;
     }
-
     .agent-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
     .agent-card h3 {
-      margin-top: 0;
-      color: #1b4d3e;
+      margin: 0 0 10px;
+      color: #2c3e50;
     }
-
     .agent-card p {
       margin: 5px 0;
+      color: #555;
     }
-
     footer {
-      background-color: #5ea089;
+      background-color: #2c3e50;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-      }
+      padding: 20px 0;
+      font-size: 0.9em;
+      margin-top: 40px;
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <h1>🚀 برنامج وسيط لإدارة الشركات والمصانع</h1>
-    <p>الحل المتكامل لإدارة أعمالك بسهولة واحتراف</p>
-  </header>
-
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="features.html">المميزات</a>
-    <a href="pricing.html">الباقات</a>
-    <a href="support.html">الدعم الفني</a>
-    <a href="distributors.html" class="active">الموزعين</a>
-    <a href="offers.html">العروض</a>
-    <a href="feedback.html">آراء المستخدمين</a>
-    <a href="services.html">الخدمات</a>
-    <a href="programs.html">البرامج</a>
-  </nav>
-
-  <main class="container">
+<body>  <header>
+    <nav>
+      <div class="logo">وسيط</div>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="features.html">المميزات</a></li>
+        <li><a href="pricing.html">الباقات</a></li>
+        <li><a href="support.html">الدعم الفني</a></li>
+        <li><a href="distributors.html" class="active">الموزعين</a></li>
+        <li><a href="offers.html">العروض</a></li>
+        <li><a href="feedback.html">آراء المستخدمين</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="programs.html">البرامج</a></li>
+      </ul>
+    </nav>
+  </header>  <main class="container">
     <h2 class="section-title">الموزعين المعتمدين</h2>
-    <p class="section-description">تعرف على موزعينا المعتمدين لشراء البرنامج أو طلب الدعم في منطقتك.</p>
+    <p class="section-description">تعرف على موزعينا المعتمدين لشراء البرنامج أو طلب الدعم في منطقتك.</p><div class="agents-list">
+  <div class="agent-card">
+    <h3>الفرع الرئيسي - الاسكندريه</h3>
+    <p><strong>الهاتف:</strong> 01060350015</p>
+    <p><strong>العنوان:</strong> وسط البلد، الاسكندريه</p>
+  </div>
+  <div class="agent-card">
+    <h3>موزع طنطا</h3>
+    <p><strong>الهاتف:</strong> 01004660266</p>
+    <p><strong>العنوان:</strong> شارع المحطه، طنطا</p>
+  </div>
+  <div class="agent-card">
+    <h3>موزع القاهره</h3>
+    <p><strong>الهاتف:</strong> 01221466602</p>
+    <p><strong>العنوان:</strong> مدينه نصر، القاهره</p>
+  </div>
+  <div class="agent-card">
+    <h3>موزع الدلتا</h3>
+    <p><a href="https://elgendypro.com/ar" target="_blank">elgendypro.com</a></p>
+    <p><strong>الهاتف:</strong> 01061686899</p>
+    <p><strong>العنوان:</strong> المحله، ميدان الشون</p>
+  </div>
+  <div class="agent-card"><h3>موزع الصعيد</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> أسيوط، شارع الجامعة</p></div>
+  <div class="agent-card"><h3>موزع القناة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الإسماعيلية، حي السلام</p></div>
+  <div class="agent-card"><h3>موزع سيناء</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> العريش، حي الزهور</p></div>
+  <div class="agent-card"><h3>موزع البحيرة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> دمنهور، شارع النصر</p></div>
+  <div class="agent-card"><h3>موزع الشرقية</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الزقازيق، شارع الجيش</p></div>
+  <div class="agent-card"><h3>موزع مطروح</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> مرسى مطروح، الكورنيش</p></div>
+</div>
 
-    <div class="agents-list">
-      <div class="agent-card">
-        <h3>الفرع الرئيسي - الاسكندريه</h3>
-        <p><strong>الهاتف:</strong> 01060350015</p>
-        <p><strong>العنوان:</strong> وسط البلد، الاسكندريه</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع طنطا</h3>
-        <p><strong>الهاتف:</strong> 01004660266</p>
-        <p><strong>العنوان:</strong> شارع المحطه، طنطا</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع القاهره</h3>
-        <p><strong>الهاتف:</strong> 01221466602</p>
-        <p><strong>العنوان:</strong> مدينه نصر، القاهره</p>
-      </div>
-
-      <div class="agent-card">
-        <h3>موزع الدلتا</h3>
-        <h3><a href="https://elgendypro.com/ar" target="_blank">elgendypro.com</a></h3>
-        <p><strong>الهاتف:</strong> 01061686899</p>
-        <p><strong>العنوان:</strong> المحله، ميدان الشون </p>
-      </div>
-
-      <!-- باقي الموزعين -->
-      <div class="agent-card"><h3>موزع الصعيد</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> أسيوط، شارع الجامعة</p></div>
-      <div class="agent-card"><h3>موزع القناة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الإسماعيلية، حي السلام</p></div>
-      <div class="agent-card"><h3>موزع سيناء</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> العريش، حي الزهور</p></div>
-      <div class="agent-card"><h3>موزع البحيرة</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> دمنهور، شارع النصر</p></div>
-      <div class="agent-card"><h3>موزع الشرقية</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> الزقازيق، شارع الجيش</p></div>
-      <div class="agent-card"><h3>موزع مطروح</h3><p><strong>الهاتف:</strong></p><p><strong>العنوان:</strong> مرسى مطروح، الكورنيش</p></div>
-    </div>
-  </main>
-
-  <footer>
-    <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
-    <p>© 2025 شركه الجندى للبرمجيات وتكنولوجيا المعلومات</p>
-  </footer>
-
-</body>
+  </main>  <footer>
+    <p>&copy; 2025 وسيط. جميع الحقوق محفوظة.</p>
+  </footer></body>
 </html>
