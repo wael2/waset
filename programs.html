@@ -2,246 +2,149 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>برامج - تحميل برامج مفيدة</title>
-  <meta name="description" content="تحميل برامج مهمة لعملك، منها برنامج وسيط لإدارة الشركات والمصانع، وبرامج أخرى مفيدة لتنظيم العمل." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>البرامج - تحميل برامج مفيدة</title>
+  <meta name="description" content="تحميل برامج مهمة لعملك، منها برنامج وسيط لإدارة الشركات والمصانع، وبرامج أخرى مفيدة لتنظيم العمل.">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #f7fdf8;
-      margin: 0;
-      padding: 0;
-      color: #1b4d3e;
-      line-height: 1.8;
-    }
-    header {
-      background-color: #5ea089;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #b3e6c3;
-      padding: 0.7rem;
-      text-align: center;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    nav a {
-      color: #1b4d3e;
-      background-color: #ffffff;
-      border: 2px solid #5ea089;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    nav a:hover,
-    nav a.active {
-      background-color: #5ea089;
-      color: white;
-    }
-    .programs-section {
-      padding: 50px 20px;
-      text-align: center;
-      background-color: #f8f9fa;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .programs-title {
-      font-size: 36px;
-      margin-bottom: 30px;
-      color: #2e7d32;
-    }
-    .programs-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-    .program-card {
-      background: #fff;
-      border: 2px solid #a5d6a7;
-      border-radius: 16px;
-      padding: 25px 20px 30px 20px;
-      width: 280px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .program-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    }
-    .program-card h3 {
-      font-size: 22px;
-      color: #2e7d32;
-      margin-bottom: 15px;
-      min-height: 50px;
-    }
-    .program-desc {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #3a5d40;
-      min-height: 70px;
-    }
-    .download-btn {
-      padding: 12px 22px;
-      background-color: #5ea089;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      align-self: center;
-      width: 90%;
-    }
-    .download-btn:hover {
-      background-color: #3f7e6c;
-    }
-    footer {
-      background-color: #5ea089;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-    @media (max-width: 600px) {
-      .programs-title {
-        font-size: 28px;
-      }
-      .program-card {
-        width: 90%;
-      }
-      nav a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-      }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Cairo',sans-serif;background:#f4f4f4;color:#333;direction:rtl;text-align:right;}
+    header {background:#2c3e50;padding:10px 20px;position:fixed;width:100%;top:0;z-index:999;}
+    header nav {display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;flex-wrap:wrap;}
+    header .logo {color:white;font-weight:900;font-size:28px;}
+    header .nav-links {list-style:none;display:flex;gap:15px;flex-wrap:wrap;}
+    header .nav-links li a {color:white;text-decoration:none;font-weight:600;font-size:1em;padding:8px 12px;border-radius:5px;transition:0.3s;}
+    header .nav-links li a:hover, header .nav-links li a.active {background:#e74c3c;color:white;}
+    .programs-section {padding:120px 20px 50px;max-width:1200px;margin:auto;text-align:center;}
+    .programs-section h1 {font-size:2.5rem;margin-bottom:30px;color:#2c3e50;}
+    .programs-container {display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
+    .program-card {background:white;border-radius:10px;padding:25px 20px;width:280px;box-shadow:0 4px 10px rgba(0,0,0,0.1);transition:0.3s;display:flex;flex-direction:column;justify-content:space-between;}
+    .program-card:hover {transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,0.12);}
+    .program-card h3 {font-size:1.3rem;color:#2c3e50;margin-bottom:15px;min-height:50px;}
+    .program-desc {font-size:1rem;color:#555;margin-bottom:20px;min-height:70px;}
+    .download-btn {padding:12px 20px;background:#e74c3c;color:white;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;transition:background 0.3s;}
+    .download-btn:hover {background:#c0392b;}
+    footer {background:#2c3e50;color:white;text-align:center;padding:20px 0;font-size:0.9em;margin-top:60px;}
+    @media(max-width:768px){
+      header nav {flex-direction:column;gap:15px;}
+      .nav-links {justify-content:center;gap:10px;}
+      .program-card {width:90%;}
+      .programs-section h1 {font-size:2rem;}
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🚀 برامج مفيدة لتحسين عملك</h1>
-    <p>تحميل برامج مهمة تساعدك في إدارة وتنظيم أعمالك بسهولة</p>
+    <nav>
+      <div class="logo">وسيط</div>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="features.html">المميزات</a></li>
+        <li><a href="pricing.html">الباقات</a></li>
+        <li><a href="support.html">الدعم الفني</a></li>
+        <li><a href="distributors.html">الموزعين</a></li>
+        <li><a href="offers.html">العروض</a></li>
+        <li><a href="feedback.html">آراء المستخدمين</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="programs.html" class="active">البرامج</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="features.html">المميزات</a>
-    <a href="pricing.html">الباقات</a>
-    <a href="support.html">الدعم الفني</a>
-    <a href="distributors.html">الموزعين</a>
-    <a href="offers.html">العروض</a>
-    <a href="feedback.html">آراء المستخدمين</a>
-    <a href="services.html">الخدمات</a>
-    <a href="programs.html" class="active">البرامج</a>
-  </nav>
-
   <section class="programs-section">
-    <h1 class="programs-title">قائمة البرامج</h1>
+    <h1>📦 قائمة البرامج</h1>
     <div class="programs-container">
 
+<div class="program-card">
+  <h3>برنامج وسيط لإدارة الشركات والمصانع</h3>
+  <p class="program-desc">برنامج متكامل لإدارة الحسابات، المخازن، المبيعات، المشتريات، الرواتب، وشؤون الموظفين.</p>
+  <a href="https://drive.usercontent.google.com/download?id=1dzv9XBqrk2FrS2pRW9tWHJwKNZrm_X7b&export=download&authuser=0"
+     class="download-btn" download>تحميل مباشر</a>
+</div>
+
       <div class="program-card">
-        <h3>برنامج وسيط لإدارة الشركات والمصانع</h3>
-        <p class="program-desc">أفضل برنامج متكامل لإدارة كل جوانب شركتك أو مصنعك بكل سهولة واحترافية.</p>
-        <a href="https://example.com/download/waset-latest.exe" class="download-btn" download>تحميل البرنامج</a>
+        <h3>TeamViewer</h3>
+        <p class="program-desc">للتحكم عن بعد في الأجهزة بشكل آمن.</p>
+        <a href="https://download.teamviewer.com/download/TeamViewer_Setup.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج Microsoft Office 365</h3>
-        <p class="program-desc">مجموعة برامج الإنتاجية المكتبية مثل Word وExcel وPowerPoint لتحسين تنظيم العمل.</p>
-        <a href="https://www.microsoft.com/ar-sa/microsoft-365/get-started-with-office-365" class="download-btn" target="_blank">تحميل البرنامج</a>
+        <h3>WinRAR</h3>
+        <p class="program-desc">ضغـط وفك ضغط الملفات بجميع الصيغ.</p>
+        <a href="https://www.rarlab.com/rar/winrar-x64-602.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج Adobe Acrobat Reader</h3>
-        <p class="program-desc">لقراءة ملفات PDF وعرضها بكل سهولة مع ميزات التعديل البسيطة.</p>
-        <a href="https://get.adobe.com/reader/" class="download-btn" target="_blank">تحميل البرنامج</a>
+        <h3>Google Chrome</h3>
+        <p class="program-desc">متصفح موثوق وسريع مع دعم الإضافات.</p>
+        <a href="https://dl.google.com/chrome/install/latest/chrome_installer.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج TeamViewer للتحكم عن بعد</h3>
-        <p class="program-desc">برنامج للتحكم في أجهزة الكمبيوتر عن بعد بسهولة وأمان.</p>
-        <a href="https://download.teamviewer.com/download/TeamViewer_Setup.exe" class="download-btn" target="_blank">تحميل البرنامج</a>
+        <h3>Dropbox</h3>
+        <p class="program-desc">مساحة تخزين ومشاركة بيانات سحابية.</p>
+        <a href="https://www.dropbox.com/download?plat=win" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج WinRAR لضغط الملفات</h3>
-        <p class="program-desc">أفضل برنامج لضغط الملفات وفك الضغط بسهولة مع دعم الصيغ المختلفة.</p>
-        <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-602.exe" class="download-btn" target="_blank">تحميل البرنامج</a>
+  <h3>Notepad++</h3>
+  <p class="program-desc">محرر نصوص قوي لكتابة الأكواد بسهولة.</p>
+  <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.1/npp.8.8.1.Installer.x64.exe" class="download-btn" download>تحميل مباشر</a>
+</div>
+
+      <div class="program-card">
+        <h3>VLC Media Player</h3>
+        <p class="program-desc">تشغيل كافة أنواع الوسائط بجودة ممتازة.</p>
+        <a href="https://get.videolan.org/vlc/3.0.18/win64/vlc-3.0.18-win64.exe" class="download-btn" download>تحميل مباشر</a>
+      </div>
+
+    
+	<div class="program-card">
+  <h3>Microsoft SQL Server Express 2019 (Core)</h3>
+  <p class="program-desc">قاعدة بيانات قوية مجانية، تقريباً 249 ميجا – نسخة Express Core.</p>
+  <a href="https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLEXPR_x64_ENU.exe" class="download-btn" download>
+    تحميل مباشر (~249 ميجا)
+  </a>
+</div>
+	
+<div class="program-card">
+  <h3>Crystal Reports Runtime (64‑بت)</h3>
+  <p class="program-desc">تشغيل تقارير Crystal Reports في تطبيقات .NET إصدار 64‑بت.</p>
+  <a href="https://downloads.i-theses.com/index.php?groupid=9&id=101&option=com_downloads&task=download&fid=101"
+     class="download-btn" download>تحميل مباشر (CRRuntime_64bit_13_0_12.msi)</a>
+</div>
+<div class="program-card">
+  <h3>Crystal Reports Runtime (32‑بت)</h3>
+  <p class="program-desc">تشغيل تقارير Crystal Reports في تطبيقات .NET إصدار 32‑بت.</p>
+  <a href="https://downloads.i-theses.com/index.php?groupid=9&id=101&option=com_downloads&task=download&fid=100"
+     class="download-btn" download>تحميل مباشر (CRRuntime_32bit_13_0_12.msi)</a>
+</div>
+
+      <div class="program-card">
+        <h3>ZeroTier</h3>
+        <p class="program-desc">شبكة افتراضية خاصة تربط الأجهزة بطريقة آمنة.</p>
+        <a href="https://download.zerotier.com/ZeroTierOneSetup.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج Google Chrome</h3>
-        <p class="program-desc">أشهر متصفح إنترنت سريع وآمن مع دعم الإضافات المتنوعة.</p>
-        <a href="https://dl.google.com/chrome/install/375.126/chrome_installer.exe" class="download-btn" target="_blank">تحميل البرنامج</a>
+        <h3>Visual Studio Community</h3>
+        <p class="program-desc">بيئة تطوير متكاملة لإنشاء تطبيقات متنوعة.</p>
+        <a href="https://aka.ms/vs/17/release/vs_Community.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
 
       <div class="program-card">
-        <h3>برنامج Dropbox للتخزين السحابي</h3>
-        <p class="program-desc">خدمة تخزين ومشاركة الملفات عبر الإنترنت بشكل آمن وموثوق.</p>
-        <a href="https://www.dropbox.com/downloading?src=index" class="download-btn" target="_blank">تحميل البرنامج</a>
+        <h3>PuTTY</h3>
+        <p class="program-desc">للتحكم بخوادم SSH وTelnet عن بعد.</p>
+        <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" class="download-btn" download>تحميل مباشر</a>
       </div>
-
       <div class="program-card">
-        <h3>برنامج Skype للمكالمات الصوتية والفيديو</h3>
-        <p class="program-desc">تواصل صوتي ومرئي عالي الجودة مع عملائك وفريقك بسهولة.</p>
-        <a href="https://go.skype.com/skypeforwindows" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج Notepad++ لتحرير النصوص</h3>
-        <p class="program-desc">محرر نصوص قوي للمبرمجين وكتابة الأكواد بشكل منسق وسهل.</p>
-        <a href="https://notepad-plus-plus.org/repository/7.x/7.8.9/npp.7.8.9.Installer.exe" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج VLC Media Player</h3>
-        <p class="program-desc">مشغل وسائط متعدد الصيغ يدعم الفيديو والصوت بجودة عالية.</p>
-        <a href="https://get.videolan.org/vlc/3.0.18/win64/vlc-3.0.18-win64.exe" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <!-- البرامج الجديدة -->
-      <div class="program-card">
-        <h3>برنامج Microsoft SQL Server</h3>
-        <p class="program-desc">قاعدة بيانات قوية وموثوقة لإدارة البيانات وتنظيمها بكفاءة.</p>
-        <a href="https://go.microsoft.com/fwlink/?linkid=866658" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج Crystal Reports</h3>
-        <p class="program-desc">أداة تصميم تقارير متقدمة لتوليد تقارير احترافية من قواعد البيانات.</p>
-        <a href="https://www.sap.com/cmp/td/sap-crystal-reports-trial.html" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج ZeroTier</h3>
-        <p class="program-desc">شبكة افتراضية خاصة تربط الأجهزة عبر الإنترنت بطريقة آمنة وسهلة.</p>
-        <a href="https://www.zerotier.com/download/" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج Visual Studio Community</h3>
-        <p class="program-desc">بيئة تطوير متكاملة لإنشاء برامج وتطبيقات متنوعة بسهولة.</p>
-        <a href="https://visualstudio.microsoft.com/vs/community/" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
-      <div class="program-card">
-        <h3>برنامج Putty</h3>
-        <p class="program-desc">أداة مجانية للاتصال بخوادم SSH وTelnet لإدارة السيرفرات عن بعد.</p>
-        <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" class="download-btn" target="_blank">تحميل البرنامج</a>
-      </div>
-
+     <h3>AnyDesk</h3>
+      <p class="program-desc">برنامج للتحكم عن بُعد بسرعة وسهولة.</p>
+     <a href="https://download.anydesk.com/AnyDesk.exe" class="download-btn" download>تحميل مباشر</a>
+</div>
     </div>
   </section>
 
@@ -249,5 +152,6 @@
     <p>© 2025 وسيط - جميع الحقوق محفوظة</p>
     <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
   </footer>
+
 </body>
 </html>
