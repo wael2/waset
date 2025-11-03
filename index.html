@@ -1,314 +1,151 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>وسيط لإدارة المشروعات التجارية والصناعية</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="description" content="برنامج وسيط هو الحل الذكي لإدارة الشركات والمخازن والمبيعات والفواتير بسهولة ودقة. يدعم التقارير الاحترافية وإدارة العملاء والموردين مع دعم فني مستمر.">
+<meta name="keywords" content="برنامج وسيط, إدارة الشركات, المبيعات, المخازن, الفواتير, تقارير, دعم فني, ERP, محاسبة, نظام مبيعات">
+<meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
+<meta name="robots" content="index, follow">
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      direction: rtl;
-      text-align: right;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    header {
-      background-color: #2c3e50;
-      padding: 10px 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 999;
-    }
-
-    header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    header .logo {
-      color: white; 
-      font-weight: 900; 
-      font-size: 28px; 
-      font-family: 'Cairo', sans-serif;
-    }
-
-    header .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    header .nav-links li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1em;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 5px;
-    }
-
-    header .nav-links li a:hover {
-      background-color: #e74c3c;
-      color: white;
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;
-      height: 450px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      padding-top: 70px;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      line-height: 1.2;
-      font-weight: 900;
-    }
-
-    .hero p {
-      font-size: 1.3em;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-
-    .cta-button {
-      background-color: #e74c3c;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1.1em;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #c0392b;
-    }
-
-    .about {
-      background-color: white;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: right;
-    }
-
-    .about h2 {
-      margin-bottom: 20px;
-      font-size: 2em;
-      color: #2c3e50;
-    }
-
-    .about p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    .services {
-      background-color: #ecf0f1;
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: space-around;
-      gap: 30px;
-      text-align: center;
-      flex-wrap: wrap;
-      border-radius: 8px;
-    }
-
-    .service {
-      background: white;
-      padding: 25px 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      flex: 1 1 250px;
-      max-width: 300px;
-      transition: transform 0.3s ease;
-    }
-
-    .service:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-
-    .service i {
-      font-size: 3.5em;
-      color: #e74c3c;
-      margin-bottom: 15px;
-    }
-
-    .service h3 {
-      font-size: 1.5em;
-      margin-bottom: 12px;
-      color: #2c3e50;
-    }
-
-    .service p {
-      font-size: 1em;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .contact {
-      background-color: white;
-      max-width: 900px;
-      margin: 40px auto 80px;
-      padding: 30px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: right;
-    }
-
-    .contact h2 {
-      margin-bottom: 20px;
-      font-size: 2em;
-      color: #2c3e50;
-    }
-
-    .contact ul {
-      list-style: none;
-      font-size: 1.1em;
-      color: #555;
-      line-height: 2;
-      padding-right: 10px;
-    }
-
-    .contact ul li {
-      margin-bottom: 10px;
-    }
-
-    .contact ul li a {
-      color: #e74c3c;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 0.9em;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      header nav {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .services {
-        flex-direction: column;
-        max-width: 90%;
-        margin: 40px auto;
-      }
-
-      header .nav-links {
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-    }
-  </style>
-
-  <!-- Cairo font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome for icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Cairo',sans-serif;background:#f9f9f9;color:#333;direction:rtl;}
+header{background:#2c3e50;color:white;padding:10px 20px;position:fixed;top:0;width:100%;z-index:100;}
+nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.logo{font-size:28px;font-weight:900;}
+.nav-links{list-style:none;display:flex;gap:15px;flex-wrap:wrap;}
+.nav-links li a{color:white;text-decoration:none;font-weight:600;transition:0.3s;padding:8px 12px;border-radius:5px;}
+.nav-links li a:hover,.nav-links li a.active{background:#e74c3c;}
+.hero{margin-top:100px;text-align:center;padding:40px 20px;background:linear-gradient(135deg,#e74c3c,#c0392b);color:white;}
+.hero h1{font-size:2.5em;margin-bottom:15px;}
+.hero p{font-size:18px;margin-bottom:20px;}
+.hero a{background:white;color:#c0392b;padding:12px 25px;border-radius:8px;text-decoration:none;font-weight:bold;transition:0.3s;}
+.hero a:hover{background:#2c3e50;color:white;}
+.features{max-width:1200px;margin:40px auto;padding:20px;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;text-align:center;}
+.feature{background:white;padding:20px;border-radius:10px;width:30%;min-width:260px;box-shadow:0 3px 10px rgba(0,0,0,0.1);transition:0.3s;}
+.feature:hover{transform:translateY(-5px);}
+.feature i{font-size:40px;color:#e74c3c;margin-bottom:10px;}
+.footer1-outer,.footer2-outer{background:#2c3e50;color:white;}
+.footer1-outer .page,.footer2-outer .page{max-width:1200px;margin:0 auto;padding:20px;}
+.footer1{display:flex;flex-wrap:wrap;gap:20px;}
+.footer1 .col3{width:30%;min-width:250px;}
+.footer1 h2{color:#fff;margin-bottom:10px;}
+.footer1 a{color:#fff;text-decoration:none;}
+.footer1 a:hover{color:#e74c3c;}
+.share-icons a{display:flex;align-items:center;gap:5px;background:#34495e;padding:5px 10px;border-radius:6px;transition:background 0.3s;margin-bottom:5px;}
+.share-icons a:hover{background:#e74c3c;}
+.footer2{text-align:center;font-size:0.9em;padding:10px;color:#ccc;}
+@media(max-width:768px){
+.feature{width:90%;}
+.footer1 .col3{width:100%;}
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">
-        وسيط
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html"class="active">الرئيسية</a></li>
-        <li><a href="features.html">المميزات</a></li>
-        <li><a href="pricing.html">الباقات</a></li>
-        <li><a href="support.html">الدعم الفني</a></li>
-        <li><a href="distributors.html" >الموزعين</a></li>
-        <li><a href="offers.html">العروض</a></li>      
-        <li><a href="services.html">الخدمات</a></li>
-        <li><a href="programs.html">البرامج</a></li>
-          <li><a href="feedback.html">آراء المستخدمين</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+<nav>
+<div class="logo">وسيط</div>
+<ul class="nav-links">
+<li><a href="index.html" class="active">الرئيسية</a></li>
+<li><a href="features.html">المميزات</a></li>
+<li><a href="pricing.html">الباقات</a></li>
+<li><a href="support.html">الدعم الفني</a></li>
+<li><a href="distributors.html">الموزعين</a></li>
+<li><a href="offers.html">العروض</a></li>
+<li><a href="services.html">الخدمات</a></li>
+<li><a href="programs.html">البرامج</a></li>
+<li><a href="feedback.html">آراء المستخدمين</a></li>
+</ul>
+</nav>
+</header>
 
-  <section class="hero">
-    <h1>وسيط لإدارة المشروعات التجارية والصناعية</h1>
-    <p>حلول مبتكرة لإدارة أعمالك بكل احترافية</p>
-    <a href="#contact" class="cta-button">تواصل معنا الآن</a>
-  </section>
+<section class="hero">
+<h1>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</h1>
+<p>حل ذكي متكامل لإدارة مؤسستك التجارية أو الصناعية بسهولة واحتراف.</p>
+<a href="pricing.html">استعرض الباقات</a>
+</section>
 
-  <section id="about" class="about">
-    <h2>من نحن</h2>
-    <p>نحن في "وسيط" نقدم حلولاً متكاملة لإدارة المشروعات التجارية والصناعية، مع التركيز على تحسين الأداء وزيادة الإنتاجية.</p>
-  </section>
+<section class="features">
+<div class="feature">
+<i class="fas fa-store"></i>
+<h3>إدارة المبيعات والمخازن</h3>
+<p>تحكم كامل في الفواتير والمخزون وتدفق البضائع في كل الفروع.</p>
+</div>
+<div class="feature">
+<i class="fas fa-chart-line"></i>
+<h3>تقارير وتحليلات دقيقة</h3>
+<p>تقارير تفصيلية تساعدك على اتخاذ قرارات مالية وتجارية صحيحة.</p>
+</div>
+<div class="feature">
+<i class="fas fa-users-cog"></i>
+<h3>إدارة العملاء والموردين</h3>
+<p>تابع الحسابات والتعاملات بسهولة واحتراف.</p>
+</div>
+</section>
 
-  <section id="services" class="services">
-    <div class="service">
-      <i class="fas fa-cogs"></i>
-      <h3>إدارة المشروعات</h3>
-      <p>نظام متكامل لإدارة المشروعات من البداية للنهاية.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-users"></i>
-      <h3>إدارة الموارد البشرية</h3>
-      <p>حلول لإدارة الموظفين والرواتب والإجازات.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-chart-line"></i>
-      <h3>تحليل البيانات</h3>
-      <p>أدوات لتحليل الأداء واتخاذ القرارات الاستراتيجية.</p>
-    </div>
-  </section>
+<!-- ✅ Footer الرسمي -->
+<div class="footer1-outer">
+<div class="page">
+<div class="footer1">
+<div class="col3">
+<h2>عن برنامج وسيط</h2>
+<p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+</div>
 
-<section id="contact" class="contact">
-    <h2>تواصل معنا</h2>
-    <ul>
-      <li><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/waset.services" target="_blank" rel="noopener">صفحتنا على فيسبوك</a></li>
-      <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201060350015" target="_blank" rel="noopener">الدعم الفني عبر واتساب</a></li>
-      <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201061686899" target="_blank" rel="noopener">المبيعات عبر واتساب</a></li>
-      <li><i class="fas fa-envelope"></i> <a href="mailto:customerservice@elgendypro.com">customerservice@elgendypro.com</a></li>
-    </ul>
-  </section>
+<div class="col3">
+<h2>اتصل بنا</h2>
+<i class="fas fa-map-marker"></i> طنطا - عمارة الست مباركة - المحطة<br>
+<i class="fas fa-headphones"></i> الدعم الفني: <a href="mailto:support@waset.services">support@waset.services</a><br>
+<i class="fas fa-phone"></i> واتساب: <a href="https://wa.me/201060350015">01060350015</a><br>
+<i class="fas fa-clock"></i> أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م، الجمعة عطلة<br>
+</div>
 
-  <footer>
-     <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
-  </footer>
+<div class="col3">
+<h2>شارك برنامج وسيط</h2>
+<p>جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!</p>
+<div class="share-icons">
+<a href="#" class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+<a href="#" class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i> تويتر</a>
+<a href="#" class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
+<a href="#" class="share-btn" data-platform="whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer2-outer">
+<div class="page footer2">
+&copy; جميع الحقوق محفوظة 2025
+</div>
+</div>
+
+<script>
+const shareURL="https://waset.services/index.html";
+const shareText="جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!";
+document.querySelectorAll('.share-btn').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    const platform=this.dataset.platform;
+    let link="";
+    switch(platform){
+      case"facebook":link=`https://www.facebook.com/sharer.php?u=${encodeURIComponent(shareURL)}&quote=${encodeURIComponent(shareText)}`;break;
+      case"twitter":link=`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText+" "+shareURL)}`;break;
+      case"linkedin":link=`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareURL)}&title=${encodeURIComponent(shareText)}`;break;
+      case"whatsapp":link=`https://wa.me/?text=${encodeURIComponent(shareText+" "+shareURL)}`;break;
+    }
+    window.open(link,"_blank","width=600,height=500");
+  });
+});
+</script>
 
 </body>
 </html>
-
