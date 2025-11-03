@@ -1,245 +1,206 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>باقات برنامج وسيط - الأسعار والعروض</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }body {
-  font-family: 'Cairo', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  direction: rtl;
-  text-align: right;
-}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>باقات برنامج وسيط - الأسعار والعروض</title>
 
-header {
-  background-color: #2c3e50;
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
-}
+<meta name="description" content="استعرض باقات وأسعار برنامج وسيط لإدارة الشركات والمخازن والمبيعات. اختر بين الباقة المجانية 15 يوم أو الاشتراك الشهري، السنوي أو شراء البرنامج مع دعم فني شامل.">
+<meta name="keywords" content="برنامج وسيط, إدارة شركات, باقات الأسعار, باقة مجانية 15 يوم, باقة شهرية, باقة سنوية, شراء البرنامج, دعم فني, خدمات إضافية, نقل بيانات, تقارير مخصصة">
+<meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
+<meta name="robots" content="index, follow">
 
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-.logo {
-  color: white;
-  font-weight: 900;
-  font-size: 28px;
-}
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Cairo', sans-serif; background:#f4f4f4; color:#333; direction:rtl; text-align:right;}
+header {background:#2c3e50; padding:10px 20px; position:fixed; width:100%; top:0; z-index:999;}
+header nav {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap;}
+.logo {color:white; font-weight:900; font-size:28px;}
+.nav-links {list-style:none; display:flex; gap:15px; flex-wrap:wrap;}
+.nav-links li a {color:white; text-decoration:none; font-weight:600; font-size:1em; transition:0.3s; padding:8px 12px; border-radius:5px;}
+.nav-links li a:hover, .nav-links li a.active {background:#e74c3c; color:white;}
+.section {max-width:1400px; margin:100px auto 40px; padding:0 20px; text-align:center;}
+.section h1 {font-size:2.5em; color:#2c3e50; margin-bottom:20px;}
+.section p.desc {font-size:18px; color:#555; margin-bottom:30px;}
+.cards-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
+.card {background:linear-gradient(145deg, #fff, #f0f0f0); border:2px solid #e0e0e0; border-radius:12px; padding:20px; width:30%; min-width:280px; box-shadow:0 4px 8px rgba(0,0,0,0.06); transition:transform 0.3s ease, box-shadow 0.3s ease; position:relative;}
+.card:hover {transform:translateY(-8px) scale(1.03); box-shadow:0 12px 24px rgba(0,0,0,0.15);}
+.card h3 {font-size:20px; color:#c0392b; margin-bottom:10px; display:flex; align-items:center; justify-content:center; gap:10px; transition: transform 0.3s ease;}
+.card:hover h3 {transform:translateY(-2px);}
+.card p {font-size:15px; color:#555; margin-bottom:10px;}
+.price {font-size:22px; color:#e74c3c; font-weight:bold; margin:10px 0; transition: color 0.3s ease;}
+.card:hover .price {color:#c0392b;}
+.card .pricing-btn {background:#e74c3c; color:white; text-decoration:none; padding:10px; text-align:center; border-radius:8px; display:block; font-weight:bold; transition: background 0.4s, transform 0.2s;}
+.card .pricing-btn:hover {background:linear-gradient(45deg, #e74c3c, #c0392b); transform:scale(1.05);}
+.card.popular {border:3px solid #e67e22;}
+.card.popular::after {content:"الأكثر شيوعًا"; position:absolute; top:-10px; left:-10px; background:#e67e22; color:white; padding:5px 10px; border-radius:8px; font-size:12px; font-weight:bold;}
+.footer1-outer, .footer2-outer {background:#2c3e50; color:white;}
+.footer1-outer .page, .footer2-outer .page {max-width:1200px; margin:0 auto; padding:20px;}
+.footer1 {display:flex; flex-wrap:wrap; gap:20px;}
+.footer1 .col3 {width:30%; min-width:250px;}
+.footer1 h2 {color:#fff; margin-bottom:10px;}
+.footer1 a {color:#fff; text-decoration:none;}
+.footer1 a:hover {color:#e74c3c;}
+.share-icons a {display:flex; align-items:center; gap:5px; background:#34495e; padding:5px 10px; border-radius:6px; transition:background 0.3s;}
+.share-icons a:hover {background:#e74c3c;}
+.footer2 {text-align:center; font-size:0.9em; padding:10px; color:#ccc;}
+@media(max-width:1024px){.card{width:45%;}.footer1 .col3{width:45%;}}
+@media(max-width:768px){header nav{flex-direction:column; gap:15px;}.cards-container{flex-direction:column; align-items:center;}.card{width:90%;}.footer1 .col3{width:100%; margin-bottom:20px;}}
+</style>
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1em;
-  transition: 0.3s;
-  padding: 8px 12px;
-  border-radius: 5px;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.section {
-  max-width: 1200px;
-  margin: 100px auto 40px;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.section h1 {
-  font-size: 2.5em;
-  color: #2c3e50;
-  margin-bottom: 20px;
-}
-
-.section p.desc {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
-
-.card {
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px;
-  width: 290px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-  font-size: 20px;
-  color: #c0392b;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 22px;
-  color: #e74c3c;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.card .pricing-btn {
-  background-color: #e74c3c;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  display: block;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.card .pricing-btn:hover {
-  background-color: #c0392b;
-}
-
-footer {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9em;
-  margin-top: 40px;
-}
-
-@media (max-width: 768px) {
-  header nav {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .card {
-    width: 90%;
-  }
-}
-
-  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">وسيط</div>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="features.html">المميزات</a></li>
-        <li><a href="pricing.html"class="active">الباقات</a></li>
-        <li><a href="support.html">الدعم الفني</a></li>
-        <li><a href="distributors.html" >الموزعين</a></li>
-        <li><a href="offers.html">العروض</a></li>      
-        <li><a href="services.html">الخدمات</a></li>
-        <li><a href="programs.html">البرامج</a></li>
-          <li><a href="feedback.html">آراء المستخدمين</a></li>
-      </ul>
-    </nav>
-  </header>  <section class="section">
-    <h1>💼 باقات الأسعار</h1>
-    <p class="desc">اختر الباقة المناسبة لاحتياجات شركتك من بين الباقة المجانية أو المدفوعة</p>
-    <div class="cards-container">
-      <div class="card">
-        <h3>الباقة المجانية</h3>
-        <p>تجربة كاملة للبرنامج لمدة 7 أيام</p>
-        <div class="price">مجانية</div>
-        <a href="https://forms.gle/M6RqEWVAsJzyEXaw9" class="pricing-btn" target="_blank">ابدأ الآن</a>
-      </div><div class="card">
-    <h3>الباقة الشهرية</h3>
-    <p>كافة المزايا + دعم عبر AnyDesk</p>
-    <div class="price">150 جنيه / شهر</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">اشترك الآن</a>
-  </div>
 
-  <div class="card">
-    <h3>الباقة السنوية</h3>
-    <p>كافة المزايا + دعم مميز</p>
-    <div class="price">1000 جنيه / سنة</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">اشترك الآن</a>
-  </div>
+<header>
+<nav>
+<div class="logo">وسيط</div>
+<ul class="nav-links">
+<li><a href="index.html">الرئيسية</a></li>
+<li><a href="features.html">المميزات</a></li>
+<li><a href="pricing.html" class="active">الباقات</a></li>
+<li><a href="support.html">الدعم الفني</a></li>
+<li><a href="distributors.html">الموزعين</a></li>
+<li><a href="offers.html">العروض</a></li>
+<li><a href="services.html">الخدمات</a></li>
+<li><a href="programs.html">البرامج</a></li>
+<li><a href="feedback.html">آراء المستخدمين</a></li>
+</ul>
+</nav>
+</header>
 
-  <div class="card">
-    <h3>مدى الحياة</h3>
-    <p>نسخة كاملة + دعم AnyDesk (بدون زيارات)</p>
-    <div class="price">6500 جنيه</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">احصل عليها</a>
-  </div>
-</div>
-
-<h1 style="margin-top: 60px;">⚙ خدمات إضافية</h1>
+<section class="section">
+<h1>💼 باقات الأسعار</h1>
+<p class="desc">اختر الباقة المناسبة لاحتياجات شركتك من بين الباقة المجانية أو المدفوعة</p>
 <div class="cards-container">
-  <div class="card">
-    <h3>تقرير مخصص</h3>
-    <p>تصميم حسب الطلب - تقرير واحد</p>
-    <div class="price">300 جنيه</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">اطلب الآن</a>
-  </div>
 
-  <div class="card">
-    <h3>زيارة ميدانية</h3>
-    <p>تركيب أو دعم فني حسب الاتفاق</p>
-    <div class="price">حسب الاتفاق</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">احجز زيارة</a>
-  </div>
-
-  <div class="card">
-    <h3>نقل بيانات</h3>
-    <p>من Excel أو Access أو SQL Server</p>
-    <div class="price">ابتداءً من 500 جنيه</div>
-    <a href="https://wa.me/201060350015" class="pricing-btn" target="_blank">اطلب الخدمة</a>
-  </div>
+<div class="card">
+<h3><i class="fas fa-gift"></i> الباقة المجانية</h3>
+<p>تجربة كاملة للبرنامج لمدة 15 يوم</p>
+<div class="price">مجانية</div>
+<a href="https://forms.gle/M6RqEWVAsJzyEXaw9" class="pricing-btn" target="_blank">ابدأ الآن</a>
 </div>
 
-  </section>  <footer>
+<div class="card monthly">
+<h3>إشترك شهرى</h3>
+<p>100 جنيه لكل ترخيص / جهاز</p>
+<ul>
+<li>يجدد شهريا</li>
+<li>دعم فنى مجانى</li>
+<li>تحديث البرنامج مجانا</li>
+</ul>
+<a class="pricing-btn" data-kind="MONTHLY">اشترك الآن</a>
+</div>
 
-   <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
-  </footer>
+<div class="card yearly">
+<h3>إشترك سنوى</h3>
+<p>1000 جنيه لكل ترخيص / جهاز</p>
+<ul>
+<li>يجدد سنويا</li>
+<li>دعم فنى مجانى</li>
+<li>تحديث البرنامج مجانا</li>
+</ul>
+<a class="pricing-btn" data-kind="YEARLY">اشترك الآن</a>
+</div>
+
+<div class="card purchase last">
+<h3>شراء البرنامج</h3>
+<p>3500 جنيه لكل ترخيص / جهاز</p>
+<ul>
+<li>السداد مرة واحدة، لا يوجد أى تجديد</li>
+<li>دعم فنى مجانى لمدة عامين</li>
+<li>تحديث البرنامج مجانا لمدة عامين</li>
+<li>تكلفة الدعم الفنى بعد عامين 250 جنيه سنويا (اختياري)</li>
+</ul>
+<a class="pricing-btn" data-kind="PURCHASE">اشترِ الآن</a>
+</div>
+
+</div>
+</section>
+
+<div class="footer1-outer">
+<div class="page">
+<div class="footer1">
+<div class="col3">
+<h2>عن برنامج وسيط</h2>
+<p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+</div>
+<div class="col3">
+<h2>اتصل بنا</h2>
+<i class="fas fa-map-marker"></i> طنطا - عمارة الست مباركة - المحطة<br>
+<i class="fas fa-headphones"></i> الدعم الفني: <a href="mailto:support@waset.services">support@waset.services</a><br>
+<i class="fas fa-phone"></i> واتساب: <a href="https://wa.me/201060350015">01060350015</a><br>
+<i class="fas fa-clock"></i> أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م، الجمعة عطلة<br>
+</div>
+<div class="col3">
+<h2>شارك برنامج وسيط</h2>
+<p>جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!</p>
+<div class="share-icons">
+<a href="#" class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+<a href="#" class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i> تويتر</a>
+<a href="#" class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
+<a href="#" class="share-btn" data-platform="whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer2-outer">
+<div class="page footer2">
+&copy; جميع الحقوق محفوظة 2025
+</div>
+</div>
+
+<script>
+// أزرار المشاركة
+const shareURL = "https://waset.services/index.html";
+const shareText = "جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!";
+document.querySelectorAll('.share-btn').forEach(btn => {
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    const platform = this.dataset.platform;
+    let link = "";
+    switch(platform){
+      case "facebook":
+        link = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(shareURL)}&quote=${encodeURIComponent(shareText)}`;
+        break;
+      case "twitter":
+        link = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + " " + shareURL)}`;
+        break;
+      case "linkedin":
+        link = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareURL)}&title=${encodeURIComponent(shareText)}`;
+        break;
+      case "whatsapp":
+        link = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareURL)}`;
+        break;
+    }
+    window.open(link, "_blank", "width=600,height=500");
+  });
+});
+
+// أزرار الاشتراك عبر واتساب
+const waNumber = "201060350015";
+const messages = {
+  "MONTHLY": "أريد الاشتراك الشهري في برنامج وسيط بقيمة 100 جنيه لكل ترخيص/جهاز",
+  "YEARLY": "أريد الاشتراك السنوي في برنامج وسيط بقيمة 1000 جنيه لكل ترخيص/جهاز",
+  "PURCHASE": "أريد شراء برنامج وسيط بقيمة 3500 جنيه لكل ترخيص/جهاز"
+};
+
+document.querySelectorAll('.pricing-btn[data-kind]').forEach(btn => {
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    const kind = this.dataset.kind;
+    if(messages[kind]){
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(messages[kind])}`;
+      window.open(url, "_blank");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
