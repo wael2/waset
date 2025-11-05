@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>وسيط — نظام إدارة المبيعات والمشتريات والمخازن وشؤون العاملين</title>
+  <meta name="description" content="وسيط - نظام متكامل لإدارة المبيعات والمشتريات والمخازن والعملاء والموردين وشؤون العاملين. اشتراك شهري، اشتراك سنوي أو ترخيص مدى الحياة." />
+  <!-- Open Graph (سوشيال) -->
+  <meta property="og:title" content="وسيط — نظام إدارة المبيعات والمشتريات والمخازن" />
+  <meta property="og:description" content="نظام متكامل للشركات والمحلات: مبيعات، مشتريات، مخازن، عملاء، موردين، شؤون عاملين وخزينة." />
+  <meta property="og:url" content="https://waset.services/" />
+  <meta property="og:type" content="website" />
+  <!-- Styles (inline for simplicity) -->
+  <style>
+    /* خطوط بسيطة - يمكن تغييره لاحقًا */
+    @font-face{
+      font-family: "TajawalLocal";
+      src: local("Tajawal"), local("Cairo"), local("Arial");
+    }
+    :root{
+      --primary-1: #0ea5a3; /* teal */
+      --primary-2: #0b84d6; /* blue */
+      --accent: #00b894;
+      --dark: #0b2f3a;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+    }
+    html,body{height:100%;margin:0;font-family:TajawalLocal, "Segoe UI", Tahoma, Arial;direction:rtl;color:#0b2f3a;background:#f5f7fa;}
+    a{color:inherit;text-decoration:none}
+    header{
+      background: linear-gradient(90deg,var(--primary-1),var(--primary-2));
+      color:#fff;padding:28px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .logo { display:flex;align-items:center;gap:12px; }
+    .logo h1{margin:0;font-size:22px;font-weight:700;letter-spacing:0.5px}
+    .nav-buttons{display:flex;gap:10px;align-items:center}
+    .btn{
+      background:#fff;color:var(--primary-2);padding:10px 16px;border-radius:8px;font-weight:600;border:none;cursor:pointer;
+      box-shadow: 0 6px 18px rgba(11,47,58,0.08);
+    }
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.2);color:#fff}
+    /* Hero */
+    .hero{max-width:1200px;margin:28px auto;padding:36px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.95));border-radius:14px;display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+    .hero-left h2{font-size:28px;margin:0 0 10px}
+    .badge{display:inline-block;background:var(--primary-1);color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;margin-bottom:12px}
+    .hero-left p{color:var(--muted);line-height:1.6}
+    .hero-cta{margin-top:18px;display:flex;gap:12px}
+    .hero-right{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .mockup{width:100%;height:260px;background:linear-gradient(135deg, rgba(14,165,163,0.06), rgba(11,132,214,0.06));border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    /* sections */
+    .section{max-width:1200px;margin:22px auto;padding:22px;background:transparent}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card-bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(11,47,58,0.04)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .features-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .feature{display:flex;gap:10px;align-items:flex-start}
+    .feature .dot{width:40px;height:40px;border-radius:8px;background:linear-gradient(180deg,var(--primary-1),var(--primary-2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+    /* pricing */
+    .pricing{display:flex;gap:12px;align-items:stretch}
+    .price-card{flex:1;padding:18px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 6px 18px rgba(11,47,58,0.04)}
+    .price-card h4{margin:0 0 6px}
+    .price{font-size:28px;color:var(--primary-2);font-weight:700}
+    /* deliverables */
+    .deliver{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    footer{margin-top:28px;padding:28px 20px;background:#0b2f3a;color:#fff}
+    footer .foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;align-items:center}
+    footer a{color:#fff}
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr; padding:18px}
+      .cards{grid-template-columns:1fr}
+      .features-list{grid-template-columns:1fr}
+      .deliver{grid-template-columns:1fr}
+      .nav-buttons{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <!-- لو عندك لوجو تحط الصورة هنا بدل العنوان -->
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" style="border-radius:8px;background:#fff;padding:6px">
+        <rect width="24" height="24" rx="6" fill="#0ea5a3"></rect>
+      </svg>
+      <div>
+        <h1>وسيط</h1>
+        <div style="font-size:12px;opacity:0.95">نظام إدارة المبيعات والمخازن وشؤون العاملين</div>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <a class="btn" href="https://wa.me/201060350015" target="_blank" rel="noopener">جرب مجانًا</a>
+      <a class="btn btn-outline" href="https://wa.me/201060350015" target="_blank" rel="noopener">تواصل معنا</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" role="region" aria-label="مقدمة النظام">
+    <div class="hero-left">
+      <span class="badge">نظام متكامل · اشتراك شهري/سنوي/ترخيص مدى الحياة</span>
+      <h2>وسيط — نظام إدارة المبيعات والمشتريات والمخازن والعملاء والموردين وشؤون العاملين</h2>
+      <p>
+        نظام "وسيط" يساعدك على إدارة نشاطك التجاري بسهولة: فواتير مبيعات ومشتريات، إدارة مخزون دقيق،
+        متابعة حسابات العملاء والموردين، إدارة خزينة ومصروفات وإيرادات، ونظام شامل لشؤون العاملين (حضور - مرتبات - سلف).
+        متاح بنظام مرن: اشتراك شهري أو سنوي أو ترخيص مدى الحياة.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/201060350015" target="_blank" rel="noopener">جرب مجانًا على واتساب</a>
+        <a class="btn btn-outline" href="#pricing">اطلع على الباقات</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mockup">واجهة البرنامج (يمكنك استبدال هذه المنطقة بصورة شاشة فعلية)</div>
+      <div style="font-size:13px;color:var(--muted);text-align:center">نسخة للاستخدام المحلي أو سحابي — تحديثات ودعم حسب الباقة</div>
+    </div>
+  </section>
+
+  <!-- الموديولات الأساسية -->
+  <section class="section" aria-label="موديولات النظام">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h3 style="margin:0 0 12px">موديولات النظام الأساسية</h3>
+      <div class="cards">
+        <div class="card">
+          <h3>المبيعات والمشتريات</h3>
+          <p>فواتير مبيعات ومشتريات، مرتجعات، طرق دفع متعددة (نقدي/آجل/جزئي)، وإدارة نقاط البيع.</p>
+        </div>
+        <div class="card">
+          <h3>العملاء والموردين</h3>
+          <p>سجل كامل للعملاء والموردين، كشف حساب، وأدوات متابعة الديون والاستحقاقات.</p>
+        </div>
+        <div class="card">
+          <h3>المخازن والأصناف</h3>
+          <p>إدارة أصناف ومخازن متعددة، تتبع كميات، تنبيهات نقص، وتقارير حركة الأصناف.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ميزات إضافية -->
+  <section class="section" aria-label="مزايا">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h3 style="margin:0 0 12px">لماذا تختار وسيط؟</h3>
+      <div class="features-list">
+        <div class="feature">
+          <div class="dot">1</div>
+          <div>
+            <strong>واجهة عربية سهلة</strong>
+            <div style="color:var(--muted)">تجربة استخدام مريحة لكل الموظفين.</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">2</div>
+          <div>
+            <strong>تقارير احترافية</strong>
+            <div style="color:var(--muted)">تقارير مبيعات، مخزون، خزينة ومرتبات جاهزة للطباعة والتحليل.</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">3</div>
+          <div>
+            <strong>خيارات ترخيص مرنة</strong>
+            <div style="color:var(--muted)">اشتراك شهري، اشتراك سنوي أو ترخيص مدى الحياة.</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">4</div>
+          <div>
+            <strong>دعم فني وترقيات</strong>
+            <div style="color:var(--muted)">دعم مبدئي أثناء التركيب وتحديثات دورية للنسخ المشتركة.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الخزينة و شؤون العاملين -->
+  <section class="section" aria-label="الخزينة وشؤون العاملين">
+    <div style="max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px" class="card">
+        <h3>الخزينة</h3>
+        <p>سجل الإيرادات والمصروفات، تحويلات بين الخزن، وربط مع حسابات الفواتير لتقرير مالي يومي وشهري.</p>
+      </div>
+      <div style="flex:1;min-width:280px" class="card">
+        <h3>شؤون العاملين</h3>
+        <p>بيانات الموظفين، حضور وانصراف، نظام حساب الرواتب، سلف وخصومات وتقارير مرتبات جاهزة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- الاسعار -->
+  <section id="pricing" class="section" aria-label="الباقات والأسعار">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h3 style="margin:0 0 12px">الباقات المتاحة</h3>
+      <div class="pricing">
+        <div class="price-card">
+          <h4>الباقة الأساسية</h4>
+          <div class="price">$5</div>
+          <p>نسخة تشغيل EXE + قاعدة بيانات تجريبية + شرح تشغيل مبسّط.</p>
+          <a class="btn" href="https://wa.me/201060350015" target="_blank">اطلب الآن على واتساب</a>
+        </div>
+        <div class="price-card">
+          <h4>باقة التركيب</h4>
+          <div class="price">$30</div>
+          <p>تخصيص شعار + ضبط قاعدة البيانات على جهاز العميل + دعم مبدئي.</p>
+          <a class="btn" href="https://wa.me/201060350015" target="_blank">اطلب الآن على واتساب</a>
+        </div>
+        <div class="price-card">
+          <h4>باقة احترافية</h4>
+          <div class="price">$70</div>
+          <p>تقرير مخصّص/شاشة جديدة + دعم فني لشهر + استيراد بيانات.</p>
+          <a class="btn" href="https://wa.me/201060350015" target="_blank">اطلب الآن على واتساب</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ماذا ستستلم -->
+  <section class="section" aria-label="ماذا ستستلم">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h3 style="margin:0 0 12px">ما الذي ستستلمه عند الشراء</h3>
+      <div class="deliver">
+        <div class="card"><strong>نسخة تشغيل (EXE)</strong><p style="color:var(--muted)">ملف جاهز للتشغيل على Windows.</p></div>
+        <div class="card"><strong>قاعدة بيانات مثال (SQL)</strong><p style="color:var(--muted)">قاعدة جاهزة للاختبار مع بيانات تجريبية.</p></div>
+        <div class="card"><strong>دليل تشغيل</strong><p style="color:var(--muted)">شرح PDF أو فيديو خطوة بخطوة للتثبيت.</p></div>
+        <div class="card"><strong>دعم مبدئي</strong><p style="color:var(--muted)">مساعدة في التثبيت وضبط الإعدادات.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- اسئلة شائعة -->
+  <section class="section" aria-label="الأسئلة الشائعة">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h3 style="margin:0 0 12px">أسئلة شائعة</h3>
+      <div style="display:grid;gap:10px">
+        <div class="card"><strong>هل يمكن تخصيص النظام؟</strong><div style="color:var(--muted)">نعم — يمكن تعديل الحقول والتقارير حسب نشاطك مقابل تكلفة إضافية.</div></div>
+        <div class="card"><strong>هل يمكن تشغيل النظام بدون إنترنت؟</strong><div style="color:var(--muted)">نعم، يوجد إمكانية تشغيل محلي على جهاز واحد أو عبر شبكة داخلية.</div></div>
+        <div class="card"><strong>هل توفرون دعم بعد التسليم؟</strong><div style="color:var(--muted)">نعم — الدعم حسب الباقة أو عبر اشتراك صيانة منفصل.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to action واضح -->
+  <section class="section" aria-label="اتصل">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+      <h3>هل تريد تجربة النظام الآن؟</h3>
+      <p style="color:var(--muted)">اضغط على الزر للتواصل معنا عبر واتساب واطلب تجربتك المجانية أو النسخة المناسبة لك.</p>
+      <a class="btn" href="https://wa.me/201060350015" target="_blank">جرب مجانًا عبر واتساب</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot-inner">
+      <div>
+        <div style="font-weight:700;font-size:16px">وسيط</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-top:6px">نظام إدارة المبيعات والمخازن والموردين وشؤون العاملين</div>
+      </div>
+
+      <div style="text-align:left">
+        <div style="margin-bottom:8px">روابط مفيدة</div>
+        <div style="display:flex;gap:12px;flex-direction:column">
+          <a href="https://waset.services" target="_blank" rel="noopener">موقعنا الرسمي</a>
+          <!-- استبدل هذه الروابط بروابط صفحات التواصل الاجتماعي الفعلية إذا وُجدت -->
+          <a href="https://waset.services" target="_blank" rel="noopener">فيسبوك (صفحة)</a>
+          <a href="https://waset.services" target="_blank" rel="noopener">يوتيوب / قناتنا</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- مكان لإضافة أي سكربتات تتبع — لو تريد تحتفظ بتحليلاتك اِلصقها هنا -->
+  <!-- BEGIN: Tracking scripts (optional) -->
+  <!-- Example: Google Analytics / Facebook Pixel -->
+  <!-- END: Tracking scripts -->
+
+</body>
+</html>
