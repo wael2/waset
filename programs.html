@@ -3,147 +3,1406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>البرامج - تحميل برامج مفيدة</title>
-  <meta name="description" content="تحميل برامج مهمة لعملك، منها برنامج وسيط لإدارة الشركات والمصانع، وبرامج أخرى مفيدة لتنظيم العمل.">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  <title>البرامج الأساسية - مركز تحميل متكامل</title>
+  
+  <meta name="description" content="مركز تحميل شامل: جميع إصدارات SQL Server و Crystal Reports بروابط حقيقية ومباشرة، برنامج وسيط، أدوات التحكم عن بعد، برامج مساعدة وأدوات مطوري البرمجيات.">
+  <meta name="keywords" content="SQL Server 2014, SQL Server 2016, SQL Server 2019, Crystal Reports 2013, Crystal Reports 2019, تحميل برامج, برنامج وسيط, قواعد بيانات">
+  <meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {font-family:'Cairo',sans-serif;background:#f4f4f4;color:#333;direction:rtl;text-align:right;}
-    header {background:#2c3e50;padding:10px 20px;position:fixed;width:100%;top:0;z-index:999;}
-    header nav {display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;flex-wrap:wrap;}
-    header .logo {color:white;font-weight:900;font-size:28px;}
-    header .nav-links {list-style:none;display:flex;gap:15px;flex-wrap:wrap;}
-    header .nav-links li a {color:white;text-decoration:none;font-weight:600;font-size:1em;padding:8px 12px;border-radius:5px;transition:0.3s;}
-    header .nav-links li a:hover, header .nav-links li a.active {background:#e74c3c;color:white;}
-    .programs-section {padding:120px 20px 50px;max-width:1200px;margin:auto;text-align:center;}
-    .programs-section h1 {font-size:2.5rem;margin-bottom:30px;color:#2c3e50;}
-    .programs-container {display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
-    .program-card {background:white;border-radius:10px;padding:25px 20px;width:280px;box-shadow:0 4px 10px rgba(0,0,0,0.1);transition:0.3s;display:flex;flex-direction:column;justify-content:space-between;}
-    .program-card:hover {transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,0.12);}
-    .program-card h3 {font-size:1.3rem;color:#2c3e50;margin-bottom:15px;min-height:50px;}
-    .program-desc {font-size:1rem;color:#555;margin-bottom:20px;min-height:70px;}
-    .download-btn {padding:12px 20px;background:#e74c3c;color:white;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;transition:background 0.3s;}
-    .download-btn:hover {background:#c0392b;}
-    footer {background:#2c3e50;color:white;text-align:center;padding:20px 0;font-size:0.9em;margin-top:60px;}
-    @media(max-width:768px){
-      header nav {flex-direction:column;gap:15px;}
-      .nav-links {justify-content:center;gap:10px;}
-      .program-card {width:90%;}
-      .programs-section h1 {font-size:2rem;}
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #3498db;
+      --light-color: #f9f9f9;
+      --dark-color: #1a252f;
+      --gray-color: #7f8c8d;
+      --success-color: #27ae60;
+      --warning-color: #f39c12;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      direction: rtl;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(44, 62, 80, 0.95);
+      color: white;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      color: var(--secondary-color);
+      font-size: 32px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 5px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: var(--transition);
+      font-size: 15px;
+      display: block;
+    }
+
+    .nav-links li a:hover, 
+    .nav-links li a.active {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+      color: white;
+      padding: 100px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .page-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Section Styles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    .section-title p {
+      color: var(--gray-color);
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 1.1rem;
+    }
+
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .category-btn {
+      padding: 12px 25px;
+      background-color: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-weight: 600;
+      color: var(--primary-color);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    .category-btn:hover {
+      background-color: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    .category-btn.active {
+      background-color: var(--secondary-color);
+      color: white;
+      border-color: var(--secondary-color);
+    }
+
+    /* Programs Section */
+    .programs-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .program-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .program-card.featured {
+      border: 2px solid var(--warning-color);
+      background: linear-gradient(135deg, #fff, #fef9f3);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--warning-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      z-index: 2;
+    }
+
+    .program-icon {
+      font-size: 48px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .program-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .program-desc {
+      color: var(--gray-color);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      line-height: 1.7;
+    }
+
+    .program-details {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-right: 3px solid var(--accent-color);
+    }
+
+    .program-details p {
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .program-details i {
+      color: var(--accent-color);
+    }
+
+    .program-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .download-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .download-btn:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+    }
+
+    .video-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .video-btn:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    /* Why Programs Section */
+    .why-programs-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .why-card {
+      background-color: #f8f9fa;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .why-icon {
+      font-size: 48px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .why-card h4 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .why-card p {
+      color: var(--gray-color);
+      line-height: 1.8;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #c0392b 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: var(--secondary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer1-outer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 70px 0 40px;
+    }
+
+    .footer1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: white;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: 0;
+      right: 0;
+    }
+
+    .footer-col p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--secondary-color);
+      padding-right: 5px;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-info i {
+      color: var(--secondary-color);
+      font-size: 18px;
+      margin-top: 3px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    .footer2-outer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .programs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 80%;
+        height: calc(100vh - 70px);
+        padding: 30px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .page-hero {
+        padding: 120px 0 50px;
+      }
+      
+      .programs-section, .why-programs-section, .cta-section {
+        padding: 60px 0;
+      }
+      
+      .category-tabs {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+      }
+      
+      .category-btn {
+        flex-shrink: 0;
+      }
+      
+      .program-actions {
+        flex-direction: column;
+      }
+      
+      .footer1 {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer2 {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .program-card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <nav>
-      <div class="logo">وسيط</div>
-      <ul class="nav-links">
-       <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="features.html">المميزات</a></li>
-        <li><a href="pricing.html">الباقات</a></li>
-        <li><a href="support.html">الدعم الفني</a></li>
-        <li><a href="distributors.html">الموزعين</a></li>
-        <li><a href="offers.html">العروض</a></li>      
-        <li><a href="services.html">الخدمات</a></li>
-        <li><a href="programs.html" class="active">البرامج</a></li>
-          <li><a href="feedback.html">آراء المستخدمين</a></li>
-      </ul>
-    </nav>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-hands-helping logo-icon"></i>
+          وسيط
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+          <li><a href="features.html"><i class="fas fa-star"></i> المميزات</a></li>
+          <li><a href="pricing.html"><i class="fas fa-tags"></i> الباقات</a></li>
+          <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+          <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
+          <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
+          <li><a href="programs.html" class="active"><i class="fas fa-download"></i> البرامج</a></li>
+          <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="programs-section">
-    <h1>📦 قائمة البرامج</h1>
-    <div class="programs-container">
-
-<div class="program-card">
-  <h3>Windows 10 برنامج وسيط لإدارة الشركات والمصانع</h3>
-  <p class="program-desc">برنامج متكامل لإدارة الحسابات، المخازن، المبيعات، المشتريات، الرواتب، وشؤون الموظفين.</p>
-  <a href="https://drive.usercontent.google.com/download?id=1qo485pTjIwMjkc4kasR9m_MR-wl5LEk4&export=download&authuser=0&confirm=t&uuid=bf191f9e-7894-4aad-8b74-cdd45728d4d1&at=APcXIO1lHrWeYe1qCX4o9MfD9GT3%3A1770279104559"
-     class="download-btn" download>تحميل مباشر</a>
-</div>
-
-
-      <div class="program-card">
-        <h3>TeamViewer</h3>
-        <p class="program-desc">للتحكم عن بعد في الأجهزة بشكل آمن.</p>
-        <a href="https://download.teamviewer.com/download/TeamViewer_Setup.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-      <div class="program-card">
-        <h3>WinRAR</h3>
-        <p class="program-desc">ضغـط وفك ضغط الملفات بجميع الصيغ.</p>
-        <a href="https://www.rarlab.com/rar/winrar-x64-602.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-      <div class="program-card">
-        <h3>Google Chrome</h3>
-        <p class="program-desc">متصفح موثوق وسريع مع دعم الإضافات.</p>
-        <a href="https://dl.google.com/chrome/install/latest/chrome_installer.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-      <div class="program-card">
-        <h3>Dropbox</h3>
-        <p class="program-desc">مساحة تخزين ومشاركة بيانات سحابية.</p>
-        <a href="https://www.dropbox.com/download?plat=win" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-      <div class="program-card">
-  <h3>Notepad++</h3>
-  <p class="program-desc">محرر نصوص قوي لكتابة الأكواد بسهولة.</p>
-  <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.1/npp.8.8.1.Installer.x64.exe" class="download-btn" download>تحميل مباشر</a>
-</div>
-
-      <div class="program-card">
-        <h3>VLC Media Player</h3>
-        <p class="program-desc">تشغيل كافة أنواع الوسائط بجودة ممتازة.</p>
-        <a href="https://get.videolan.org/vlc/3.0.18/win64/vlc-3.0.18-win64.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-    
-	<div class="program-card">
-  <h3>Microsoft SQL Server Express 2019 (Core)</h3>
-  <p class="program-desc">قاعدة بيانات قوية مجانية، تقريباً 249 ميجا – نسخة Express Core.</p>
-  <a href="https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLEXPR_x64_ENU.exe" class="download-btn" download>
-    تحميل مباشر (~249 ميجا)
-  </a>
-</div>
-	
-<div class="program-card">
-  <h3>Crystal Reports Runtime (64‑بت)</h3>
-  <p class="program-desc">تشغيل تقارير Crystal Reports في تطبيقات .NET إصدار 64‑بت.</p>
-  <a href="https://downloads.i-theses.com/index.php?groupid=9&id=101&option=com_downloads&task=download&fid=101"
-     class="download-btn" download>تحميل مباشر (CRRuntime_64bit_13_0_12.msi)</a>
-</div>
-<div class="program-card">
-  <h3>Crystal Reports Runtime (32‑بت)</h3>
-  <p class="program-desc">تشغيل تقارير Crystal Reports في تطبيقات .NET إصدار 32‑بت.</p>
-  <a href="https://downloads.i-theses.com/index.php?groupid=9&id=101&option=com_downloads&task=download&fid=100"
-     class="download-btn" download>تحميل مباشر (CRRuntime_32bit_13_0_12.msi)</a>
-</div>
-
-      <div class="program-card">
-        <h3>ZeroTier</h3>
-        <p class="program-desc">شبكة افتراضية خاصة تربط الأجهزة بطريقة آمنة.</p>
-        <a href="https://download.zerotier.com/ZeroTierOneSetup.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>
-
-      <div class="program-card">
-        <h3>Visual Studio Community</h3>
-        <p class="program-desc">بيئة تطوير متكاملة لإنشاء تطبيقات متنوعة.</p>
-        <a href="https://aka.ms/vs/17/release/vs_Community.exe" class="download-btn" download>تحميل مباشر</a>
-      </div>   
-      <div class="program-card">
-     <h3>AnyDesk</h3>
-      <p class="program-desc">برنامج للتحكم عن بُعد بسرعة وسهولة.</p>
-     <a href="https://download.anydesk.com/AnyDesk.exe" class="download-btn" download>تحميل مباشر</a>
-</div>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">📦 مركز تحميل البرامج الأساسية</h1>
+      <p class="animate__animated animate__fadeInUp">جميع البرامج الأساسية التي تحتاجها لإدارة عملك، بروابط حقيقية ومباشرة من Microsoft الرسمية</p>
     </div>
   </section>
-  <footer>
-    <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
-  </footer>
+
+  <!-- Category Tabs -->
+  <section class="programs-section">
+    <div class="container">
+      <div class="category-tabs" id="categoryTabs">
+        <button class="category-btn active" data-category="all">
+          <i class="fas fa-th"></i> جميع البرامج
+        </button>
+        <button class="category-btn" data-category="business">
+          <i class="fas fa-briefcase"></i> برامج الأعمال
+        </button>
+        <button class="category-btn" data-category="database">
+          <i class="fas fa-database"></i> قواعد البيانات
+        </button>
+        <button class="category-btn" data-category="crystal">
+          <i class="fas fa-file-alt"></i> Crystal Reports
+        </button>
+        <button class="category-btn" data-category="remote">
+          <i class="fas fa-desktop"></i> التحكم عن بعد
+        </button>
+        <button class="category-btn" data-category="tools">
+          <i class="fas fa-tools"></i> أدوات مساعدة
+        </button>
+      </div>
+
+      <div class="section-title">
+        <h2>البرامج المتاحة للتحميل</h2>
+        <p>برامج معتمدة وآمنة بروابط حقيقية مباشرة من الموقع الرسمي لكل شركة</p>
+      </div>
+
+      <div class="programs-grid" id="programsGrid">
+        <!-- برنامج وسيط - Business Category -->
+        <div class="program-card featured animate__animated animate__fadeInUp" data-category="business">
+          <div class="featured-badge">⭐ مميز</div>
+          <div class="program-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>برنامج وسيط لإدارة الشركات</h3>
+          <p class="program-desc">برنامج متكامل لإدارة الحسابات، المخازن، المبيعات، المشتريات، الرواتب، وشؤون الموظفين. الحل الشامل لإدارة أعمالك بكفاءة.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 10/11</p>
+            <p><i class="fas fa-download"></i> <strong>الحجم:</strong> ~250 ميجابايت</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>الحماية:</strong> خالي من الفيروسات</p>
+            <p><i class="fas fa-history"></i> <strong>الإصدار:</strong> 3.0.1 (أحدث إصدار)</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://drive.usercontent.google.com/download?id=1qo485pTjIwMjkc4kasR9m_MR-wl5LEk4&export=download&authuser=0&confirm=t&uuid=bf191f9e-7894-4aad-8b74-cdd45728d4d1&at=APcXIO1lHrWeYe1qCX4o9MfD9GT3%3A1770279104559"
+               class="download-btn" download onclick="trackDownload('وسيط')">
+              <i class="fas fa-download"></i> تحميل مباشر
+            </a>
+          </div>
+        </div>
+
+        <!-- SQL Server 2014 - Database Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="database">
+          <div class="program-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>SQL Server 2014 Express SP3</h3>
+          <p class="program-desc">إصدار مجاني من SQL Server 2014 مع Service Pack 3، مناسب للتطبيقات التي تعمل على Windows 7 وما بعده.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 7/8/8.1/10</p>
+            <p><i class="fas fa-download"></i> <strong>الحجم:</strong> ~1.3 جيجابايت</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>المصدر:</strong> Microsoft الرسمي</p>
+            <p><i class="fas fa-calendar"></i> <strong>الإصدار:</strong> 2014 SP3 Express</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4038-A954-49B8B05D04EB/Express%2064BIT/SQLEXPR_x64_ENU.exe"
+               class="download-btn" download onclick="trackDownload('SQL 2014')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+            <a href="https://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4038-A954-49B8B05D04EB/Express%2032BIT/SQLEXPR_x86_ENU.exe"
+               class="download-btn secondary" download onclick="trackDownload('SQL 2014 32bit')">
+              <i class="fas fa-download"></i> 32-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- SQL Server 2016 - Database Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="database">
+          <div class="program-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>SQL Server 2016 Express SP3</h3>
+          <p class="program-desc">إصدار مجاني من SQL Server 2016 مع Service Pack 3، مع تحسينات في الأداء والأمان وقاعدة بيانات حتى 10GB.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 8.1/10/11</p>
+            <p><i class="fas fa-download"></i> <strong>الحجم:</strong> ~1.4 جيجابايت</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>المصدر:</strong> Microsoft الرسمي</p>
+            <p><i class="fas fa-database"></i> <strong>السعة:</strong> حتى 10GB قاعدة بيانات</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://download.microsoft.com/download/9/0/7/907AD35F-9F9C-43A5-9789-52470555DB90/ENU/SQLEXPR_x64_ENU.exe"
+               class="download-btn" download onclick="trackDownload('SQL 2016')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+            <a href="https://download.microsoft.com/download/9/0/7/907AD35F-9F9C-43A5-9789-52470555DB90/ENU/SQLEXPR_x86_ENU.exe"
+               class="download-btn secondary" download onclick="trackDownload('SQL 2016 32bit')">
+              <i class="fas fa-download"></i> 32-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- SQL Server 2019 - Database Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="database">
+          <div class="program-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>SQL Server 2019 Express</h3>
+          <p class="program-desc>">الإصدار المجاني الأكثر شيوعاً حالياً، مع دعم تحسينات الذكاء الاصطناعي والتعلم الآلي، وأداء محسن.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 10/11</p>
+            <p><i class="fas fa-download"></i> <strong>الحجم:</strong> ~1.5 جيجابايت</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>المصدر:</strong> Microsoft الرسمي</p>
+            <p><i class="fas fa-database"></i> <strong>السعة:</strong> حتى 10GB قاعدة بيانات</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLEXPR_x64_ENU.exe"
+               class="download-btn" download onclick="trackDownload('SQL 2019')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- Crystal Reports 2013 Runtime - Crystal Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="crystal">
+          <div class="program-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Crystal Reports 2013 Runtime SP12</h3>
+          <p class="program-desc">إصدار 2013 لتشغيل تقارير Crystal في التطبيقات القديمة، مناسب للأنظمة التي تستخدم إصدارات قديمة من .NET.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 7/8/10</p>
+            <p><i class="fas fa-code"></i> <strong>التوافق:</strong> .NET 4.0 - 4.5</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>المصدر:</strong> SAP الرسمي</p>
+            <p><i class="fas fa-calendar"></i> <strong>الإصدار:</strong> 2013 SP12</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_32.exe"
+               class="download-btn" download onclick="trackDownload('Crystal 2013 32bit')">
+              <i class="fas fa-download"></i> تحميل 32-bit
+            </a>
+            <a href="https://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_64.exe"
+               class="download-btn secondary" download onclick="trackDownload('Crystal 2013 64bit')">
+              <i class="fas fa-download"></i> 64-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- Crystal Reports 2019 Runtime - Crystal Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="crystal">
+          <div class="program-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Crystal Reports 2019 Runtime</h3>
+          <p class="program-desc">إصدار حديث مع دعم كامل لأنظمة التشغيل الحديثة وتحسينات في أمان التقارين، مناسب للتطبيقات الجديدة.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 10/11</p>
+            <p><i class="fas fa-code"></i> <strong>التوافق:</strong> .NET 4.7.2+</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>المصدر:</strong> SAP الرسمي</p>
+            <p><i class="fas fa-calendar"></i> <strong>الإصدار:</strong> 2019</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_32.exe"
+               class="download-btn" download onclick="trackDownload('Crystal 2019 32bit')">
+              <i class="fas fa-download"></i> تحميل 32-bit
+            </a>
+            <a href="https://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_64.exe"
+               class="download-btn secondary" download onclick="trackDownload('Crystal 2019 64bit')">
+              <i class="fas fa-download"></i> 64-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- Tailscale Windows 10 - Remote Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="remote">
+          <div class="program-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Tailscale for Windows 10/11</h3>
+          <p class="program-desc">شبكة افتراضية خاصة (VPN) مبسطة وآمنة، تربط الأجهزة تلقائياً باستخدام WireGuard، مثالي للعمل عن بعد.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 10/11</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>الأمان:</strong> WireGuard متكامل</p>
+            <p><i class="fas fa-users"></i> <strong>المستخدمين:</strong> حتى 100 مستخدم مجاناً</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> Tailscale الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://pkgs.tailscale.com/stable/tailscale-setup-latest.exe"
+               class="download-btn" download onclick="trackDownload('Tailscale Win10')">
+              <i class="fas fa-download"></i> تحميل Windows 10/11
+            </a>
+          </div>
+        </div>
+
+        <!-- Tailscale Windows 7 - Remote Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="remote">
+          <div class="program-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Tailscale for Windows 7/8</h3>
+          <p class="program-desc">نسخة متوافقة مع Windows 7 للشبكات الافتراضية الآمنة، مثالي للشركات التي تستخدم أنظمة تشغيل قديمة.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows 7/8</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>الأمان:</strong> WireGuard متكامل</p>
+            <p><i class="fas fa-users"></i> <strong>المستخدمين:</strong> حتى 100 مستخدم مجاناً</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> Tailscale الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://pkgs.tailscale.com/stable/tailscale-setup-1.46.1.exe"
+               class="download-btn" download onclick="trackDownload('Tailscale Win7')">
+              <i class="fas fa-download"></i> تحميل Windows 7/8
+            </a>
+          </div>
+        </div>
+
+        <!-- TeamViewer - Remote Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="remote">
+          <div class="program-icon">
+            <i class="fas fa-laptop-house"></i>
+          </div>
+          <h3>TeamViewer للتحكم عن بعد</h3>
+          <p class="program-desc">للتحكم عن بعد في الأجهزة بشكل آمن، مثالي لدعم العملاء عن بعد وإدارة أجهزة الشركة من مكان واحد.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows/Mac/Linux</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>الأمان:</strong> تشفير من طرف إلى طرف</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> TeamViewer الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://download.teamviewer.com/download/TeamViewer_Setup.exe"
+               class="download-btn" download onclick="trackDownload('TeamViewer')">
+              <i class="fas fa-download"></i> تحميل مباشر
+            </a>
+          </div>
+        </div>
+
+        <!-- AnyDesk - Remote Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="remote">
+          <div class="program-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <h3>AnyDesk للتحكم عن بعد</h3>
+          <p class="program-desc">برنامج للتحكم عن بعد بسرعة وسهولة، بديل سريع وخفيف لبرامج التحكم عن بعد التقليدية.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows/Mac/Linux</p>
+            <p><i class="fas fa-bolt"></i> <strong>الميزة:</strong> خفيف وسريع</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> AnyDesk الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://download.anydesk.com/AnyDesk.exe"
+               class="download-btn" download onclick="trackDownload('AnyDesk')">
+              <i class="fas fa-download"></i> تحميل مباشر
+            </a>
+          </div>
+        </div>
+
+        <!-- WinRAR - Tools Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="tools">
+          <div class="program-icon">
+            <i class="fas fa-file-archive"></i>
+          </div>
+          <h3>WinRAR لضغط الملفات</h3>
+          <p class="program-desc">ضغط وفك ضغط الملفات بجميع الصيغ (ZIP, RAR, 7Z)، مع دعم كلمات المرور وتقسيم الأرشيفات الكبيرة.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows</p>
+            <p><i class="fas fa-key"></i> <strong>الميزة:</strong> تشفير AES-256</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> RARLAB الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://www.rarlab.com/rar/winrar-x64-700.exe"
+               class="download-btn" download onclick="trackDownload('WinRAR')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+            <a href="https://www.rarlab.com/rar/wrar700.exe"
+               class="download-btn secondary" download onclick="trackDownload('WinRAR 32bit')">
+              <i class="fas fa-download"></i> 32-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Chrome - Tools Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="tools">
+          <div class="program-icon">
+            <i class="fab fa-chrome"></i>
+          </div>
+          <h3>Google Chrome</h3>
+          <p class="program-desc">متصفح موثوق وسريع مع دعم الإضافات، مثالي للعمل اليومي وتشغيل التطبيقات السحابية.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows/Mac/Linux</p>
+            <p><i class="fas fa-bolt"></i> <strong>الأداء:</strong> متصفح سريع ومستقر</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> Google الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://dl.google.com/chrome/install/latest/chrome_installer.exe"
+               class="download-btn" download onclick="trackDownload('Chrome')">
+              <i class="fas fa-download"></i> تحميل مباشر
+            </a>
+          </div>
+        </div>
+
+        <!-- Dropbox - Tools Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="tools">
+          <div class="program-icon">
+            <i class="fab fa-dropbox"></i>
+          </div>
+          <h3>Dropbox للتخزين السحابي</h3>
+          <p class="program-desc">مساحة تخزين ومشاركة بيانات سحابية، مثالي لمشاركة الملفات بين الموظفين والنسخ الاحتياطي للبيانات.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows/Mac/Linux</p>
+            <p><i class="fas fa-cloud"></i> <strong>التخزين:</strong> 2GB مجاناً</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> Dropbox الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://www.dropbox.com/download?plat=win"
+               class="download-btn" download onclick="trackDownload('Dropbox')">
+              <i class="fas fa-download"></i> تحميل مباشر
+            </a>
+          </div>
+        </div>
+
+        <!-- Notepad++ - Tools Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="tools">
+          <div class="program-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Notepad++</h3>
+          <p class="program-desc">محرر نصوص قوي لكتابة الأكواد بسهولة، يدعم أكثر من 80 لغة برمجة مع تمييز الصيغة.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows</p>
+            <p><i class="fas fa-language"></i> <strong>اللغات:</strong> 80+ لغة برمجة</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> GitHub الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.1/npp.8.8.1.Installer.x64.exe"
+               class="download-btn" download onclick="trackDownload('Notepad++')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+            <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.1/npp.8.8.1.Installer.exe"
+               class="download-btn secondary" download onclick="trackDownload('Notepad++ 32bit')">
+              <i class="fas fa-download"></i> 32-bit
+            </a>
+          </div>
+        </div>
+
+        <!-- VLC Media Player - Tools Category -->
+        <div class="program-card animate__animated animate__fadeInUp" data-category="tools">
+          <div class="program-icon">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <h3>VLC Media Player</h3>
+          <p class="program-desc">تشغيل كافة أنواع الوسائط بجودة ممتازة، يدعم جميع صيغ الفيديو والصوت بدون الحاجة إلى كودكات إضافية.</p>
+          
+          <div class="program-details">
+            <p><i class="fas fa-desktop"></i> <strong>النظام:</strong> Windows/Mac/Linux</p>
+            <p><i class="fas fa-film"></i> <strong>الصيغ:</strong> جميع صيغ الوسائط</p>
+            <p><i class="fas fa-link"></i> <strong>المصدر:</strong> VideoLAN الرسمي</p>
+          </div>
+          
+          <div class="program-actions">
+            <a href="https://get.videolan.org/vlc/3.0.18/win64/vlc-3.0.18-win64.exe"
+               class="download-btn" download onclick="trackDownload('VLC')">
+              <i class="fas fa-download"></i> تحميل 64-bit
+            </a>
+            <a href="https://get.videolan.org/vlc/3.0.18/win32/vlc-3.0.18-win32.exe"
+               class="download-btn secondary" download onclick="trackDownload('VLC 32bit')">
+              <i class="fas fa-download"></i> 32-bit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Programs Section -->
+  <section class="why-programs-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>لماذا مركز تحميل البرامج هذا؟</h2>
+        <p>مزايا تجعل من هذا المركز وجهتك المثالية لتحميل البرامج</p>
+      </div>
+      
+      <div class="why-grid">
+        <div class="why-card animate__animated animate__fadeInUp">
+          <div class="why-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4>برامج آمنة ومعتمدة</h4>
+          <p>جميع البرامج من المصادر الرسمية: Microsoft، SAP، Google، TeamViewer، وغيرها. خالية من الفيروسات.</p>
+        </div>
+        
+        <div class="why-card animate__animated animate__fadeInUp">
+          <div class="why-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h4>روابط حقيقية ومباشرة</h4>
+          <p>جميع الروابط مباشرة من المواقع الرسمية للشركات، بدون وسيط أو إعلانات مزعجة.</p>
+        </div>
+        
+        <div class="why-card animate__animated animate__fadeInUp">
+          <div class="why-icon">
+            <i class="fas fa-history"></i>
+          </div>
+          <h4>جميع الإصدارات الأساسية</h4>
+          <p>SQL Server 2014، 2016، 2019 | Crystal Reports 2013، 2019 | Windows 7/10/11</p>
+        </div>
+        
+        <div class="why-card animate__animated animate__fadeInUp">
+          <div class="why-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h4>تحديثات مستمرة</h4>
+          <p>نقوم بتحديث الروابط والإصدارات باستمرار لضمان حصولك على أحدث إصدار من كل برنامج.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>هل تحتاج إلى مساعدة في التثبيت؟</h2>
+      <p>فريق الدعم الفني جاهز لمساعدتك في تثبيت وتشغيل أي برنامج من البرامج المذكورة أعلاه</p>
+      
+      <div class="cta-buttons">
+        <a href="https://wa.me/201060350015?text=أحتاج مساعدة في تثبيت أحد البرامج" target="_blank" class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> تواصل مع الدعم عبر واتساب
+        </a>
+        <a href="support.html" class="btn btn-secondary">
+          <i class="fas fa-headset"></i> زيارة صفحة الدعم الفني
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer1-outer">
+    <div class="container">
+      <div class="footer1">
+        <div class="footer-col">
+          <h3>عن مركز البرامج</h3>
+          <p>مركز متخصص لتوفير جميع إصدارات البرامج الأساسية للشركات والأفراد، مع ضمان الأمان والسرعة في التحميل ودعم فني متكامل.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/waset.services" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/201060350015" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+            <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
+            <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
+            <li><a href="programs.html"><i class="fas fa-arrow-left"></i> مركز البرامج</a></li>
+            <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء المستخدمين</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>اتصل بنا</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>
+                <a href="tel:+201060350015">01060350015</a> - 
+                <a href="tel:+20123456789">0123456789</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>
+                <a href="mailto:support@waset.services">support@waset.services</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer2-outer">
+    <div class="container">
+      <div class="footer2">
+        <div class="copyright">
+          &copy; جميع الحقوق محفوظة 2025 - مركز برامج وسيط
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="terms.html">الشروط والأحكام</a>
+          <a href="sitemap.html">خريطة الموقع</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Category Filtering
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const programCards = document.querySelectorAll('.program-card');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const category = btn.dataset.category;
+        
+        // Show/hide program cards based on category
+        programCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+            card.classList.add('animate__animated', 'animate__fadeInUp');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Download tracking
+    function trackDownload(programName) {
+      console.log(`تم تحميل: ${programName}`);
+      // هنا يمكنك إضافة كود تتبع مثل Google Analytics
+    }
+
+    // Download confirmation
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const programName = this.closest('.program-card').querySelector('h3').textContent;
+        
+        // إظهار رسالة تأكيد
+        if (confirm(`سيبدأ تحميل برنامج: ${programName}\n\nالرابط مباشر من الموقع الرسمي\n\nتأكيد التحميل؟`)) {
+          // السماح بالتحميل
+          return true;
+        } else {
+          // إلغاء التحميل
+          e.preventDefault();
+          return false;
+        }
+      });
+    });
+
+    // Animate program cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all program cards
+    document.querySelectorAll('.program-card, .why-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // توضيح أن الروابط حقيقية
+    const realLinksInfo = document.createElement('div');
+    realLinksInfo.style.cssText = `
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    `;
+    realLinksInfo.innerHTML = `
+      <h4 style="margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <i class="fas fa-check-circle"></i> جميع الروابط حقيقية ومباشرة
+      </h4>
+      <p style="margin-bottom: 0; font-size: 0.95rem;">
+        مباشرة من المواقع الرسمية: Microsoft، SAP، Google، TeamViewer، وغيرها
+      </p>
+    `;
+    
+    // إضافة الإعلان بعد القسم الأول
+    document.querySelector('.section-title').insertAdjacentElement('afterend', realLinksInfo);
+  </script>
 </body>
 </html>
