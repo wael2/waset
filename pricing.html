@@ -1,208 +1,1216 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>باقات برنامج وسيط - الأسعار والعروض</title>
+<title>باقات برنامج وسيط - الأسعار والعروض المتاحة</title>
 
 <meta name="description" content="استعرض باقات وأسعار برنامج وسيط لإدارة الشركات والمخازن والمبيعات. اختر بين الباقة المجانية 15 يوم أو الاشتراك الشهري، السنوي أو شراء البرنامج مع دعم فني شامل.">
 <meta name="keywords" content="برنامج وسيط, إدارة شركات, باقات الأسعار, باقة مجانية 15 يوم, باقة شهرية, باقة سنوية, شراء البرنامج, دعم فني, خدمات إضافية, نقل بيانات, تقارير مخصصة">
 <meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
 <meta name="robots" content="index, follow">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: 'Cairo', sans-serif; background:#f4f4f4; color:#333; direction:rtl; text-align:right;}
-header {background:#2c3e50; padding:10px 20px; position:fixed; width:100%; top:0; z-index:999;}
-header nav {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap;}
-.logo {color:white; font-weight:900; font-size:28px;}
-.nav-links {list-style:none; display:flex; gap:15px; flex-wrap:wrap;}
-.nav-links li a {color:white; text-decoration:none; font-weight:600; font-size:1em; transition:0.3s; padding:8px 12px; border-radius:5px;}
-.nav-links li a:hover, .nav-links li a.active {background:#e74c3c; color:white;}
-.section {max-width:1400px; margin:100px auto 40px; padding:0 20px; text-align:center;}
-.section h1 {font-size:2.5em; color:#2c3e50; margin-bottom:20px;}
-.section p.desc {font-size:18px; color:#555; margin-bottom:30px;}
-.cards-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
-.card {background:linear-gradient(145deg, #fff, #f0f0f0); border:2px solid #e0e0e0; border-radius:12px; padding:20px; width:30%; min-width:280px; box-shadow:0 4px 8px rgba(0,0,0,0.06); transition:transform 0.3s ease, box-shadow 0.3s ease; position:relative;}
-.card:hover {transform:translateY(-8px) scale(1.03); box-shadow:0 12px 24px rgba(0,0,0,0.15);}
-.card h3 {font-size:20px; color:#c0392b; margin-bottom:10px; display:flex; align-items:center; justify-content:center; gap:10px; transition: transform 0.3s ease;}
-.card:hover h3 {transform:translateY(-2px);}
-.card p {font-size:15px; color:#555; margin-bottom:10px;}
-.price {font-size:22px; color:#e74c3c; font-weight:bold; margin:10px 0; transition: color 0.3s ease;}
-.card:hover .price {color:#c0392b;}
-.card .pricing-btn {background:#e74c3c; color:white; text-decoration:none; padding:10px; text-align:center; border-radius:8px; display:block; font-weight:bold; transition: background 0.4s, transform 0.2s;}
-.card .pricing-btn:hover {background:linear-gradient(45deg, #e74c3c, #c0392b); transform:scale(1.05);}
-.card.popular {border:3px solid #e67e22;}
-.card.popular::after {content:"الأكثر شيوعًا"; position:absolute; top:-10px; left:-10px; background:#e67e22; color:white; padding:5px 10px; border-radius:8px; font-size:12px; font-weight:bold;}
-.footer1-outer, .footer2-outer {background:#2c3e50; color:white;}
-.footer1-outer .page, .footer2-outer .page {max-width:1200px; margin:0 auto; padding:20px;}
-.footer1 {display:flex; flex-wrap:wrap; gap:20px;}
-.footer1 .col3 {width:30%; min-width:250px;}
-.footer1 h2 {color:#fff; margin-bottom:10px;}
-.footer1 a {color:#fff; text-decoration:none;}
-.footer1 a:hover {color:#e74c3c;}
-.share-icons a {display:flex; align-items:center; gap:5px; background:#34495e; padding:5px 10px; border-radius:6px; transition:background 0.3s;}
-.share-icons a:hover {background:#e74c3c;}
-.footer2 {text-align:center; font-size:0.9em; padding:10px; color:#ccc;}
-@media(max-width:1024px){.card{width:45%;}.footer1 .col3{width:45%;}}
-@media(max-width:768px){header nav{flex-direction:column; gap:15px;}.cards-container{flex-direction:column; align-items:center;}.card{width:90%;}.footer1 .col3{width:100%; margin-bottom:20px;}}
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #e74c3c;
+  --accent-color: #3498db;
+  --light-color: #f9f9f9;
+  --dark-color: #1a252f;
+  --gray-color: #7f8c8d;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  direction: rtl;
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+  background-color: rgba(44, 62, 80, 0.95);
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+header.scrolled {
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--secondary-color);
+  font-size: 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 15px;
+  display: block;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Page Hero */
+.page-hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.section-title p {
+  color: var(--gray-color);
+  max-width: 700px;
+  margin: 20px auto 0;
+  font-size: 1.1rem;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.pricing-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.popular {
+  border-color: var(--warning-color);
+  transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  background-color: var(--warning-color);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.pricing-card-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.pricing-card-header h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pricing-card-header .price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin: 15px 0;
+}
+
+.pricing-card-header .period {
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+.pricing-card-body {
+  margin-bottom: 30px;
+}
+
+.pricing-card-body ul {
+  list-style: none;
+}
+
+.pricing-card-body ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px dashed #eee;
+}
+
+.pricing-card-body ul li i {
+  color: var(--success-color);
+  margin-top: 3px;
+}
+
+.pricing-card-body ul li.disabled {
+  color: var(--gray-color);
+}
+
+.pricing-card-body ul li.disabled i {
+  color: var(--gray-color);
+}
+
+.pricing-card-footer {
+  text-align: center;
+}
+
+.pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Cairo', sans-serif;
+}
+
+.pricing-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+.pricing-btn.secondary {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.pricing-btn.secondary:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Comparison Table */
+.comparison-section {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.comparison-table {
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.comparison-table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.comparison-table th {
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.comparison-table th:first-child {
+  border-radius: var(--border-radius) 0 0 0;
+}
+
+.comparison-table th:last-child {
+  border-radius: 0 var(--border-radius) 0 0;
+}
+
+.comparison-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.comparison-table td {
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.comparison-table td:first-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.comparison-table .fa-check {
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
+
+.comparison-table .fa-times {
+  color: var(--gray-color);
+  font-size: 1.2rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: var(--border-radius);
+  margin-bottom: 15px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  background-color: #f8f9fa;
+}
+
+.faq-question i {
+  color: var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 20px 20px;
+  max-height: 500px;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #c0392b 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: white;
+  color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.footer1-outer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 70px 0 40px;
+}
+
+.footer1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: 0;
+  right: 0;
+}
+
+.footer-col p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--secondary-color);
+  padding-right: 5px;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info i {
+  color: var(--secondary-color);
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+.footer2-outer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pricing-card.popular {
+    transform: none;
+  }
+  
+  .pricing-card.popular:hover {
+    transform: translateY(-10px);
+  }
+  
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    width: 80%;
+    height: calc(100vh - 70px);
+    padding: 30px;
+    transition: var(--transition);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .page-hero {
+    padding: 120px 0 50px;
+  }
+  
+  .pricing-section, .comparison-section, .faq-section, .cta-section {
+    padding: 60px 0;
+  }
+  
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto 60px;
+  }
+  
+  .footer1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer2 {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .pricing-card-header .price {
+    font-size: 2rem;
+  }
+}
 </style>
-
 </head>
+
 <body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-hands-helping logo-icon"></i>
+          وسيط
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+          <li><a href="features.html"><i class="fas fa-star"></i> المميزات</a></li>
+          <li><a href="pricing.html" class="active"><i class="fas fa-tags"></i> الباقات</a></li>
+          <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+          <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
+          <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
+          <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<header>
-<nav>
-<div class="logo">وسيط</div>
-<ul class="nav-links">
-<li><a href="index.html">الرئيسية</a></li>
-<li><a href="features.html">المميزات</a></li>
-<li><a href="pricing.html" class="active">الباقات</a></li>
-<li><a href="support.html">الدعم الفني</a></li>
-<li><a href="distributors.html">الموزعين</a></li>
-<li><a href="offers.html">العروض</a></li>
-<li><a href="services.html">الخدمات</a></li>
-<li><a href="programs.html">البرامج</a></li>
-<li><a href="feedback.html">آراء المستخدمين</a></li>
-</ul>
-</nav>
-</header>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">باقات وأسعار برنامج وسيط</h1>
+      <p class="animate__animated animate__fadeInUp">اختر الباقة المناسبة لاحتياجات شركتك من بين الباقة المجانية أو المدفوعة، مع دعم فني شامل وتحديثات مجانية</p>
+    </div>
+  </section>
 
-<section class="section">
-<h1>💼 باقات الأسعار</h1>
-<p class="desc">اختر الباقة المناسبة لاحتياجات شركتك من بين الباقة المجانية أو المدفوعة</p>
-<div class="cards-container">
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>اختر الباقة المناسبة لك</h2>
+        <p>جميع الباقات تشمل جميع مزايا البرنامج مع اختلاف في مدة الاشتراك وخدمات الدعم</p>
+      </div>
+      
+      <div class="pricing-cards">
+        <!-- الباقة المجانية -->
+        <div class="pricing-card animate__animated animate__fadeInUp">
+          <div class="pricing-card-header">
+            <h3><i class="fas fa-gift"></i> التجريبية المجانية</h3>
+            <div class="price">مجانًا</div>
+            <div class="period">لمدة 15 يوم</div>
+          </div>
+          
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> تجربة كاملة لجميع مميزات البرنامج</li>
+              <li><i class="fas fa-check"></i> جميع الوظائف متاحة دون قيود</li>
+              <li><i class="fas fa-check"></i> دعم فني خلال فترة التجربة</li>
+              <li><i class="fas fa-check"></i> حفظ البيانات لمدة 30 يوم بعد انتهاء التجربة</li>
+              <li><i class="fas fa-check"></i> تحديثات البرنامج خلال فترة التجربة</li>
+            </ul>
+          </div>
+          
+          <div class="pricing-card-footer">
+            <a href="https://forms.gle/M6RqEWVAsJzyEXaw9" class="pricing-btn" target="_blank">
+              <i class="fas fa-rocket"></i> ابدأ تجربتك المجانية
+            </a>
+          </div>
+        </div>
+        
+        <!-- الاشتراك الشهري -->
+        <div class="pricing-card animate__animated animate__fadeInUp">
+          <div class="pricing-card-header">
+            <h3><i class="fas fa-calendar-alt"></i> الاشتراك الشهري</h3>
+            <div class="price">150 <span style="font-size: 1rem">ج.م</span></div>
+            <div class="period">لكل ترخيص / جهاز شهريًا</div>
+          </div>
+          
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> جميع مزايا البرنامج دون قيود</li>
+              <li><i class="fas fa-check"></i> دعم فني مجاني على مدار الساعة</li>
+              <li><i class="fas fa-check"></i> تحديثات البرنامج مجانًا</li>
+              <li><i class="fas fa-check"></i> نسخ احتياطي للبيانات أسبوعيًا</li>
+              <li><i class="fas fa-check"></i> تجديد شهري تلقائي</li>
+            </ul>
+          </div>
+          
+          <div class="pricing-card-footer">
+            <button class="pricing-btn" data-kind="MONTHLY">
+              <i class="fas fa-shopping-cart"></i> اشترك الآن
+            </button>
+          </div>
+        </div>
+        
+        <!-- الاشتراك السنوي (الأكثر شيوعًا) -->
+        <div class="pricing-card popular animate__animated animate__fadeInUp">
+          <div class="popular-badge">الأكثر شيوعًا</div>
+          <div class="pricing-card-header">
+            <h3><i class="fas fa-crown"></i> الاشتراك السنوي</h3>
+            <div class="price">1,000 <span style="font-size: 1rem">ج.م</span></div>
+            <div class="period">لكل ترخيص / جهاز سنويًا</div>
+          </div>
+          
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> جميع مزايا البرنامج دون قيود</li>
+              <li><i class="fas fa-check"></i> دعم فني مجاني على مدار الساعة</li>
+              <li><i class="fas fa-check"></i> تحديثات البرنامج مجانًا</li>
+              <li><i class="fas fa-check"></i> نسخ احتياطي للبيانات يوميًا</li>
+              <li><i class="fas fa-check"></i> خصم 40% مقارنة بالاشتراك الشهري</li>
+              <li><i class="fas fa-check"></i> تقرير أداء مجاني كل 3 أشهر</li>
+            </ul>
+          </div>
+          
+          <div class="pricing-card-footer">
+            <button class="pricing-btn" data-kind="YEARLY">
+              <i class="fas fa-crown"></i> اشترك سنويًا ووفر
+            </button>
+          </div>
+        </div>
+        
+        <!-- شراء البرنامج -->
+        <div class="pricing-card animate__animated animate__fadeInUp">
+          <div class="pricing-card-header">
+            <h3><i class="fas fa-lock"></i> شراء البرنامج</h3>
+            <div class="price">3,500 <span style="font-size: 1rem">ج.م</span></div>
+            <div class="period">دفعة واحدة لكل ترخيص / جهاز</div>
+          </div>
+          
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> ملكية البرنامج مدى الحياة</li>
+              <li><i class="fas fa-check"></i> دعم فني مجاني لمدة عامين</li>
+              <li><i class="fas fa-check"></i> تحديثات مجانية لمدة عامين</li>
+              <li><i class="fas fa-check"></i> نسخ احتياطي للبيانات يوميًا</li>
+              <li><i class="fas fa-check"></i> نقل البيانات من برامج أخرى</li>
+              <li><i class="fas fa-check"></i> تدريب موظفين مجاني</li>
+            </ul>
+          </div>
+          
+          <div class="pricing-card-footer">
+            <button class="pricing-btn secondary" data-kind="PURCHASE">
+              <i class="fas fa-handshake"></i> تواصل للتفاوض
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3><i class="fas fa-gift"></i> الباقة المجانية</h3>
-<p>تجربة كاملة للبرنامج لمدة 15 يوم</p>
-<div class="price">مجانية</div>
-<a href="https://forms.gle/M6RqEWVAsJzyEXaw9" class="pricing-btn" target="_blank">ابدأ الآن</a>
-</div>
+  <!-- Comparison Table -->
+  <section class="comparison-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>مقارنة بين الباقات</h2>
+        <p>قارن بين مزايا كل باقة لتختار الأنسب لاحتياجاتك</p>
+      </div>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>الميزة</th>
+              <th>التجريبية</th>
+              <th>الشهرية</th>
+              <th>السنوية</th>
+              <th>الشراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>المدة</td>
+              <td>15 يوم</td>
+              <td>شهري</td>
+              <td>سنوي</td>
+              <td>مدى الحياة</td>
+            </tr>
+            <tr>
+              <td>التكلفة للترخيص</td>
+              <td>مجانًا</td>
+              <td>150 ج.م</td>
+              <td>1,000 ج.م</td>
+              <td>3,500 ج.م</td>
+            </tr>
+            <tr>
+              <td>دعم فني مجاني</td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i> (عامين)</td>
+            </tr>
+            <tr>
+              <td>تحديثات البرنامج</td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i> (عامين)</td>
+            </tr>
+            <tr>
+              <td>نسخ احتياطي للبيانات</td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-check"></i> أسبوعي</td>
+              <td><i class="fas fa-check"></i> يومي</td>
+              <td><i class="fas fa-check"></i> يومي</td>
+            </tr>
+            <tr>
+              <td>نقل البيانات من برامج أخرى</td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+            </tr>
+            <tr>
+              <td>تقارير أداء مخصصة</td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+            </tr>
+            <tr>
+              <td>تدريب الموظفين</td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-times"></i></td>
+              <td><i class="fas fa-check"></i></td>
+              <td><i class="fas fa-check"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-<div class="card monthly">
-<h3>إشترك شهرى</h3>
-<p>150 جنيه لكل ترخيص / جهاز</p>
-<ul>
-<li>يجدد شهريا</li>
-<li>دعم فنى مجانى</li>
-<li>تحديث البرنامج مجانا</li>
-</ul>
-<a class="pricing-btn" data-kind="MONTHLY">اشترك الآن</a>
-</div>
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>الأسئلة الشائعة</h2>
+        <p>إجابات على أكثر الأسئلة شيوعًا حول باقات وسيط</p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>ما الفرق بين الباقة المجانية والباقات المدفوعة؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>الباقة المجانية تتيح لك تجربة كاملة للبرنامج لمدة 15 يوم مع جميع المميزات، لكن بدون خدمات الدعم طويل الأمد والنسخ الاحتياطي. الباقات المدفوعة تشمل دعم فني مستمر، تحديثات، وخدمات إضافية.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يمكنني الترقية من باقة إلى أخرى؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>نعم، يمكنك الترقية من أي باقة إلى باقة أعلى في أي وقت. سيتم احتساب الفارق بين الباقات وتطبيقه على فاتورتك القادمة.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>ماذا يحدث لبياناتي بعد انتهاء فترة التجربة؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>سيتم الاحتفاظ ببياناتك لمدة 30 يوم بعد انتهاء الفترة التجريبية. إذا قمت بالاشتراك في إحدى الباقات المدفوعة خلال هذه الفترة، فسيتم استعادة جميع بياناتك.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يمكنني استخدام البرنامج على أكثر من جهاز؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>نعم، لكن كل جهاز يحتاج إلى ترخيص منفصل. يمكنك شراء تراخيص متعددة بخصم عند الشراء بكميات.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل توجد فترة ضمان لشراء البرنامج؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>نعم، عند شراء البرنامج تحصل على ضمان لمدة عامين يشمل الدعم الفني والتحديثات. بعد العامين يمكنك تجديد خدمة الدعم والتحديثات بتكلفة 500 جنيه سنويًا.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card yearly">
-<h3>إشترك سنوى</h3>
-<p>1000 جنيه لكل ترخيص / جهاز</p>
-<ul>
-<li>يجدد سنويا</li>
-<li>دعم فنى مجانى</li>
-<li>تحديث البرنامج مجانا</li>
-</ul>
-<a class="pricing-btn" data-kind="YEARLY">اشترك الآن</a>
-</div>
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>جاهز لبدء رحلتك مع وسيط؟</h2>
+      <p>جرب البرنامج مجانًا لمدة 15 يوم أو اختر إحدى الباقات المدفوعة للحصول على دعم فني شامل وتحديثات مستمرة.</p>
+      
+      <div class="cta-buttons">
+        <a href="https://forms.gle/M6RqEWVAsJzyEXaw9" class="btn btn-primary" target="_blank">
+          <i class="fas fa-gift"></i> ابدأ تجربتك المجانية الآن
+        </a>
+        <a href="contact.html" class="btn btn-secondary">
+          <i class="fas fa-headset"></i> تواصل معنا للمساعدة في الاختيار
+        </a>
+      </div>
+    </div>
+  </section>
 
-<div class="card purchase last">
-<h3>شراء البرنامج</h3>
-<p>حسب الاتفاق وسياسه الاستخدام </p>
-<ul>
-<li>السداد مرة واحدة، لا يوجد أى تجديد</li>
-<li>دعم فنى مجانى لمدة عامين</li>
-<li>تحديث البرنامج مجانا لمدة عامين</li>
-<li>تكلفة الدعم الفنى بعد عامين 500 جنيه سنويا (اختياري)</li>
-</ul>
-<a class="pricing-btn" data-kind="PURCHASE">اشترِ الآن</a>
-</div>
+  <!-- Footer -->
+  <div class="footer1-outer">
+    <div class="container">
+      <div class="footer1">
+        <div class="footer-col">
+          <h3>عن برنامج وسيط</h3>
+          <p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+            <li><a href="features.html"><i class="fas fa-arrow-left"></i> المميزات</a></li>
+            <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
+            <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
+            <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء العملاء</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>اتصل بنا</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>
+                <a href="tel:+201060350015">01060350015</a> - 
+                <a href="tel:+20123456789">0123456789</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>
+                <a href="mailto:support@waset.services">support@waset.services</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
-</section>
+  <div class="footer2-outer">
+    <div class="container">
+      <div class="footer2">
+        <div class="copyright">
+          &copy; جميع الحقوق محفوظة 2025 - برنامج وسيط
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="terms.html">الشروط والأحكام</a>
+          <a href="sitemap.html">خريطة الموقع</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="footer1-outer">
-<div class="page">
-<div class="footer1">
-<div class="col3">
-<h2>عن برنامج وسيط</h2>
-<p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
-</div>
-<div class="col3">
-<h2>اتصل بنا</h2>
-<i class="fas fa-map-marker"></i> طنطا - عمارة الست مباركة - المحطة<br>
-<i class="fas fa-headphones"></i> الدعم الفني: <a href="mailto:support@waset.services">support@waset.services</a><br>
-<i class="fas fa-phone"></i> واتساب: <a href="https://wa.me/201060350015">01060350015</a><br>
-<i class="fas fa-clock"></i> أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م، الجمعة عطلة<br>
-</div>
-<div class="col3">
-<h2>شارك برنامج وسيط</h2>
-<p>جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!</p>
-<div class="share-icons">
-<a href="#" class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a>
-<a href="#" class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i> تويتر</a>
-<a href="#" class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
-<a href="#" class="share-btn" data-platform="whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-<div class="footer2-outer">
-<div class="page footer2">
-&copy; جميع الحقوق محفوظة 2025
-</div>
-</div>
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
 
-<script>
-// أزرار المشاركة
-const shareURL = "https://waset.services/index.html";
-const shareText = "جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!";
-document.querySelectorAll('.share-btn').forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    const platform = this.dataset.platform;
-    let link = "";
-    switch(platform){
-      case "facebook":
-        link = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(shareURL)}&quote=${encodeURIComponent(shareText)}`;
-        break;
-      case "twitter":
-        link = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + " " + shareURL)}`;
-        break;
-      case "linkedin":
-        link = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareURL)}&title=${encodeURIComponent(shareText)}`;
-        break;
-      case "whatsapp":
-        link = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareURL)}`;
-        break;
-    }
-    window.open(link, "_blank", "width=600,height=500");
-  });
-});
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
 
-// أزرار الاشتراك عبر واتساب
-const waNumber = "201060350015";
-const messages = {
-  "MONTHLY": "أريد الاشتراك الشهري في برنامج وسيط بقيمة 100 جنيه لكل ترخيص/جهاز",
-  "YEARLY": "أريد الاشتراك السنوي في برنامج وسيط بقيمة 1000 جنيه لكل ترخيص/جهاز",
-  "PURCHASE": "أريد شراء برنامج وسيط بقيمة 3500 جنيه لكل ترخيص/جهاز"
-};
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
-document.querySelectorAll('.pricing-btn[data-kind]').forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    const kind = this.dataset.kind;
-    if(messages[kind]){
-      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(messages[kind])}`;
-      window.open(url, "_blank");
-    }
-  });
-});
-</script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
 
+    // WhatsApp buttons
+    const waNumber = "201060350015";
+    const messages = {
+      "MONTHLY": "مرحبًا، أريد الاشتراك في الباقة الشهرية لبرنامج وسيط بسعر 150 جنيه لكل ترخيص/جهاز. الرجاء المساعدة في إتمام عملية الاشتراك.",
+      "YEARLY": "مرحبًا، أريد الاشتراك في الباقة السنوية لبرنامج وسيط بسعر 1000 جنيه لكل ترخيص/جهاز. الرجاء المساعدة في إتمام عملية الاشتراك.",
+      "PURCHASE": "مرحبًا، أريد شراء برنامج وسيط بسعر 3500 جنيه لكل ترخيص/جهاز. الرجاء التواصل معي للتفاوض على الشروط النهائية."
+    };
+
+    document.querySelectorAll('.pricing-btn[data-kind]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const kind = this.dataset.kind;
+        if(messages[kind]) {
+          const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(messages[kind])}`;
+          window.open(url, "_blank");
+        }
+      });
+    });
+
+    // Animate pricing cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, observerOptions);
+
+    // Observe pricing cards
+    document.querySelectorAll('.pricing-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
-
-
