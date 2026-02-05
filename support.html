@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تواصل معنا - برنامج وسيط</title>
-  <meta name="description" content="تواصل معنا للحصول على الدعم أو الاستفسار عن برنامج وسيط لإدارة الشركات والمصانع.">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>الدعم الفني والتواصل - برنامج وسيط</title>
+  <meta name="description" content="تواصل مع فريق دعم برنامج وسيط للحصول على المساعدة أو الاستفسار عن الخدمات أو الإبلاغ عن مشكلة.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #3498db;
+      --light-color: #f9f9f9;
+      --dark-color: #1a252f;
+      --gray-color: #7f8c8d;
+      --success-color: #27ae60;
+      --warning-color: #f39c12;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,144 +33,1145 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--light-color);
+      color: var(--dark-color);
       direction: rtl;
-      text-align: right;
+      line-height: 1.6;
+      padding-top: 80px;
     }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
     header {
-      background-color: #2c3e50;
-      padding: 10px 20px;
+      background-color: rgba(44, 62, 80, 0.95);
+      color: white;
+      padding: 15px 0;
       position: fixed;
-      width: 100%;
       top: 0;
-      z-index: 999;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
     }
 
-    header nav {
+    header.scrolled {
+      padding: 10px 0;
+    }
+
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
     }
 
-    header .logo {
-      color: white;
-      font-weight: 900;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 28px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
     }
 
-    header .nav-links {
+    .logo-icon {
+      color: var(--secondary-color);
+      font-size: 32px;
+    }
+
+    .nav-links {
       list-style: none;
       display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 5px;
     }
 
-    header .nav-links li a {
+    .nav-links li a {
       color: white;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1em;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 5px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: var(--transition);
+      font-size: 15px;
+      display: block;
     }
 
-    header .nav-links li a:hover,
-    header .nav-links li a.active {
-      background-color: #e74c3c;
+    .nav-links li a:hover, 
+    .nav-links li a.active {
+      background-color: var(--secondary-color);
       color: white;
     }
 
-    .contact-container {
-      max-width: 1000px;
-      margin: 120px auto 40px;
-      padding: 30px 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .contact-container h2 {
-      font-size: 2em;
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-
-    .contact-container p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .contact-container iframe {
-      width: 100%;
-      height: 800px;
+    .mobile-menu-btn {
+      display: none;
+      background: none;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
     }
 
-    footer {
-      background-color: #2c3e50;
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
       color: white;
+      padding: 100px 0 60px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .page-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Support Sections */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    .section-title p {
+      color: var(--gray-color);
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 1.1rem;
+    }
+
+    .support-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .support-section:nth-child(even) {
+      background-color: white;
+    }
+
+    /* Contact Methods */
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .contact-method {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .contact-method:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+      font-size: 50px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(231, 76, 60, 0.1);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+
+    .contact-method h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .contact-method p {
+      color: var(--gray-color);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .contact-link:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--box-shadow);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: var(--secondary-color);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .form-control.error {
+      border-color: var(--secondary-color);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .form-submit {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .submit-btn:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background-color: var(--gray-color);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-message {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    .form-message.success {
+      background-color: rgba(39, 174, 96, 0.1);
+      color: var(--success-color);
+      border: 1px solid var(--success-color);
+      display: block;
+    }
+
+    .form-message.error {
+      background-color: rgba(231, 76, 60, 0.1);
+      color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+      display: block;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: white;
+      border-radius: var(--border-radius);
+      margin-bottom: 15px;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background-color: #f8f9fa;
+    }
+
+    .faq-question i {
+      color: var(--secondary-color);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+
+    /* Footer */
+    .footer1-outer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 70px 0 40px;
+    }
+
+    .footer1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: white;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: 0;
+      right: 0;
+    }
+
+    .footer-col p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--secondary-color);
+      padding-right: 5px;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-info i {
+      color: var(--secondary-color);
+      font-size: 18px;
+      margin-top: 3px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    .footer2-outer {
+      background-color: var(--dark-color);
+      color: white;
       padding: 20px 0;
-      font-size: 0.9em;
-      margin-top: 60px;
+      text-align: center;
+    }
+
+    .footer2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 768px) {
-      header nav {
-        flex-direction: column;
-        gap: 15px;
+      .mobile-menu-btn {
+        display: block;
       }
-
+      
       .nav-links {
-        justify-content: center;
-        gap: 10px;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 80%;
+        height: calc(100vh - 70px);
+        padding: 30px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
       }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .page-hero {
+        padding: 120px 0 50px;
+      }
+      
+      .support-section {
+        padding: 60px 0;
+      }
+      
+      .contact-form-container {
+        padding: 25px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer1 {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer2 {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
 
-      .contact-container h2 {
-        font-size: 1.7rem;
+    @media (max-width: 576px) {
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-method {
+        padding: 20px;
       }
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <nav>
-      <div class="logo">وسيط</div>
-      <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="features.html">المميزات</a></li>
-        <li><a href="pricing.html">الباقات</a></li>
-        <li><a href="support.html"class="active">الدعم الفني</a></li>
-        <li><a href="distributors.html" >الموزعين</a></li>
-        <li><a href="offers.html">العروض</a></li>      
-        <li><a href="services.html">الخدمات</a></li>
-        <li><a href="programs.html">البرامج</a></li>
-          <li><a href="feedback.html">آراء المستخدمين</a></li>
-      </ul>
-    </nav>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-hands-helping logo-icon"></i>
+          وسيط
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+          <li><a href="features.html"><i class="fas fa-star"></i> المميزات</a></li>
+          <li><a href="pricing.html"><i class="fas fa-tags"></i> الباقات</a></li>
+          <li><a href="support.html" class="active"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+          <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
+          <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
+          <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="contact-container">
-    <h2>📞 تواصل معنا</h2>
-    <p>يرجى تعبئة النموذج التالي وسنقوم بالتواصل معك في أقرب وقت ممكن:</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZw0HLUw2Cc9l0ObLL9ajd2zjW1yd93Uz4tmtDIG-KwJBUzQ/viewform?embedded=true" allowfullscreen></iframe>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">الدعم الفني والتواصل</h1>
+      <p class="animate__animated animate__fadeInUp">فريق دعم وسيط جاهز لمساعدتك على مدار الساعة. اختر طريقة التواصل التي تناسبك أو املأ النموذج وسنرد عليك في أسرع وقت.</p>
+    </div>
   </section>
 
-  <footer>
- 
-    <p>© 2025 شركة الجندي للبرمجيات وتكنولوجيا المعلومات</p>
-  </footer>
+  <!-- Contact Methods -->
+  <section class="support-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>طرق التواصل معنا</h2>
+        <p>تواصل مع فريق الدعم الفني عبر أي من الطرق التالية</p>
+      </div>
+      
+      <div class="contact-methods">
+        <div class="contact-method animate__animated animate__fadeInUp">
+          <div class="contact-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>الدعم الفني المباشر</h3>
+          <p>تواصل مع فريق الدعم الفني لحل المشكلات الفنية والإجابة على استفساراتك التقنية.</p>
+          <a href="tel:+201060350015" class="contact-link">
+            <i class="fas fa-phone"></i> اتصل الآن: 01060350015
+          </a>
+        </div>
+        
+        <div class="contact-method animate__animated animate__fadeInUp">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>الدعم عبر واتساب</h3>
+          <p>أرسل رسالتك على واتساب وسيتم الرد عليك في أسرع وقت ممكن.</p>
+          <a href="https://wa.me/201060350015" target="_blank" class="contact-link">
+            <i class="fab fa-whatsapp"></i> ابدأ محادثة
+          </a>
+        </div>
+        
+        <div class="contact-method animate__animated animate__fadeInUp">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>البريد الإلكتروني</h3>
+          <p>أرسل استفسارك أو طلبك عبر البريد الإلكتروني وسنرد عليك خلال 24 ساعة.</p>
+          <a href="mailto:support@waset.services" class="contact-link">
+            <i class="fas fa-envelope"></i> support@waset.services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Contact Form -->
+  <section class="support-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>إرسال رسالة</h2>
+        <p>املأ النموذج التالي وسنقوم بالتواصل معك في أقرب وقت ممكن</p>
+      </div>
+      
+      <div class="contact-form-container animate__animated animate__fadeInUp">
+        <div id="formMessage" class="form-message"></div>
+        
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label required">الاسم الكامل</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+              <div class="error-message" id="nameError"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="company" class="form-label">اسم الشركة (اختياري)</label>
+              <input type="text" id="company" name="company" class="form-control" placeholder="اسم شركتك">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" class="form-label required">رقم الهاتف</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="مثال: 01012345678" required>
+              <div class="error-message" id="phoneError"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label required">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="example@domain.com" required>
+              <div class="error-message" id="emailError"></div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label required">موضوع الرسالة</label>
+            <select id="subject" name="subject" class="form-control" required>
+              <option value="">اختر موضوع الرسالة</option>
+              <option value="technical">دعم فني</option>
+              <option value="sales">استفسار مبيعات</option>
+              <option value="billing">استفسار فواتير</option>
+              <option value="feature">مقترح تحسين</option>
+              <option value="complaint">شكوى</option>
+              <option value="other">موضوع آخر</option>
+            </select>
+            <div class="error-message" id="subjectError"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label required">نص الرسالة</label>
+            <textarea id="message" name="message" class="form-control" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <div class="error-message" id="messageError"></div>
+          </div>
+          
+          <div class="form-submit">
+            <button type="submit" id="submitBtn" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> إرسال الرسالة
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="support-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>أسئلة شائعة عن الدعم</h2>
+        <p>إجابات على أكثر الأسئلة شيوعًا حول الدعم الفني لبرنامج وسيط</p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>ما هي أوقات عمل الدعم الفني؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>فريق الدعم الفني متاح من السبت إلى الخميس من الساعة 9:00 صباحًا حتى 5:00 مساءً. للطوارئ خارج هذه الأوقات، يمكنك استخدام البريد الإلكتروني أو ترك رسالة على واتساب وسنرد في صباح اليوم التالي.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>كم تستغرق مدة الرد على رسالتي؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>نهدف للرد على جميع الاستفسارات خلال 4 ساعات عمل خلال أوقات الدوام. قد تزيد المدة قليلاً في أيام العطلات أو خلال ساعات الذروة.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يوجد دعم فني عن بعد؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>نعم، نقدم خدمة الدعم الفني عن بعد لمساعدتك في حل المشكلات الفنية وتثبيت التحديثات وإعداد النظام حسب احتياجاتك.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>كيف يمكنني تحديث البرنامج؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>التحديثات مجانية لمشتركي الباقات المدفوعة. ستتلقى إشعارًا عند توفر تحديث جديد، ويمكنك تنزيله مباشرة من لوحة التحكم أو طلب المساعدة من فريق الدعم لتنزيله وتثبيته لك.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>ماذا أفعل إذا نسيت كلمة المرور؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>يمكنك استخدام خاصية "نسيت كلمة المرور" في شاشة تسجيل الدخول، أو التواصل مع فريق الدعم الفني الذي سيساعدك في استعادة حسابك.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer1-outer">
+    <div class="container">
+      <div class="footer1">
+        <div class="footer-col">
+          <h3>عن برنامج وسيط</h3>
+          <p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+            <li><a href="features.html"><i class="fas fa-arrow-left"></i> المميزات</a></li>
+            <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
+            <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
+            <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء العملاء</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>اتصل بنا</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>
+                <a href="tel:+201060350015">01060350015</a> - 
+                <a href="tel:+20123456789">0123456789</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>
+                <a href="mailto:support@waset.services">support@waset.services</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer2-outer">
+    <div class="container">
+      <div class="footer2">
+        <div class="copyright">
+          &copy; جميع الحقوق محفوظة 2025 - برنامج وسيط
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="terms.html">الشروط والأحكام</a>
+          <a href="sitemap.html">خريطة الموقع</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Form Validation and Submission
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+
+    // Validate email
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Validate phone
+    function validatePhone(phone) {
+      const re = /^01[0-2,5]{1}[0-9]{8}$/;
+      return re.test(phone);
+    }
+
+    // Show error
+    function showError(inputId, message) {
+      const errorElement = document.getElementById(inputId + 'Error');
+      const inputElement = document.getElementById(inputId);
+      
+      errorElement.textContent = message;
+      errorElement.style.color = 'var(--secondary-color)';
+      errorElement.style.fontSize = '0.9rem';
+      errorElement.style.marginTop = '5px';
+      inputElement.classList.add('error');
+    }
+
+    // Clear error
+    function clearError(inputId) {
+      const errorElement = document.getElementById(inputId + 'Error');
+      const inputElement = document.getElementById(inputId);
+      
+      errorElement.textContent = '';
+      inputElement.classList.remove('error');
+    }
+
+    // Show form message
+    function showFormMessage(type, message) {
+      formMessage.textContent = message;
+      formMessage.className = `form-message ${type}`;
+      formMessage.style.display = 'block';
+      
+      // Scroll to message
+      formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Hide message after 5 seconds
+      if (type === 'success') {
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    // Validate form
+    function validateForm() {
+      let isValid = true;
+      
+      // Validate name
+      const name = document.getElementById('name').value.trim();
+      if (name === '') {
+        showError('name', 'الاسم مطلوب');
+        isValid = false;
+      } else {
+        clearError('name');
+      }
+      
+      // Validate phone
+      const phone = document.getElementById('phone').value.trim();
+      if (phone === '') {
+        showError('phone', 'رقم الهاتف مطلوب');
+        isValid = false;
+      } else if (!validatePhone(phone)) {
+        showError('phone', 'رقم هاتف غير صالح. يجب أن يبدأ بـ 01 ويحتوي على 11 رقم');
+        isValid = false;
+      } else {
+        clearError('phone');
+      }
+      
+      // Validate email
+      const email = document.getElementById('email').value.trim();
+      if (email === '') {
+        showError('email', 'البريد الإلكتروني مطلوب');
+        isValid = false;
+      } else if (!validateEmail(email)) {
+        showError('email', 'بريد إلكتروني غير صالح');
+        isValid = false;
+      } else {
+        clearError('email');
+      }
+      
+      // Validate subject
+      const subject = document.getElementById('subject').value;
+      if (subject === '') {
+        showError('subject', 'موضوع الرسالة مطلوب');
+        isValid = false;
+      } else {
+        clearError('subject');
+      }
+      
+      // Validate message
+      const message = document.getElementById('message').value.trim();
+      if (message === '') {
+        showError('message', 'نص الرسالة مطلوب');
+        isValid = false;
+      } else if (message.length < 10) {
+        showError('message', 'الرسالة قصيرة جدًا. الرجاء كتابة تفاصيل أكثر');
+        isValid = false;
+      } else {
+        clearError('message');
+      }
+      
+      return isValid;
+    }
+
+    // Form submission
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (!validateForm()) {
+        return;
+      }
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+      
+      // Simulate form submission
+      // In real implementation, you would send data to your backend
+      setTimeout(() => {
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value.trim(),
+          company: document.getElementById('company').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value.trim(),
+          timestamp: new Date().toISOString()
+        };
+        
+        // Here you would send the data to your server
+        // Example using fetch:
+        /*
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showFormMessage('success', 'تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.');
+            contactForm.reset();
+          } else {
+            showFormMessage('error', 'حدث خطأ أثناء الإرسال. الرجاء المحاولة مرة أخرى.');
+          }
+        })
+        .catch(error => {
+          showFormMessage('error', 'حدث خطأ في الشبكة. الرجاء المحاولة مرة أخرى.');
+        });
+        */
+        
+        // For demo purposes, simulate successful submission
+        showFormMessage('success', 'تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.');
+        contactForm.reset();
+        
+        // Save to localStorage for demo (in real app, this would go to your database)
+        try {
+          const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+          submissions.push(formData);
+          localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+          console.log('Submission saved locally:', formData);
+        } catch (error) {
+          console.error('Error saving to localStorage:', error);
+        }
+        
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+      }, 1500);
+    });
+
+    // Real-time validation
+    document.querySelectorAll('.form-control').forEach(input => {
+      input.addEventListener('blur', () => {
+        validateForm();
+      });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, observerOptions);
+
+    // Observe contact methods
+    document.querySelectorAll('.contact-method').forEach(method => {
+      observer.observe(method);
+    });
+  </script>
 </body>
 </html>
