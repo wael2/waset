@@ -1,154 +1,838 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-
-<!-- ✅ هنا التعديل المهم -->
-
-<meta name="viewport" content="width=1024">
-
-<title>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>برنامج وسيط - حل متكامل لإدارة الشركات والمخازن والمبيعات</title>
 <meta name="description" content="برنامج وسيط هو الحل الذكي لإدارة الشركات والمخازن والمبيعات والفواتير بسهولة ودقة. يدعم التقارير الاحترافية وإدارة العملاء والموردين مع دعم فني مستمر.">
 <meta name="keywords" content="برنامج وسيط, إدارة الشركات, المبيعات, المخازن, الفواتير, تقارير, دعم فني, ERP, محاسبة, نظام مبيعات">
 <meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
 <meta name="robots" content="index, follow">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Cairo',sans-serif;background:#f9f9f9;color:#333;direction:rtl;}
-header{background:#2c3e50;color:white;padding:10px 20px;position:fixed;top:0;width:100%;z-index:100;}
-nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
-.logo{font-size:28px;font-weight:900;}
-.nav-links{list-style:none;display:flex;gap:15px;flex-wrap:wrap;}
-.nav-links li a{color:white;text-decoration:none;font-weight:600;transition:0.3s;padding:8px 12px;border-radius:5px;}
-.nav-links li a:hover,.nav-links li a.active{background:#e74c3c;}
-.hero{margin-top:100px;text-align:center;padding:40px 20px;background:linear-gradient(135deg,#e74c3c,#c0392b);color:white;}
-.hero h1{font-size:2.5em;margin-bottom:15px;}
-.hero p{font-size:18px;margin-bottom:20px;}
-.hero a{background:white;color:#c0392b;padding:12px 25px;border-radius:8px;text-decoration:none;font-weight:bold;transition:0.3s;}
-.hero a:hover{background:#2c3e50;color:white;}
-.features{max-width:1200px;margin:40px auto;padding:20px;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;text-align:center;}
-.feature{background:white;padding:20px;border-radius:10px;width:30%;min-width:260px;box-shadow:0 3px 10px rgba(0,0,0,0.1);transition:0.3s;}
-.feature:hover{transform:translateY(-5px);}
-.feature i{font-size:40px;color:#e74c3c;margin-bottom:10px;}
-.footer1-outer,.footer2-outer{background:#2c3e50;color:white;}
-.footer1-outer .page,.footer2-outer .page{max-width:1200px;margin:0 auto;padding:20px;}
-.footer1{display:flex;flex-wrap:wrap;gap:20px;}
-.footer1 .col3{width:30%;min-width:250px;}
-.footer1 h2{color:#fff;margin-bottom:10px;}
-.footer1 a{color:#fff;text-decoration:none;}
-.footer1 a:hover{color:#e74c3c;}
-.share-icons a{display:flex;align-items:center;gap:5px;background:#34495e;padding:5px 10px;border-radius:6px;transition:background 0.3s;margin-bottom:5px;}
-.share-icons a:hover{background:#e74c3c;}
-.footer2{text-align:center;font-size:0.9em;padding:10px;color:#ccc;}
-</style>
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #e74c3c;
+  --accent-color: #3498db;
+  --light-color: #f9f9f9;
+  --dark-color: #1a252f;
+  --gray-color: #7f8c8d;
+  --success-color: #27ae60;
+  --border-radius: 10px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  direction: rtl;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+  background-color: rgba(44, 62, 80, 0.95);
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+header.scrolled {
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--secondary-color);
+  font-size: 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 15px;
+  display: block;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+  color: white;
+  padding: 160px 0 100px;
+  margin-top: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Features Section */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.section-title p {
+  color: var(--gray-color);
+  max-width: 700px;
+  margin: 20px auto 0;
+  font-size: 1.1rem;
+}
+
+.features {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  text-align: center;
+  border-top: 4px solid var(--accent-color);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 48px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.feature-card p {
+  color: var(--gray-color);
+  margin-bottom: 20px;
+}
+
+.feature-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.feature-link:hover {
+  gap: 12px;
+}
+
+/* CTA Section */
+.cta {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #c0392b 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.footer1-outer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 70px 0 40px;
+}
+
+.footer1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: 0;
+  right: 0;
+}
+
+.footer-col p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--secondary-color);
+  padding-right: 5px;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info i {
+  color: var(--secondary-color);
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+.footer2-outer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    width: 80%;
+    height: calc(100vh - 70px);
+    padding: 30px;
+    transition: var(--transition);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero {
+    padding: 140px 0 80px;
+  }
+  
+  .features {
+    padding: 80px 0;
+  }
+  
+  .footer1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer2 {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
+</style>
 </head>
 
 <body>
-
-<header>
-<nav>
-<div class="logo">وسيط</div>
-<ul class="nav-links">
-<li><a href="index.html" class="active">الرئيسية</a></li>
-<li><a href="features.html">المميزات</a></li>
-<li><a href="pricing.html">الباقات</a></li>
-<li><a href="support.html">الدعم الفني</a></li>
-<li><a href="distributors.html">الموزعين</a></li>
-<li><a href="offers.html">العروض</a></li>
-<li><a href="services.html">الخدمات</a></li>
-<li><a href="programs.html">البرامج</a></li>
-<li><a href="feedback.html">آراء المستخدمين</a></li>
-</ul>
-</nav>
+<!-- Header -->
+<header id="header">
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo">
+        <i class="fas fa-hands-helping logo-icon"></i>
+        وسيط
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="features.html"><i class="fas fa-star"></i> المميزات</a></li>
+        <li><a href="pricing.html"><i class="fas fa-tags"></i> الباقات</a></li>
+        <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+        <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
+        <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
+        <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-<h1>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</h1>
-<p>حل ذكي متكامل لإدارة مؤسستك التجارية أو الصناعية بسهولة واحتراف.</p>
-<a href="pricing.html">استعرض الباقات</a>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text animate__animated animate__fadeInRight">
+        <h1>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</h1>
+        <p>حل متكامل لإدارة مؤسستك التجارية أو الصناعية بسهولة واحترافية. نظام إدارة شامل يدعم جميع عملياتك التجارية من المخازن والمبيعات إلى الفواتير والتقارير.</p>
+        <div class="hero-buttons">
+          <a href="pricing.html" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> ابدأ الآن مجاناً
+          </a>
+          <a href="features.html" class="btn btn-secondary">
+            <i class="fas fa-play-circle"></i> شاهد العرض التوضيحي
+          </a>
+        </div>
+      </div>
+      <div class="hero-image animate__animated animate__fadeInLeft">
+        <!-- يمكن استبدال هذا بمصدر صورة حقيقي -->
+        <div style="background: linear-gradient(135deg, #3498db, #2c3e50); width: 100%; height: 350px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+          <i class="fas fa-chart-line" style="font-size: 120px; color: rgba(255,255,255,0.2);"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="features">
-<div class="feature">
-<i class="fas fa-store"></i>
-<h3>إدارة المبيعات والمخازن</h3>
-<p>تحكم كامل في الفواتير والمخزون وتدفق البضائع في كل الفروع.</p>
-</div>
-<div class="feature">
-<i class="fas fa-chart-line"></i>
-<h3>تقارير وتحليلات دقيقة</h3>
-<p>تقارير تفصيلية تساعدك على اتخاذ قرارات مالية وتجارية صحيحة.</p>
-</div>
-<div class="feature">
-<i class="fas fa-users-cog"></i>
-<h3>إدارة العملاء والموردين</h3>
-<p>تابع الحسابات والتعاملات بسهولة واحتراف.</p>
-</div>
+<!-- Features Section -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>مميزات برنامج وسيط</h2>
+      <p>نقدم لك مجموعة متكاملة من المميزات التي تجعل إدارة أعمالك أسهل وأكثر احترافية</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-warehouse"></i>
+        </div>
+        <h3>إدارة المخازن الشاملة</h3>
+        <p>تحكم كامل في المخزون مع نظام جرد ذكي، تنبيهات نفاذ السلع، وإدارة الفروع المتعددة.</p>
+        <a href="features.html#inventory" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h3>نظام المبيعات المتكامل</h3>
+        <p>إدارة الفواتير والمبيعات والمرتجعات مع تقارير أداء المبيعات وتحليل البيانات.</p>
+        <a href="features.html#sales" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <h3>تقارير وتحليلات دقيقة</h3>
+        <p>تقارير مالية وتجارية مفصلة تساعدك على اتخاذ قرارات استراتيجية مستنيرة.</p>
+        <a href="features.html#reports" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>إدارة العملاء والموردين</h3>
+        <p>سجل كامل للعملاء والموردين مع تقارير المديونيات وتاريخ التعاملات.</p>
+        <a href="features.html#clients" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <h3>الفواتير الإلكترونية</h3>
+        <p>إنشاء فواتير احترافية متوافقة مع أنظمة الضرائب مع إمكانية الإرسال بالبريد الإلكتروني.</p>
+        <a href="features.html#invoices" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>دعم متعدد المنصات</h3>
+        <p>استخدم البرنامج على جهاز الكمبيوتر، التابلت أو الهاتف الذكي مع مزامنة فورية للبيانات.</p>
+        <a href="features.html#platforms" class="feature-link">
+          المزيد <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ✅ Footer الرسمي -->
+<!-- CTA Section -->
+<section class="cta">
+  <div class="container">
+    <h2>جاهز لتحويل إدارة أعمالك إلى تجربة احترافية؟</h2>
+    <p>انضم إلى الآلاف من الشركات التي تستخدم برنامج وسيط لإدارة أعمالها بشكل أكثر كفاءة واحترافية.</p>
+    <a href="pricing.html" class="btn btn-primary" style="background-color: white; color: #e74c3c;">
+      <i class="fas fa-crown"></i> ابدأ نسختك التجريبية المجانية الآن
+    </a>
+  </div>
+</section>
 
+<!-- Footer -->
 <div class="footer1-outer">
-<div class="page">
-<div class="footer1">
-<div class="col3">
-<h2>عن برنامج وسيط</h2>
-<p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
-</div>
-
-<div class="col3">
-<h2>اتصل بنا</h2>
-<i class="fas fa-map-marker"></i> طنطا - عمارة الست مباركة - المحطة<br>
-<i class="fas fa-headphones"></i> الدعم الفني: <a href="mailto:support@waset.services">support@waset.services</a><br>
-<i class="fas fa-phone"></i> واتساب: <a href="https://wa.me/201060350015">01060350015</a><br>
-<i class="fas fa-clock"></i> أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م، الجمعة عطلة<br>
-</div>
-
-<div class="col3">
-<h2>شارك برنامج وسيط</h2>
-<p>جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!</p>
-<div class="share-icons">
-<a href="#" class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a>
-<a href="#" class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i> تويتر</a>
-<a href="#" class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
-<a href="#" class="share-btn" data-platform="whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="footer1">
+      <div class="footer-col">
+        <h3>عن برنامج وسيط</h3>
+        <p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+          <li><a href="features.html"><i class="fas fa-arrow-left"></i> المميزات</a></li>
+          <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
+          <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
+          <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء العملاء</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>اتصل بنا</h3>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <span>
+              <a href="tel:+201060350015">01060350015</a> - 
+              <a href="tel:+20123456789">0123456789</a>
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>
+              <a href="mailto:support@waset.services">support@waset.services</a>
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer2-outer">
-<div class="page footer2">
-&copy; جميع الحقوق محفوظة 2025
-</div>
+  <div class="container">
+    <div class="footer2">
+      <div class="copyright">
+        &copy; جميع الحقوق محفوظة 2025 - برنامج وسيط
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">الشروط والأحكام</a>
+        <a href="sitemap.html">خريطة الموقع</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-const shareURL="https://waset.services/index.html";
-const shareText="جرب برنامج وسيط لإدارة الشركات والمخازن والمبيعات بسهولة، وطور أعمالك من أول يوم!";
-document.querySelectorAll('.share-btn').forEach(btn=>{
-  btn.addEventListener('click',function(e){
-    e.preventDefault();
-    const platform=this.dataset.platform;
-    let link="";
-    switch(platform){
-      case"facebook":link=`https://www.facebook.com/sharer.php?u=${encodeURIComponent(shareURL)}&quote=${encodeURIComponent(shareText)}`;break;
-      case"twitter":link=`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText+" "+shareURL)}`;break;
-      case"linkedin":link=`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareURL)}&title=${encodeURIComponent(shareText)}`;break;
-      case"whatsapp":link=`https://wa.me/?text=${encodeURIComponent(shareText+" "+shareURL)}`;break;
-    }
-    window.open(link,"_blank","width=600,height=500");
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+    ? '<i class="fas fa-times"></i>' 
+    : '<i class="fas fa-bars"></i>';
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
   });
 });
-</script>
 
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Animate elements on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+    }
+  });
+}, observerOptions);
+
+// Observe feature cards
+document.querySelectorAll('.feature-card').forEach(card => {
+  observer.observe(card);
+});
+</script>
 </body>
 </html>
