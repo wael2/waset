@@ -244,24 +244,96 @@
       flex-direction: row-reverse;
     }
 
+    /* Image Slider Styles */
     .feature-media {
       flex: 1;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--box-shadow);
+      position: relative;
     }
 
-    .feature-media img {
+    .image-slider {
+      position: relative;
       width: 100%;
-      height: auto;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider-slide {
+      min-width: 100%;
+      height: 100%;
+    }
+
+    .slider-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+    }
+
+    .slider-nav {
+      position: absolute;
+      bottom: 20px;
+      right: 50%;
+      transform: translateX(50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
       transition: var(--transition);
     }
 
-    .feature-media img:hover {
-      transform: scale(1.03);
+    .slider-dot.active {
+      background-color: var(--secondary-color);
+      transform: scale(1.2);
     }
 
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .slider-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .slider-arrow.prev {
+      right: 15px;
+    }
+
+    .slider-arrow.next {
+      left: 15px;
+    }
+
+    /* Feature Content */
     .feature-content {
       flex: 1;
     }
@@ -314,12 +386,21 @@
       text-decoration: none;
       font-weight: bold;
       transition: var(--transition);
+      margin-top: 15px;
+      margin-left: 10px;
     }
 
     .video-btn:hover {
       background-color: #c0392b;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    .video-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     /* Video Modal */
@@ -575,6 +656,10 @@
       .section-title h2 {
         font-size: 2rem;
       }
+      
+      .image-slider {
+        height: 350px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -634,6 +719,15 @@
         width: 100%;
         justify-content: center;
       }
+      
+      .image-slider {
+        height: 300px;
+      }
+      
+      .slider-arrow {
+        width: 35px;
+        height: 35px;
+      }
     }
 
     @media (max-width: 576px) {
@@ -651,6 +745,14 @@
       
       .video-placeholder i {
         font-size: 70px;
+      }
+      
+      .image-slider {
+        height: 250px;
+      }
+      
+      .video-buttons {
+        flex-direction: column;
       }
     }
   </style>
@@ -726,7 +828,26 @@
       
       <div class="feature-detail animate__animated animate__fadeInUp">
         <div class="feature-media">
-          <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط">
+          <div class="image-slider" id="slider-homepage">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/homepage-1.png" alt="الشاشة الرئيسية لبرنامج وسيط - الصورة 1">
+              </div>
+              <div class="slider-slide">
+                <img src="images/homepage-2.png" alt="الشاشة الرئيسية لبرنامج وسيط - الصورة 2">
+              </div>
+              <div class="slider-slide">
+                <img src="images/homepage-3.png" alt="الشاشة الرئيسية لبرنامج وسيط - الصورة 3">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+            </div>
+          </div>
         </div>
         
         <div class="feature-content">
@@ -741,9 +862,17 @@
             <li><i class="fas fa-check-circle"></i> إمكانية تخصيص الواجهة حسب احتياجاتك</li>
           </ul>
           
-          <a href="#" class="video-btn" data-video-id="main-screen">
-            <i class="fas fa-play-circle"></i> شاهد شرح الشاشة الرئيسية
-          </a>
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="homepage-tour">
+              <i class="fas fa-play-circle"></i> جولة في الشاشة الرئيسية
+            </a>
+            <a href="#" class="video-btn" data-video-id="homepage-customization">
+              <i class="fas fa-cogs"></i> تخصيص الواجهة
+            </a>
+            <a href="#" class="video-btn" data-video-id="homepage-notifications">
+              <i class="fas fa-bell"></i> نظام الإشعارات
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -759,7 +888,30 @@
       
       <div class="feature-detail animate__animated animate__fadeInUp">
         <div class="feature-media">
-          <img src="images/inventory.png" alt="إدارة المخازن والمبيعات في برنامج وسيط">
+          <div class="image-slider" id="slider-inventory">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/inventory-1.png" alt="إدارة المخازن - الصورة 1">
+              </div>
+              <div class="slider-slide">
+                <img src="images/inventory-2.png" alt="إدارة المخازن - الصورة 2">
+              </div>
+              <div class="slider-slide">
+                <img src="images/inventory-3.png" alt="إدارة المخازن - الصورة 3">
+              </div>
+              <div class="slider-slide">
+                <img src="images/inventory-4.png" alt="إدارة المخازن - الصورة 4">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+              <span class="slider-dot" data-slide="3"></span>
+            </div>
+          </div>
         </div>
         
         <div class="feature-content">
@@ -774,9 +926,17 @@
             <li><i class="fas fa-check-circle"></i> طباعة باركود للمنتجات وتتبعها</li>
           </ul>
           
-          <a href="#" class="video-btn" data-video-id="inventory-management">
-            <i class="fas fa-play-circle"></i> شاهد شرح إدارة المخازن
-          </a>
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="inventory-management">
+              <i class="fas fa-play-circle"></i> إدارة المخازن الأساسية
+            </a>
+            <a href="#" class="video-btn" data-video-id="inventory-reports">
+              <i class="fas fa-chart-bar"></i> تقارير المخزون
+            </a>
+            <a href="#" class="video-btn" data-video-id="inventory-barcode">
+              <i class="fas fa-barcode"></i> نظام الباركود
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -792,7 +952,26 @@
       
       <div class="feature-detail animate__animated animate__fadeInUp">
         <div class="feature-media">
-          <img src="images/customers.png" alt="إدارة العملاء والموردين في برنامج وسيط">
+          <div class="image-slider" id="slider-customers">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/customers-1.png" alt="إدارة العملاء - الصورة 1">
+              </div>
+              <div class="slider-slide">
+                <img src="images/customers-2.png" alt="إدارة العملاء - الصورة 2">
+              </div>
+              <div class="slider-slide">
+                <img src="images/customers-3.png" alt="إدارة العملاء - الصورة 3">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+            </div>
+          </div>
         </div>
         
         <div class="feature-content">
@@ -807,9 +986,17 @@
             <li><i class="fas fa-check-circle"></i> إشعارات بمذكرات الاستحقاق</li>
           </ul>
           
-          <a href="#" class="video-btn" data-video-id="customers-suppliers">
-            <i class="fas fa-play-circle"></i> شاهد شرح إدارة العملاء
-          </a>
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="customers-management">
+              <i class="fas fa-play-circle"></i> إدارة العملاء
+            </a>
+            <a href="#" class="video-btn" data-video-id="suppliers-management">
+              <i class="fas fa-truck"></i> إدارة الموردين
+            </a>
+            <a href="#" class="video-btn" data-video-id="debt-reports">
+              <i class="fas fa-file-invoice-dollar"></i> تقارير المديونيات
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -825,7 +1012,30 @@
       
       <div class="feature-detail animate__animated animate__fadeInUp">
         <div class="feature-media">
-          <img src="images/attendance.png" alt="نظام الحضور والانصراف في برنامج وسيط">
+          <div class="image-slider" id="slider-attendance">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/attendance-1.png" alt="نظام الحضور - الصورة 1">
+              </div>
+              <div class="slider-slide">
+                <img src="images/attendance-2.png" alt="نظام الحضور - الصورة 2">
+              </div>
+              <div class="slider-slide">
+                <img src="images/attendance-3.png" alt="نظام الحضور - الصورة 3">
+              </div>
+              <div class="slider-slide">
+                <img src="images/attendance-4.png" alt="نظام الحضور - الصورة 4">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+              <span class="slider-dot" data-slide="3"></span>
+            </div>
+          </div>
         </div>
         
         <div class="feature-content">
@@ -840,9 +1050,17 @@
             <li><i class="fas fa-check-circle"></i> تقارير حضور الموظفين الشهرية</li>
           </ul>
           
-          <a href="#" class="video-btn" data-video-id="attendance">
-            <i class="fas fa-play-circle"></i> شاهد شرح نظام الحضور
-          </a>
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="attendance-setup">
+              <i class="fas fa-play-circle"></i> إعداد نظام الحضور
+            </a>
+            <a href="#" class="video-btn" data-video-id="fingerprint-integration">
+              <i class="fas fa-fingerprint"></i> ربط أجهزة البصمة
+            </a>
+            <a href="#" class="video-btn" data-video-id="attendance-reports">
+              <i class="fas fa-chart-line"></i> تقارير الحضور
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -858,7 +1076,34 @@
       
       <div class="feature-detail animate__animated animate__fadeInUp">
         <div class="feature-media">
-          <img src="images/reports.png" alt="التقارير وتحليل الأداء في برنامج وسيط">
+          <div class="image-slider" id="slider-reports">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/reports-1.png" alt="التقارير - الصورة 1">
+              </div>
+              <div class="slider-slide">
+                <img src="images/reports-2.png" alt="التقارير - الصورة 2">
+              </div>
+              <div class="slider-slide">
+                <img src="images/reports-3.png" alt="التقارير - الصورة 3">
+              </div>
+              <div class="slider-slide">
+                <img src="images/reports-4.png" alt="التقارير - الصورة 4">
+              </div>
+              <div class="slider-slide">
+                <img src="images/reports-5.png" alt="التقارير - الصورة 5">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+              <span class="slider-dot" data-slide="3"></span>
+              <span class="slider-dot" data-slide="4"></span>
+            </div>
+          </div>
         </div>
         
         <div class="feature-content">
@@ -873,9 +1118,17 @@
             <li><i class="fas fa-check-circle"></i> إمكانية تصدير التقارير بصيغ متعددة</li>
           </ul>
           
-          <a href="#" class="video-btn" data-video-id="reports">
-            <i class="fas fa-play-circle"></i> شاهد شرح التقارير
-          </a>
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="financial-reports">
+              <i class="fas fa-file-invoice-dollar"></i> التقارير المالية
+            </a>
+            <a href="#" class="video-btn" data-video-id="sales-reports">
+              <i class="fas fa-chart-line"></i> تقارير المبيعات
+            </a>
+            <a href="#" class="video-btn" data-video-id="export-reports">
+              <i class="fas fa-download"></i> تصدير التقارير
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1049,6 +1302,109 @@
       observer.observe(detail);
     });
 
+    // Image Slider Functionality
+    class ImageSlider {
+      constructor(sliderId) {
+        this.slider = document.getElementById(sliderId);
+        this.container = this.slider.querySelector('.slider-container');
+        this.slides = this.slider.querySelectorAll('.slider-slide');
+        this.dots = this.slider.querySelectorAll('.slider-dot');
+        this.prevBtn = this.slider.querySelector('.slider-arrow.prev');
+        this.nextBtn = this.slider.querySelector('.slider-arrow.next');
+        
+        this.currentSlide = 0;
+        this.totalSlides = this.slides.length;
+        this.autoSlideInterval = null;
+        this.slideDuration = 5000; // 5 ثواني
+        
+        this.init();
+      }
+      
+      init() {
+        // Set initial slide
+        this.showSlide(this.currentSlide);
+        
+        // Event listeners
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        // Dot navigation
+        this.dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Start auto slide
+        this.startAutoSlide();
+        
+        // Pause auto slide on hover
+        this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
+        this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
+      }
+      
+      showSlide(index) {
+        // Update container transform
+        this.container.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Update active dot
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        this.dots[index].classList.add('active');
+        
+        // Update current slide
+        this.currentSlide = index;
+      }
+      
+      nextSlide() {
+        let nextIndex = this.currentSlide + 1;
+        if (nextIndex >= this.totalSlides) {
+          nextIndex = 0;
+        }
+        this.showSlide(nextIndex);
+        this.resetAutoSlide();
+      }
+      
+      prevSlide() {
+        let prevIndex = this.currentSlide - 1;
+        if (prevIndex < 0) {
+          prevIndex = this.totalSlides - 1;
+        }
+        this.showSlide(prevIndex);
+        this.resetAutoSlide();
+      }
+      
+      goToSlide(index) {
+        this.showSlide(index);
+        this.resetAutoSlide();
+      }
+      
+      startAutoSlide() {
+        this.stopAutoSlide(); // Stop any existing interval
+        this.autoSlideInterval = setInterval(() => {
+          this.nextSlide();
+        }, this.slideDuration);
+      }
+      
+      stopAutoSlide() {
+        if (this.autoSlideInterval) {
+          clearInterval(this.autoSlideInterval);
+          this.autoSlideInterval = null;
+        }
+      }
+      
+      resetAutoSlide() {
+        this.stopAutoSlide();
+        this.startAutoSlide();
+      }
+    }
+
+    // Initialize all sliders
+    const sliders = [
+      new ImageSlider('slider-homepage'),
+      new ImageSlider('slider-inventory'),
+      new ImageSlider('slider-customers'),
+      new ImageSlider('slider-attendance'),
+      new ImageSlider('slider-reports')
+    ];
+
     // Video Modal functionality
     const videoModal = document.getElementById('videoModal');
     const closeModal = document.getElementById('closeModal');
@@ -1056,11 +1412,30 @@
     
     // قائمة الفيديوهات (يمكنك إضافة روابط فيديوهات يوتيوب حقيقية هنا)
     const videos = {
-      'main-screen': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      // الشاشة الرئيسية
+      'homepage-tour': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'homepage-customization': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'homepage-notifications': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      
+      // المخازن والمبيعات
       'inventory-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'customers-suppliers': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'attendance': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'reports': 'https://www.youtube.com/embed/XXXXXXXXXXX'
+      'inventory-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'inventory-barcode': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      
+      // العملاء والموردين
+      'customers-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'suppliers-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'debt-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      
+      // الحضور والانصراف
+      'attendance-setup': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'fingerprint-integration': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'attendance-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      
+      // التقارير
+      'financial-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'sales-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'export-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX'
     };
 
     // Video button functionality
@@ -1069,21 +1444,25 @@
         e.preventDefault();
         const videoId = this.dataset.videoId;
         
-        // تحميل الفيديو المناسب
-        modalVideoContainer.innerHTML = `
-          <iframe 
-            width="100%" 
-            height="500" 
-            src="${videos[videoId]}?autoplay=1" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        `;
-        
-        // عرض النافذة المنبثقة
-        videoModal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // منع التمرير عند عرض الفيديو
+        if (videos[videoId]) {
+          // تحميل الفيديو المناسب
+          modalVideoContainer.innerHTML = `
+            <iframe 
+              width="100%" 
+              height="500" 
+              src="${videos[videoId]}?autoplay=1" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          `;
+          
+          // عرض النافذة المنبثقة
+          videoModal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // منع التمرير عند عرض الفيديو
+        } else {
+          alert('سيتم إضافة الفيديو قريباً');
+        }
       });
     });
 
