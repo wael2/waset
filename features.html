@@ -834,10 +834,10 @@
                 <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط">
               </div>
               <div class="slider-slide">
-                <img src="images/SalesManthly.png" alt="احصائيات المبيعات">
+                <img src="images/SalesManthly.png" alt="احصائيات المبيعات الشهرية">
               </div>
               <div class="slider-slide">
-                <img src="images/ProductAlarm.png" alt="الشاشة الرئيسية لبرنامج وسيط - الصورة 3">
+                <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -891,16 +891,16 @@
           <div class="image-slider" id="slider-inventory">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/inventory-1.png" alt="إدارة المخازن - الصورة 1">
+                <img src="images/SalesInvoice.png" alt="فاتورة المبيعات">
               </div>
               <div class="slider-slide">
-                <img src="images/inventory-2.png" alt="إدارة المخازن - الصورة 2">
+                <img src="images/Products.png" alt="قائمة المنتجات">
               </div>
               <div class="slider-slide">
-                <img src="images/inventory-3.png" alt="إدارة المخازن - الصورة 3">
+                <img src="images/invoice-print.png" alt="طباعة الفواتير">
               </div>
               <div class="slider-slide">
-                <img src="images/inventory-4.png" alt="إدارة المخازن - الصورة 4">
+                <img src="images/barcode.png" alt="نظام الباركود">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -955,13 +955,16 @@
           <div class="image-slider" id="slider-customers">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/customers-1.png" alt="إدارة العملاء - الصورة 1">
+                <img src="images/Customers.png" alt="قائمة العملاء">
               </div>
               <div class="slider-slide">
-                <img src="images/customers-2.png" alt="إدارة العملاء - الصورة 2">
+                <img src="images/Suppliers.png" alt="قائمة الموردين">
               </div>
               <div class="slider-slide">
-                <img src="images/customers-3.png" alt="إدارة العملاء - الصورة 3">
+                <img src="images/DebtReport.png" alt="تقارير المديونيات">
+              </div>
+              <div class="slider-slide">
+                <img src="images/Cheques.png" alt="إدارة الشيكات">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -970,6 +973,7 @@
               <span class="slider-dot active" data-slide="0"></span>
               <span class="slider-dot" data-slide="1"></span>
               <span class="slider-dot" data-slide="2"></span>
+              <span class="slider-dot" data-slide="3"></span>
             </div>
           </div>
         </div>
@@ -1015,16 +1019,16 @@
           <div class="image-slider" id="slider-attendance">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/attendance-1.png" alt="نظام الحضور - الصورة 1">
+                <img src="images/Attendance.png" alt="سجل الحضور والانصراف">
               </div>
               <div class="slider-slide">
-                <img src="images/attendance-2.png" alt="نظام الحضور - الصورة 2">
+                <img src="images/Employees.png" alt="قائمة الموظفين">
               </div>
               <div class="slider-slide">
-                <img src="images/attendance-3.png" alt="نظام الحضور - الصورة 3">
+                <img src="images/Vacations.png" alt="إدارة الإجازات">
               </div>
               <div class="slider-slide">
-                <img src="images/attendance-4.png" alt="نظام الحضور - الصورة 4">
+                <img src="images/AttendanceReport.png" alt="تقارير الحضور">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1079,19 +1083,19 @@
           <div class="image-slider" id="slider-reports">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/reports-1.png" alt="التقارير - الصورة 1">
+                <img src="images/SalesReports.png" alt="تقارير المبيعات">
               </div>
               <div class="slider-slide">
-                <img src="images/reports-2.png" alt="التقارير - الصورة 2">
+                <img src="images/FinancialReports.png" alt="التقارير المالية">
               </div>
               <div class="slider-slide">
-                <img src="images/reports-3.png" alt="التقارير - الصورة 3">
+                <img src="images/InventoryReports.png" alt="تقارير المخزون">
               </div>
               <div class="slider-slide">
-                <img src="images/reports-4.png" alt="التقارير - الصورة 4">
+                <img src="images/ProfitReports.png" alt="تقارير الربحية">
               </div>
               <div class="slider-slide">
-                <img src="images/reports-5.png" alt="التقارير - الصورة 5">
+                <img src="images/ExportReports.png" alt="تصدير التقارير">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1302,7 +1306,7 @@
       observer.observe(detail);
     });
 
-    // Image Slider Functionality
+    // Image Slider Functionality - نسخة محسنة
     class ImageSlider {
       constructor(sliderId) {
         this.slider = document.getElementById(sliderId);
@@ -1316,6 +1320,7 @@
         this.totalSlides = this.slides.length;
         this.autoSlideInterval = null;
         this.slideDuration = 5000; // 5 ثواني
+        this.isTransitioning = false;
         
         this.init();
       }
@@ -1339,21 +1344,42 @@
         // Pause auto slide on hover
         this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
         this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
+        
+        // Handle image load errors
+        this.slider.querySelectorAll('img').forEach(img => {
+          img.addEventListener('error', () => {
+            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJDb2FpbG8iIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM3ZjhjOGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9ncmFtIFdhdHNldDwvdGV4dD48L3N2Zz4=';
+            img.alt = 'صورة غير متوفرة';
+          });
+        });
       }
       
       showSlide(index) {
+        if (this.isTransitioning) return;
+        
+        this.isTransitioning = true;
+        
         // Update container transform
         this.container.style.transform = `translateX(-${index * 100}%)`;
         
         // Update active dot
         this.dots.forEach(dot => dot.classList.remove('active'));
-        this.dots[index].classList.add('active');
+        if (this.dots[index]) {
+          this.dots[index].classList.add('active');
+        }
         
         // Update current slide
         this.currentSlide = index;
+        
+        // Reset transitioning flag after animation
+        setTimeout(() => {
+          this.isTransitioning = false;
+        }, 500);
       }
       
       nextSlide() {
+        if (this.isTransitioning) return;
+        
         let nextIndex = this.currentSlide + 1;
         if (nextIndex >= this.totalSlides) {
           nextIndex = 0;
@@ -1363,6 +1389,8 @@
       }
       
       prevSlide() {
+        if (this.isTransitioning) return;
+        
         let prevIndex = this.currentSlide - 1;
         if (prevIndex < 0) {
           prevIndex = this.totalSlides - 1;
@@ -1372,8 +1400,12 @@
       }
       
       goToSlide(index) {
-        this.showSlide(index);
-        this.resetAutoSlide();
+        if (this.isTransitioning || index === this.currentSlide) return;
+        
+        if (index >= 0 && index < this.totalSlides) {
+          this.showSlide(index);
+          this.resetAutoSlide();
+        }
       }
       
       startAutoSlide() {
@@ -1396,14 +1428,22 @@
       }
     }
 
-    // Initialize all sliders
-    const sliders = [
-      new ImageSlider('slider-homepage'),
-      new ImageSlider('slider-inventory'),
-      new ImageSlider('slider-customers'),
-      new ImageSlider('slider-attendance'),
-      new ImageSlider('slider-reports')
-    ];
+    // Initialize all sliders بعد تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const sliderIds = ['slider-homepage', 'slider-inventory', 'slider-customers', 'slider-attendance', 'slider-reports'];
+        const sliders = [];
+        
+        sliderIds.forEach(id => {
+          const sliderElement = document.getElementById(id);
+          if (sliderElement) {
+            sliders.push(new ImageSlider(id));
+          }
+        });
+        
+        console.log(`تم تهيئة ${sliders.length} سلايدر`);
+      }, 1000);
+    });
 
     // Video Modal functionality
     const videoModal = document.getElementById('videoModal');
@@ -1484,9 +1524,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
