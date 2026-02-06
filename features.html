@@ -270,13 +270,18 @@
     .slider-slide {
       min-width: 100%;
       height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
     }
 
     .slider-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* تغيير من cover إلى contain */
       display: block;
+      margin: 0 auto;
     }
 
     .slider-nav {
@@ -1138,6 +1143,70 @@
     </div>
   </section>
 
+  <!-- إدارة حسابات وفروع -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>إدارة حسابات وفروع</h2>
+        <p>نظام محاسبي متكامل وإدارة فروع متعددة</p>
+      </div>
+      
+      <div class="feature-detail animate__animated animate__fadeInUp">
+        <div class="feature-media">
+          <div class="image-slider" id="slider-accounts">
+            <div class="slider-container">
+              <div class="slider-slide">
+                <img src="images/Accounts.png" alt="الحسابات المالية">
+              </div>
+              <div class="slider-slide">
+                <img src="images/Branches.png" alt="إدارة الفروع">
+              </div>
+              <div class="slider-slide">
+                <img src="images/Journal.png" alt="دفتر اليومية">
+              </div>
+              <div class="slider-slide">
+                <img src="images/BalanceSheet.png" alt="الميزانية العمومية">
+              </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-nav">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+              <span class="slider-dot" data-slide="3"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-calculator"></i> إدارة حسابات وفروع</h3>
+          <p>نظام محاسبي متكامل يتضمن دفتر يومية، ميزان مراجعة، قائمة دخل، وميزانية عمومية مع دعم لإدارة فروع متعددة.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> نظام محاسبي متكامل (دفتر يومية - ميزان مراجعة)</li>
+            <li><i class="fas fa-check-circle"></i> إدارة فروع متعددة مع مزامنة البيانات</li>
+            <li><i class="fas fa-check-circle"></i> قائمة دخل وميزانية عمومية</li>
+            <li><i class="fas fa-check-circle"></i> دعم العملات المتعددة</li>
+            <li><i class="fas fa-check-circle"></i> تقارير مالية شهرية وسنوية</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="accounts-management">
+              <i class="fas fa-play-circle"></i> النظام المحاسبي
+            </a>
+            <a href="#" class="video-btn" data-video-id="branches-management">
+              <i class="fas fa-code-branch"></i> إدارة الفروع
+            </a>
+            <a href="#" class="video-btn" data-video-id="financial-statements">
+              <i class="fas fa-file-invoice"></i> القوائم المالية
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Video Modal -->
   <div class="video-modal" id="videoModal">
     <div class="modal-content">
@@ -1306,10 +1375,15 @@
       observer.observe(detail);
     });
 
-    // Image Slider Functionality - نسخة محسنة
+    // Image Slider Functionality - نسخة محسنة مع ديبقين
     class ImageSlider {
       constructor(sliderId) {
         this.slider = document.getElementById(sliderId);
+        if (!this.slider) {
+          console.error(`لا يوجد سلايدر بالـ ID: ${sliderId}`);
+          return;
+        }
+        
         this.container = this.slider.querySelector('.slider-container');
         this.slides = this.slider.querySelectorAll('.slider-slide');
         this.dots = this.slider.querySelectorAll('.slider-dot');
@@ -1322,7 +1396,10 @@
         this.slideDuration = 5000; // 5 ثواني
         this.isTransitioning = false;
         
+        console.log(`تم إنشاء سلايدر: ${sliderId} بـ ${this.totalSlides} شرائح`);
+        
         this.init();
+        this.preloadImages();
       }
       
       init() {
@@ -1345,12 +1422,43 @@
         this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
         this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
         
-        // Handle image load errors
-        this.slider.querySelectorAll('img').forEach(img => {
+        // Add error handling for images
+        this.slider.querySelectorAll('img').forEach((img, index) => {
           img.addEventListener('error', () => {
-            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJDb2FpbG8iIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM3ZjhjOGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9ncmFtIFdhdHNldDwvdGV4dD48L3N2Zz4=';
-            img.alt = 'صورة غير متوفرة';
+            console.error(`فشل تحميل الصورة: ${img.src}`);
+            img.src = this.createPlaceholderImage(index + 1);
+            img.alt = 'صورة غير متوفرة - ' + (index + 1);
           });
+          
+          img.addEventListener('load', () => {
+            console.log(`تم تحميل الصورة: ${img.src}`);
+          });
+        });
+      }
+      
+      createPlaceholderImage(number) {
+        return `data:image/svg+xml;base64,${btoa(`
+          <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#f5f5f5"/>
+            <text x="50%" y="45%" font-family="Cairo" font-size="24" fill="#7f8c8d" text-anchor="middle">صورة ${number}</text>
+            <text x="50%" y="55%" font-family="Cairo" font-size="18" fill="#7f8c8d" text-anchor="middle">برنامج وسيط</text>
+          </svg>
+        `)}`;
+      }
+      
+      preloadImages() {
+        this.slides.forEach((slide, index) => {
+          const img = slide.querySelector('img');
+          if (img) {
+            const tempImg = new Image();
+            tempImg.src = img.src;
+            tempImg.onload = () => {
+              console.log(`تم تحميل مسبقاً: ${img.src}`);
+            };
+            tempImg.onerror = () => {
+              console.warn(`فشل التحميل المسبق: ${img.src}`);
+            };
+          }
         });
       }
       
@@ -1370,6 +1478,8 @@
         
         // Update current slide
         this.currentSlide = index;
+        
+        console.log(`عرض الشريحة: ${index}`);
         
         // Reset transitioning flag after animation
         setTimeout(() => {
@@ -1413,12 +1523,15 @@
         this.autoSlideInterval = setInterval(() => {
           this.nextSlide();
         }, this.slideDuration);
+        
+        console.log('بدأ التبديل التلقائي');
       }
       
       stopAutoSlide() {
         if (this.autoSlideInterval) {
           clearInterval(this.autoSlideInterval);
           this.autoSlideInterval = null;
+          console.log('توقف التبديل التلقائي');
         }
       }
       
@@ -1430,27 +1543,73 @@
 
     // Initialize all sliders بعد تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
+      console.log('تم تحميل الصفحة، جار تهيئة السلايدرز...');
+      
+      // انتظر قليلاً لضمان تحميل DOM بالكامل
       setTimeout(() => {
-        const sliderIds = ['slider-homepage', 'slider-inventory', 'slider-customers', 'slider-attendance', 'slider-reports'];
-        const sliders = [];
+        const sliderIds = [
+          'slider-homepage',
+          'slider-inventory', 
+          'slider-customers',
+          'slider-attendance',
+          'slider-reports',
+          'slider-accounts'
+        ];
         
+        // تحقق من وجود جميع السلايدرز
         sliderIds.forEach(id => {
           const sliderElement = document.getElementById(id);
           if (sliderElement) {
-            sliders.push(new ImageSlider(id));
+            console.log(`تم العثور على السلايدر: ${id}`);
+            const slider = new ImageSlider(id);
+            
+            // اختبر السلايدر بعد إنشائه
+            setTimeout(() => {
+              console.log(`اختبار السلايدر ${id}:`);
+              console.log(`- عدد الشرائح: ${slider.totalSlides}`);
+              console.log(`- الشريحة الحالية: ${slider.currentSlide}`);
+              console.log(`- التبديل التلقائي: ${slider.autoSlideInterval ? 'نشط' : 'غير نشط'}`);
+            }, 1000);
+          } else {
+            console.error(`لم يتم العثور على السلايدر: ${id}`);
           }
         });
-        
-        console.log(`تم تهيئة ${sliders.length} سلايدر`);
-      }, 1000);
+      }, 500);
     });
+
+    // اختبار يدوي للسلايدر
+    function testSlider(sliderId) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) {
+        console.error(`لم يتم العثور على السلايدر: ${sliderId}!`);
+        return;
+      }
+      
+      const slides = slider.querySelectorAll('.slider-slide');
+      console.log(`اختبار السلايدر ${sliderId}: عدد الشرائح = ${slides.length}`);
+      
+      slides.forEach((slide, index) => {
+        const img = slide.querySelector('img');
+        console.log(`الشريحة ${index}: ${img.src}`);
+        
+        // تحقق من تحميل الصورة
+        const testImg = new Image();
+        testImg.src = img.src;
+        testImg.onload = () => {
+          console.log(`✓ الصورة ${index} موجودة: ${img.src}`);
+        };
+        testImg.onerror = () => {
+          console.error(`✗ الصورة ${index} غير موجودة: ${img.src}`);
+        };
+      });
+    }
 
     // Video Modal functionality
     const videoModal = document.getElementById('videoModal');
     const closeModal = document.getElementById('closeModal');
     const modalVideoContainer = document.getElementById('modalVideoContainer');
     
-    // قائمة الفيديوهات (يمكنك إضافة روابط فيديوهات يوتيوب حقيقية هنا)
+    // قائمة الفيديوهات
     const videos = {
       // الشاشة الرئيسية
       'homepage-tour': 'https://www.youtube.com/embed/XXXXXXXXXXX',
@@ -1475,7 +1634,12 @@
       // التقارير
       'financial-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
       'sales-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'export-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX'
+      'export-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      
+      // الحسابات والفروع
+      'accounts-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'branches-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
+      'financial-statements': 'https://www.youtube.com/embed/XXXXXXXXXXX'
     };
 
     // Video button functionality
@@ -1521,7 +1685,20 @@
         document.body.style.overflow = 'auto';
       }
     });
+
+    // اختبر جميع السلايدرز بعد تحميل الصفحة
+    setTimeout(() => {
+      const sliders = [
+        'slider-homepage',
+        'slider-inventory',
+        'slider-customers',
+        'slider-attendance',
+        'slider-reports',
+        'slider-accounts'
+      ];
+      
+      sliders.forEach(testSlider);
+    }, 3000);
   </script>
 </body>
 </html>
-
