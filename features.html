@@ -244,98 +244,107 @@
       flex-direction: row-reverse;
     }
 
-    /* Image Slider Styles */
+    /* ============== تصميم السلايدر مثل index.html ============== */
     .feature-media {
       flex: 1;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
       position: relative;
     }
 
-    .image-slider {
+    .screenshot-slider {
       position: relative;
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-    }
-
-    .slider-container {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slider-slide {
-      min-width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f5f5f5;
-    }
-
-    .slider-slide img {
       max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
       margin: 0 auto;
     }
 
-    .slider-nav {
-      position: absolute;
-      bottom: 20px;
-      right: 50%;
-      transform: translateX(50%);
-      display: flex;
-      gap: 10px;
-      z-index: 10;
+    .carousel-container {
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      position: relative;
+      background-color: #fff;
     }
 
-    .slider-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: var(--transition);
+    .screenshot-slide {
+      display: none;
+      width: 100%;
+      height: 400px;
+      position: relative;
     }
 
-    .slider-dot.active {
-      background-color: var(--secondary-color);
-      transform: scale(1.2);
+    .screenshot-slide.active {
+      display: block;
     }
 
-    .slider-arrow {
+    .screenshot-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 20px;
+    }
+
+    /* Slider Controls - مثل index.html */
+    .slider-controls {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 10;
+      padding: 0 20px;
+    }
+
+    .prev-btn, .next-btn {
+      background-color: rgba(44, 62, 80, 0.8);
       color: white;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      pointer-events: all;
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 11;
+    }
+
+    .prev-btn:hover, .next-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+
+    .prev-btn {
+      right: 0;
+    }
+
+    .next-btn {
+      left: 0;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ddd;
       cursor: pointer;
       transition: var(--transition);
-      z-index: 10;
     }
 
-    .slider-arrow:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .slider-arrow.prev {
-      right: 15px;
-    }
-
-    .slider-arrow.next {
-      left: 15px;
+    .dot.active {
+      background-color: var(--secondary-color);
+      transform: scale(1.2);
     }
 
     /* Feature Content */
@@ -406,46 +415,6 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
-    }
-
-    /* Video Modal */
-    .video-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .close-modal:hover {
-      color: var(--secondary-color);
     }
 
     /* CTA Section */
@@ -662,7 +631,7 @@
         font-size: 2rem;
       }
       
-      .image-slider {
+      .screenshot-slide {
         height: 350px;
       }
     }
@@ -725,13 +694,14 @@
         justify-content: center;
       }
       
-      .image-slider {
+      .screenshot-slide {
         height: 300px;
       }
       
-      .slider-arrow {
-        width: 35px;
-        height: 35px;
+      .prev-btn, .next-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
       }
     }
 
@@ -752,7 +722,7 @@
         font-size: 70px;
       }
       
-      .image-slider {
+      .screenshot-slide {
         height: 250px;
       }
       
@@ -819,7 +789,7 @@
   </section>
 
   <!-- الشاشة الرئيسية -->
-  <section class="features-section">
+  <section class="features-section" id="homepage">
     <div class="container">
       <div class="section-title">
         <h2>الشاشة الرئيسية والتنقل</h2>
@@ -828,24 +798,33 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="1">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 1 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel1">
+              <div class="screenshot-slide active">
                 <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/SalesManthly.png" alt="احصائيات المبيعات الشهرية" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="1">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="1">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots1">
+              <span class="dot active" data-carousel="1" data-index="0"></span>
+              <span class="dot" data-carousel="1" data-index="1"></span>
+              <span class="dot" data-carousel="1" data-index="2"></span>
             </div>
           </div>
         </div>
@@ -876,7 +855,7 @@
   </section>
 
   <!-- إدارة المخازن والمبيعات -->
-  <section class="features-section">
+  <section class="features-section" id="inventory">
     <div class="container">
       <div class="section-title">
         <h2>إدارة المخازن والمبيعات</h2>
@@ -885,28 +864,37 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="2">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 2 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel2">
+              <div class="screenshot-slide active">
                 <img src="images/SalesInvoice.png" alt="فاتورة المبيعات" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Products.png" alt="قائمة المنتجات" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/invoice-print.png" alt="طباعة الفواتير" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/barcode.png" alt="نظام الباركود" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="2">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="2">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots2">
+              <span class="dot active" data-carousel="2" data-index="0"></span>
+              <span class="dot" data-carousel="2" data-index="1"></span>
+              <span class="dot" data-carousel="2" data-index="2"></span>
+              <span class="dot" data-carousel="2" data-index="3"></span>
             </div>
           </div>
         </div>
@@ -937,7 +925,7 @@
   </section>
 
   <!-- إدارة العملاء والموردين -->
-  <section class="features-section">
+  <section class="features-section" id="customers">
     <div class="container">
       <div class="section-title">
         <h2>إدارة العملاء والموردين</h2>
@@ -946,28 +934,37 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="3">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 3 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel3">
+              <div class="screenshot-slide active">
                 <img src="images/Customers.png" alt="قائمة العملاء" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Suppliers.png" alt="قائمة الموردين" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/DebtReport.png" alt="تقارير المديونيات" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Cheques.png" alt="إدارة الشيكات" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="3">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="3">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots3">
+              <span class="dot active" data-carousel="3" data-index="0"></span>
+              <span class="dot" data-carousel="3" data-index="1"></span>
+              <span class="dot" data-carousel="3" data-index="2"></span>
+              <span class="dot" data-carousel="3" data-index="3"></span>
             </div>
           </div>
         </div>
@@ -998,7 +995,7 @@
   </section>
 
   <!-- الحضور والانصراف -->
-  <section class="features-section">
+  <section class="features-section" id="attendance">
     <div class="container">
       <div class="section-title">
         <h2>الحضور والانصراف وربط البصمة</h2>
@@ -1007,28 +1004,37 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="4">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 4 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel4">
+              <div class="screenshot-slide active">
                 <img src="images/Attendance.png" alt="سجل الحضور والانصراف" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Employees.png" alt="قائمة الموظفين" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Vacations.png" alt="إدارة الإجازات" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/AttendanceReport.png" alt="تقارير الحضور" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="4">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="4">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots4">
+              <span class="dot active" data-carousel="4" data-index="0"></span>
+              <span class="dot" data-carousel="4" data-index="1"></span>
+              <span class="dot" data-carousel="4" data-index="2"></span>
+              <span class="dot" data-carousel="4" data-index="3"></span>
             </div>
           </div>
         </div>
@@ -1059,7 +1065,7 @@
   </section>
 
   <!-- التقارير وتحليل الأداء -->
-  <section class="features-section">
+  <section class="features-section" id="reports">
     <div class="container">
       <div class="section-title">
         <h2>التقارير وتحليل الأداء</h2>
@@ -1068,32 +1074,41 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="5">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 5 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel5">
+              <div class="screenshot-slide active">
                 <img src="images/SalesReports.png" alt="تقارير المبيعات" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/FinancialReports.png" alt="التقارير المالية" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/InventoryReports.png" alt="تقارير المخزون" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/ProfitReports.png" alt="تقارير الربحية" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/ExportReports.png" alt="تصدير التقارير" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="5">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="5">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots5">
+              <span class="dot active" data-carousel="5" data-index="0"></span>
+              <span class="dot" data-carousel="5" data-index="1"></span>
+              <span class="dot" data-carousel="5" data-index="2"></span>
+              <span class="dot" data-carousel="5" data-index="3"></span>
+              <span class="dot" data-carousel="5" data-index="4"></span>
             </div>
           </div>
         </div>
@@ -1124,7 +1139,7 @@
   </section>
 
   <!-- إدارة حسابات وفروع -->
-  <section class="features-section">
+  <section class="features-section" id="accounts">
     <div class="container">
       <div class="section-title">
         <h2>إدارة حسابات وفروع</h2>
@@ -1133,28 +1148,37 @@
       
       <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" data-slider-id="6">
-            <div class="slider-container">
-              <div class="slider-slide">
+          <!-- سلايدر 6 -->
+          <div class="screenshot-slider">
+            <div class="carousel-container" id="carousel6">
+              <div class="screenshot-slide active">
                 <img src="images/Accounts.png" alt="الحسابات المالية" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Branches.png" alt="إدارة الفروع" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/Journal.png" alt="دفتر اليومية" loading="lazy">
               </div>
-              <div class="slider-slide">
+              <div class="screenshot-slide">
                 <img src="images/BalanceSheet.png" alt="الميزانية العمومية" loading="lazy">
               </div>
             </div>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-nav">
-              <span class="slider-dot active"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
-              <span class="slider-dot"></span>
+            
+            <div class="slider-controls">
+              <button class="prev-btn" data-carousel="6">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="next-btn" data-carousel="6">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <div class="slider-dots" id="dots6">
+              <span class="dot active" data-carousel="6" data-index="0"></span>
+              <span class="dot" data-carousel="6" data-index="1"></span>
+              <span class="dot" data-carousel="6" data-index="2"></span>
+              <span class="dot" data-carousel="6" data-index="3"></span>
             </div>
           </div>
         </div>
@@ -1183,18 +1207,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Video Modal -->
-  <div class="video-modal" id="videoModal">
-    <div class="modal-content">
-      <button class="close-modal" id="closeModal">
-        <i class="fas fa-times"></i>
-      </button>
-      <div id="modalVideoContainer">
-        <!-- سيتم إضافة الفيديو هنا ديناميكياً -->
-      </div>
-    </div>
-  </div>
 
   <!-- CTA Section -->
   <section class="cta-section">
@@ -1287,7 +1299,7 @@
 
   <script>
     // ============================================
-    // الحل النهائي - الكود المباشر بدون مشاكل
+    // JavaScript البسيط - نفس كود index.html بالضبط
     // ============================================
 
     // Mobile Menu Toggle
@@ -1320,215 +1332,158 @@
     });
 
     // ============================================
-    // الحل المباشر للسلايدرز - بدون انتظار تحميل الصور
+    // نظام السلايدر البسيط - كل سلايدر يعمل منفرداً
     // ============================================
 
-    // تهيئة السلايدرز فور تحميل DOM
+    // دالة لإنشاء سلايدر
+    function createSlider(carouselId, dotContainerId) {
+      const carousel = document.getElementById(carouselId);
+      const slides = carousel.querySelectorAll('.screenshot-slide');
+      const dotsContainer = document.getElementById(dotContainerId);
+      const dots = dotsContainer.querySelectorAll('.dot');
+      const prevBtn = document.querySelector(`.prev-btn[data-carousel="${carouselId.replace('carousel', '')}"]`);
+      const nextBtn = document.querySelector(`.next-btn[data-carousel="${carouselId.replace('carousel', '')}"]`);
+      
+      let currentSlide = 0;
+      let slideTimer = null;
+      
+      // عرض شريحة محددة
+      function showSlide(n) {
+        // إخفاء كل الشرائح
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        // إخفاء كل النقاط
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        // التأكد من أن الفهرس ضمن النطاق
+        if (n >= slides.length) n = 0;
+        if (n < 0) n = slides.length - 1;
+        
+        // إظهار الشريحة والنقطة المحددة
+        slides[n].classList.add('active');
+        dots[n].classList.add('active');
+        
+        currentSlide = n;
+      }
+      
+      // الشريحة التالية
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+        resetTimer();
+      }
+      
+      // الشريحة السابقة
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+        resetTimer();
+      }
+      
+      // بدء التوقيت التلقائي
+      function startTimer() {
+        slideTimer = setInterval(nextSlide, 5000);
+      }
+      
+      // إعادة تعيين التوقيت
+      function resetTimer() {
+        clearInterval(slideTimer);
+        startTimer();
+      }
+      
+      // إضافة الأحداث للأزرار
+      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+      
+      // إضافة الأحداث للنقاط
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+          resetTimer();
+        });
+      });
+      
+      // إيقاف التبديل التلقائي عند المرور بالفأرة
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(slideTimer);
+      });
+      
+      carousel.addEventListener('mouseleave', () => {
+        startTimer();
+      });
+      
+      // معالجة أخطاء تحميل الصور
+      slides.forEach(slide => {
+        const img = slide.querySelector('img');
+        if (img) {
+          img.onerror = function() {
+            console.log(`❌ فشل تحميل صورة: ${this.src}`);
+            this.style.display = 'none';
+            slide.innerHTML = `
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 10px;">
+                <div style="text-align: center;">
+                  <i class="fas fa-image" style="font-size: 60px; color: #ccc; margin-bottom: 15px;"></i>
+                  <h4 style="color: #666;">${this.alt}</h4>
+                </div>
+              </div>
+            `;
+          };
+          
+          img.onload = function() {
+            console.log(`✅ تم تحميل: ${this.src.split('/').pop()}`);
+          };
+        }
+      });
+      
+      // بدء السلايدر
+      showSlide(0);
+      startTimer();
+      
+      console.log(`✅ تم تهيئة السلايدر: ${carouselId}`);
+    }
+
+    // تهيئة جميع السلايدرز بعد تحميل الصفحة
     document.addEventListener('DOMContentLoaded', function() {
       console.log('بدء تهيئة السلايدرز...');
       
-      // تهيئة كل سلايدر على حدة
-      const sliders = document.querySelectorAll('.image-slider');
-      console.log(`تم العثور على ${sliders.length} سلايدرز`);
+      // قائمة السلايدرز
+      const sliders = [
+        { carousel: 'carousel1', dots: 'dots1' },
+        { carousel: 'carousel2', dots: 'dots2' },
+        { carousel: 'carousel3', dots: 'dots3' },
+        { carousel: 'carousel4', dots: 'dots4' },
+        { carousel: 'carousel5', dots: 'dots5' },
+        { carousel: 'carousel6', dots: 'dots6' }
+      ];
       
+      // تهيئة كل سلايدر مع تأخير بسيط
       sliders.forEach((slider, index) => {
-        console.log(`تهيئة السلايدر ${index + 1}`);
-        
-        const container = slider.querySelector('.slider-container');
-        const slides = slider.querySelectorAll('.slider-slide');
-        const dots = slider.querySelectorAll('.slider-dot');
-        const prevBtn = slider.querySelector('.prev');
-        const nextBtn = slider.querySelector('.next');
-        
-        let currentSlide = 0;
-        let autoSlideTimer = null;
-        
-        // عرض شريحة معينة
-        function showSlide(n) {
-          if (!container || slides.length === 0) return;
-          
-          // التأكد من أن الفهرس ضمن النطاق
-          if (n >= slides.length) n = 0;
-          if (n < 0) n = slides.length - 1;
-          
-          // تحريك السلايدر
-          container.style.transform = `translateX(-${n * 100}%)`;
-          
-          // تحديث النقاط
-          dots.forEach(dot => dot.classList.remove('active'));
-          if (dots[n]) dots[n].classList.add('active');
-          
-          currentSlide = n;
-        }
-        
-        // الانتقال للشريحة التالية
-        function next() {
-          showSlide(currentSlide + 1);
-          resetTimer();
-        }
-        
-        // الانتقال للشريحة السابقة
-        function prev() {
-          showSlide(currentSlide - 1);
-          resetTimer();
-        }
-        
-        // بدء التبديل التلقائي
-        function startTimer() {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = setInterval(next, 5000);
-        }
-        
-        // إعادة تعيين المؤقت
-        function resetTimer() {
-          startTimer();
-        }
-        
-        // إضافة الأحداث
-        if (prevBtn) prevBtn.addEventListener('click', prev);
-        if (nextBtn) nextBtn.addEventListener('click', next);
-        
-        // النقر على النقاط
-        dots.forEach((dot, i) => {
-          dot.addEventListener('click', () => {
-            showSlide(i);
-            resetTimer();
-          });
-        });
-        
-        // إيقاف التبديل التلقائي عند المرور بالفأرة
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
-        slider.addEventListener('mouseleave', startTimer);
-        
-        // عرض الشريحة الأولى
-        showSlide(0);
-        
-        // بدء التبديل التلقائي
-        startTimer();
-        
-        console.log(`✓ تم تهيئة السلايدر ${index + 1} (${slides.length} شرائح)`);
-      });
-      
-      console.log('✓ تم تهيئة جميع السلايدرز بنجاح!');
-    });
-
-    // ============================================
-    // Video Modal functionality
-    // ============================================
-
-    const videoModal = document.getElementById('videoModal');
-    const closeModal = document.getElementById('closeModal');
-    const modalVideoContainer = document.getElementById('modalVideoContainer');
-
-    // قائمة الفيديوهات
-    const videos = {
-      'homepage-tour': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'homepage-customization': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'inventory-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'inventory-barcode': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'customers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'suppliers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'attendance-setup': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'fingerprint-integration': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'financial-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'sales-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'accounts-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'branches-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-    };
-
-    // Video button functionality
-    document.querySelectorAll('.video-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const videoId = this.dataset.videoId;
-        
-        if (videos[videoId]) {
-          modalVideoContainer.innerHTML = `
-            <iframe 
-              width="100%" 
-              height="500" 
-              src="${videos[videoId]}?autoplay=1" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          `;
-          
-          videoModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        } else {
-          alert('سيتم إضافة الفيديو قريباً');
-        }
+        setTimeout(() => {
+          createSlider(slider.carousel, slider.dots);
+        }, 100 * index);
       });
     });
 
-    // إغلاق النافذة المنبثقة
-    closeModal.addEventListener('click', () => {
-      videoModal.classList.remove('active');
-      modalVideoContainer.innerHTML = '';
-      document.body.style.overflow = 'auto';
-    });
-
-    // إغلاق النافذة المنبثقة عند النقر خارجها
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) {
-        videoModal.classList.remove('active');
-        modalVideoContainer.innerHTML = '';
-        document.body.style.overflow = 'auto';
-      }
-    });
-
     // ============================================
-    // حل مشكلة التحميل الدائم - خطوة مهمة
-    // ============================================
-
-    // إزالة أي استماع لحدث load الذي قد يسبب التحميل الدائم
-    window.onload = null;
-
-    // التأكد من إزالة أي أحداث تعطل التحميل
-    window.removeEventListener('load', () => {});
-
-    // ============================================
-    // اختبار بسيط للتأكد من عمل الصفحة
+    // اختبار نهائي
     // ============================================
 
     setTimeout(() => {
       console.log('=== اختبار الصفحة ===');
-      console.log('عدد السلايدرز:', document.querySelectorAll('.image-slider').length);
-      console.log('عدد الصور:', document.querySelectorAll('.slider-slide img').length);
-      console.log('الصفحة جاهزة!');
-    }, 1000);
-
-    // ============================================
-    // إضافة زر إعادة تحميل السلايدرز (للتجربة فقط)
-    // ============================================
-
-    setTimeout(() => {
-      const reloadBtn = document.createElement('button');
-      reloadBtn.textContent = '🔄';
-      reloadBtn.title = 'إعادة تحميل السلايدرز';
-      reloadBtn.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background: #e74c3c;
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 9999;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      `;
-      reloadBtn.onclick = function() {
-        location.reload();
-      };
-      document.body.appendChild(reloadBtn);
+      
+      // عد السلايدرز
+      const totalSliders = document.querySelectorAll('.carousel-container').length;
+      console.log(`عدد السلايدرز: ${totalSliders}`);
+      
+      // عد الصور
+      const totalImages = document.querySelectorAll('.screenshot-slide img').length;
+      console.log(`عدد الصور: ${totalImages}`);
+      
+      // عد الصور النشطة
+      const activeImages = document.querySelectorAll('.screenshot-slide.active img').length;
+      console.log(`عدد الصور النشطة: ${activeImages}`);
     }, 2000);
   </script>
 </body>
