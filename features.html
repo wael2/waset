@@ -834,7 +834,7 @@
                 <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط" loading="lazy">
               </div>
               <div class="slider-slide">
-                <img src="images/SalesManthly.png" alt="احصائيات المبيعات الشهرية" loading="lazy">
+                <img src="images/SalesMonthly.png" alt="احصائيات المبيعات الشهرية" loading="lazy">
               </div>
               <div class="slider-slide">
                 <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات" loading="lazy">
@@ -1285,7 +1285,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     // ============================================
     // الحل النهائي - الكود المباشر بدون مشاكل
     // ============================================
@@ -1320,7 +1320,7 @@
     });
 
     // ============================================
-    // الحل المباشر للسلايدرز - بدون انتظار تحميل الصور
+    // الحل المباشر للسلايدرز - التصحيح هنا
     // ============================================
 
     // تهيئة السلايدرز فور تحميل DOM
@@ -1337,8 +1337,10 @@
         const container = slider.querySelector('.slider-container');
         const slides = slider.querySelectorAll('.slider-slide');
         const dots = slider.querySelectorAll('.slider-dot');
-        const prevBtn = slider.querySelector('.prev');
-        const nextBtn = slider.querySelector('.next');
+        
+        // التصحيح هنا: استخدام الكلاسات الصحيحة
+        const prevBtn = slider.querySelector('.slider-arrow.prev');
+        const nextBtn = slider.querySelector('.slider-arrow.next');
         
         let currentSlide = 0;
         let autoSlideTimer = null;
@@ -1359,6 +1361,7 @@
           if (dots[n]) dots[n].classList.add('active');
           
           currentSlide = n;
+          console.log(`السلايدر ${index + 1}: عرض الشريحة ${currentSlide + 1}`);
         }
         
         // الانتقال للشريحة التالية
@@ -1376,7 +1379,7 @@
         // بدء التبديل التلقائي
         function startTimer() {
           clearInterval(autoSlideTimer);
-          autoSlideTimer = setInterval(next, 5000);
+          autoSlideTimer = setInterval(next, 3000); // 3 ثواني بدل 5
         }
         
         // إعادة تعيين المؤقت
@@ -1384,9 +1387,20 @@
           startTimer();
         }
         
-        // إضافة الأحداث
-        if (prevBtn) prevBtn.addEventListener('click', prev);
-        if (nextBtn) nextBtn.addEventListener('click', next);
+        // إضافة الأحداث - التحقق من وجود الأزرار
+        if (prevBtn) {
+          prevBtn.addEventListener('click', prev);
+          console.log(`تم إضافة حدث لزر السابق في السلايدر ${index + 1}`);
+        } else {
+          console.warn(`زر السابق غير موجود في السلايدر ${index + 1}`);
+        }
+        
+        if (nextBtn) {
+          nextBtn.addEventListener('click', next);
+          console.log(`تم إضافة حدث لزر التالي في السلايدر ${index + 1}`);
+        } else {
+          console.warn(`زر التالي غير موجود في السلايدر ${index + 1}`);
+        }
         
         // النقر على النقاط
         dots.forEach((dot, i) => {
@@ -1479,16 +1493,6 @@
     });
 
     // ============================================
-    // حل مشكلة التحميل الدائم - خطوة مهمة
-    // ============================================
-
-    // إزالة أي استماع لحدث load الذي قد يسبب التحميل الدائم
-    window.onload = null;
-
-    // التأكد من إزالة أي أحداث تعطل التحميل
-    window.removeEventListener('load', () => {});
-
-    // ============================================
     // اختبار بسيط للتأكد من عمل الصفحة
     // ============================================
 
@@ -1496,22 +1500,31 @@
       console.log('=== اختبار الصفحة ===');
       console.log('عدد السلايدرز:', document.querySelectorAll('.image-slider').length);
       console.log('عدد الصور:', document.querySelectorAll('.slider-slide img').length);
+      
+      // اختبار أزرار السلايدر
+      const sliders = document.querySelectorAll('.image-slider');
+      sliders.forEach((slider, index) => {
+        const prevBtn = slider.querySelector('.slider-arrow.prev');
+        const nextBtn = slider.querySelector('.slider-arrow.next');
+        console.log(`السلايدر ${index + 1}: زر السابق = ${prevBtn ? 'موجود' : 'مفقود'}, زر التالي = ${nextBtn ? 'موجود' : 'مفقود'}`);
+      });
+      
       console.log('الصفحة جاهزة!');
     }, 1000);
 
     // ============================================
-    // إضافة زر إعادة تحميل السلايدرز (للتجربة فقط)
+    // إضافة زر اختبار يدوي
     // ============================================
 
     setTimeout(() => {
-      const reloadBtn = document.createElement('button');
-      reloadBtn.textContent = '🔄';
-      reloadBtn.title = 'إعادة تحميل السلايدرز';
-      reloadBtn.style.cssText = `
+      const testBtn = document.createElement('button');
+      testBtn.textContent = '🔍';
+      testBtn.title = 'اختبار السلايدر';
+      testBtn.style.cssText = `
         position: fixed;
-        bottom: 20px;
+        bottom: 70px;
         left: 20px;
-        background: #e74c3c;
+        background: #3498db;
         color: white;
         border: none;
         width: 40px;
@@ -1525,11 +1538,18 @@
         justify-content: center;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       `;
-      reloadBtn.onclick = function() {
-        location.reload();
+      testBtn.onclick = function() {
+        console.log('اختبار يدوي للسلايدر الأول...');
+        const firstSlider = document.querySelector('.image-slider');
+        if (firstSlider) {
+          const nextBtn = firstSlider.querySelector('.slider-arrow.next');
+          if (nextBtn) {
+            console.log('النقر على زر التالي...');
+            nextBtn.click();
+          }
+        }
       };
-      document.body.appendChild(reloadBtn);
+      document.body.appendChild(testBtn);
     }, 2000);
   </script>
-</body>
-</html>
+
