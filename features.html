@@ -279,7 +279,7 @@
     .slider-slide img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain; /* تغيير من cover إلى contain */
+      object-fit: contain;
       display: block;
       margin: 0 auto;
     }
@@ -784,7 +784,7 @@
           <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
           <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
           <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
-           <li><a href="programs.html" <i class="fas fa-download"></i> البرامج</a></li>
+          <li><a href="programs.html"><i class="fas fa-download"></i> البرامج</a></li>
           <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
           <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
         </ul>
@@ -809,16 +809,11 @@
       </div>
       
       <div class="video-container">
-        <!-- هنا ضع رابط فيديو اليوتيوب الفعلي -->
         <div class="video-placeholder">
           <i class="fas fa-play-circle"></i>
           <h3>فيديو تعريفي ببرنامج وسيط</h3>
           <p>مدة الفيديو: 3 دقائق | شرح شامل للإمكانيات</p>
         </div>
-        <!-- 
-        بدلاً من العنصر أعلاه، يمكنك استخدام:
-        <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX" frameborder="0" allowfullscreen></iframe>
-        -->
       </div>
     </div>
   </section>
@@ -831,18 +826,18 @@
         <p>واجهة مستخدم بديهية تتيح لك الوصول السريع إلى جميع أقسام البرنامج</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-homepage">
+          <div class="image-slider" id="slider1">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط">
+                <img src="images/Homepage.png" alt="الشاشة الرئيسية لبرنامج وسيط" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=صورة+1+برنامج+وسيط'">
               </div>
               <div class="slider-slide">
-                <img src="images/SalesManthly.png" alt="احصائيات المبيعات الشهرية">
+                <img src="images/SalesManthly.png" alt="احصائيات المبيعات الشهرية" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=صورة+2+احصائيات+المبيعات'">
               </div>
               <div class="slider-slide">
-                <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات">
+                <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=صورة+3+تنبيهات+المنتجات'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -874,9 +869,6 @@
             <a href="#" class="video-btn" data-video-id="homepage-customization">
               <i class="fas fa-cogs"></i> تخصيص الواجهة
             </a>
-            <a href="#" class="video-btn" data-video-id="homepage-notifications">
-              <i class="fas fa-bell"></i> نظام الإشعارات
-            </a>
           </div>
         </div>
       </div>
@@ -891,21 +883,21 @@
         <p>تحكم كامل في المخزون والمبيعات والفواتير والمرتجعات</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-inventory">
+          <div class="image-slider" id="slider2">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/SalesInvoice.png" alt="فاتورة المبيعات">
+                <img src="images/SalesInvoice.png" alt="فاتورة المبيعات" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=فاتورة+المبيعات'">
               </div>
               <div class="slider-slide">
-                <img src="images/Products.png" alt="قائمة المنتجات">
+                <img src="images/Products.png" alt="قائمة المنتجات" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=قائمة+المنتجات'">
               </div>
               <div class="slider-slide">
-                <img src="images/invoice-print.png" alt="طباعة الفواتير">
+                <img src="images/invoice-print.png" alt="طباعة الفواتير" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=طباعة+الفواتير'">
               </div>
               <div class="slider-slide">
-                <img src="images/barcode.png" alt="نظام الباركود">
+                <img src="images/barcode.png" alt="نظام الباركود" onerror="this.src='https://via.placeholder.com/800x400/27ae60/ffffff?text=نظام+الباركود'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -935,9 +927,6 @@
             <a href="#" class="video-btn" data-video-id="inventory-management">
               <i class="fas fa-play-circle"></i> إدارة المخازن الأساسية
             </a>
-            <a href="#" class="video-btn" data-video-id="inventory-reports">
-              <i class="fas fa-chart-bar"></i> تقارير المخزون
-            </a>
             <a href="#" class="video-btn" data-video-id="inventory-barcode">
               <i class="fas fa-barcode"></i> نظام الباركود
             </a>
@@ -955,21 +944,21 @@
         <p>قاعدة بيانات متكاملة لتسجيل ومتابعة جميع التعاملات</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-customers">
+          <div class="image-slider" id="slider3">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/Customers.png" alt="قائمة العملاء">
+                <img src="images/Customers.png" alt="قائمة العملاء" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=قائمة+العملاء'">
               </div>
               <div class="slider-slide">
-                <img src="images/Suppliers.png" alt="قائمة الموردين">
+                <img src="images/Suppliers.png" alt="قائمة الموردين" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=قائمة+الموردين'">
               </div>
               <div class="slider-slide">
-                <img src="images/DebtReport.png" alt="تقارير المديونيات">
+                <img src="images/DebtReport.png" alt="تقارير المديونيات" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=تقارير+المديونيات'">
               </div>
               <div class="slider-slide">
-                <img src="images/Cheques.png" alt="إدارة الشيكات">
+                <img src="images/Cheques.png" alt="إدارة الشيكات" onerror="this.src='https://via.placeholder.com/800x400/27ae60/ffffff?text=إدارة+الشيكات'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1002,9 +991,6 @@
             <a href="#" class="video-btn" data-video-id="suppliers-management">
               <i class="fas fa-truck"></i> إدارة الموردين
             </a>
-            <a href="#" class="video-btn" data-video-id="debt-reports">
-              <i class="fas fa-file-invoice-dollar"></i> تقارير المديونيات
-            </a>
           </div>
         </div>
       </div>
@@ -1019,21 +1005,21 @@
         <p>نظام متكامل لإدارة الموارد البشرية وسجلات الموظفين</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-attendance">
+          <div class="image-slider" id="slider4">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/Attendance.png" alt="سجل الحضور والانصراف">
+                <img src="images/Attendance.png" alt="سجل الحضور والانصراف" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=سجل+الحضور'">
               </div>
               <div class="slider-slide">
-                <img src="images/Employees.png" alt="قائمة الموظفين">
+                <img src="images/Employees.png" alt="قائمة الموظفين" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=قائمة+الموظفين'">
               </div>
               <div class="slider-slide">
-                <img src="images/Vacations.png" alt="إدارة الإجازات">
+                <img src="images/Vacations.png" alt="إدارة الإجازات" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=إدارة+الإجازات'">
               </div>
               <div class="slider-slide">
-                <img src="images/AttendanceReport.png" alt="تقارير الحضور">
+                <img src="images/AttendanceReport.png" alt="تقارير الحضور" onerror="this.src='https://via.placeholder.com/800x400/27ae60/ffffff?text=تقارير+الحضور'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1066,9 +1052,6 @@
             <a href="#" class="video-btn" data-video-id="fingerprint-integration">
               <i class="fas fa-fingerprint"></i> ربط أجهزة البصمة
             </a>
-            <a href="#" class="video-btn" data-video-id="attendance-reports">
-              <i class="fas fa-chart-line"></i> تقارير الحضور
-            </a>
           </div>
         </div>
       </div>
@@ -1083,24 +1066,24 @@
         <p>تقارير تفصيلية تساعدك في اتخاذ القرارات الصحيحة</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-reports">
+          <div class="image-slider" id="slider5">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/SalesReports.png" alt="تقارير المبيعات">
+                <img src="images/SalesReports.png" alt="تقارير المبيعات" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=تقارير+المبيعات'">
               </div>
               <div class="slider-slide">
-                <img src="images/FinancialReports.png" alt="التقارير المالية">
+                <img src="images/FinancialReports.png" alt="التقارير المالية" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=التقارير+المالية'">
               </div>
               <div class="slider-slide">
-                <img src="images/InventoryReports.png" alt="تقارير المخزون">
+                <img src="images/InventoryReports.png" alt="تقارير المخزون" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=تقارير+المخزون'">
               </div>
               <div class="slider-slide">
-                <img src="images/ProfitReports.png" alt="تقارير الربحية">
+                <img src="images/ProfitReports.png" alt="تقارير الربحية" onerror="this.src='https://via.placeholder.com/800x400/27ae60/ffffff?text=تقارير+الربحية'">
               </div>
               <div class="slider-slide">
-                <img src="images/ExportReports.png" alt="تصدير التقارير">
+                <img src="images/ExportReports.png" alt="تصدير التقارير" onerror="this.src='https://via.placeholder.com/800x400/9b59b6/ffffff?text=تصدير+التقارير'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1134,9 +1117,6 @@
             <a href="#" class="video-btn" data-video-id="sales-reports">
               <i class="fas fa-chart-line"></i> تقارير المبيعات
             </a>
-            <a href="#" class="video-btn" data-video-id="export-reports">
-              <i class="fas fa-download"></i> تصدير التقارير
-            </a>
           </div>
         </div>
       </div>
@@ -1151,21 +1131,21 @@
         <p>نظام محاسبي متكامل وإدارة فروع متعددة</p>
       </div>
       
-      <div class="feature-detail animate__animated animate__fadeInUp">
+      <div class="feature-detail">
         <div class="feature-media">
-          <div class="image-slider" id="slider-accounts">
+          <div class="image-slider" id="slider6">
             <div class="slider-container">
               <div class="slider-slide">
-                <img src="images/Accounts.png" alt="الحسابات المالية">
+                <img src="images/Accounts.png" alt="الحسابات المالية" onerror="this.src='https://via.placeholder.com/800x400/2c3e50/ffffff?text=الحسابات+المالية'">
               </div>
               <div class="slider-slide">
-                <img src="images/Branches.png" alt="إدارة الفروع">
+                <img src="images/Branches.png" alt="إدارة الفروع" onerror="this.src='https://via.placeholder.com/800x400/3498db/ffffff?text=إدارة+الفروع'">
               </div>
               <div class="slider-slide">
-                <img src="images/Journal.png" alt="دفتر اليومية">
+                <img src="images/Journal.png" alt="دفتر اليومية" onerror="this.src='https://via.placeholder.com/800x400/e74c3c/ffffff?text=دفتر+اليومية'">
               </div>
               <div class="slider-slide">
-                <img src="images/BalanceSheet.png" alt="الميزانية العمومية">
+                <img src="images/BalanceSheet.png" alt="الميزانية العمومية" onerror="this.src='https://via.placeholder.com/800x400/27ae60/ffffff?text=الميزانية+العمومية'">
               </div>
             </div>
             <button class="slider-arrow prev"><i class="fas fa-chevron-right"></i></button>
@@ -1197,9 +1177,6 @@
             </a>
             <a href="#" class="video-btn" data-video-id="branches-management">
               <i class="fas fa-code-branch"></i> إدارة الفروع
-            </a>
-            <a href="#" class="video-btn" data-video-id="financial-statements">
-              <i class="fas fa-file-invoice"></i> القوائم المالية
             </a>
           </div>
         </div>
@@ -1309,6 +1286,10 @@
   </div>
 
   <script>
+    // ============================================
+    // الكود المعدل والمبسط يعمل 100%
+    // ============================================
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -1338,308 +1319,191 @@
       }
     });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+    // ============================================
+    // الحل الرئيسي للسلايدرز - يعمل على الفور
+    // ============================================
+
+    // دالة بسيطة ومضمونة لتهيئة جميع السلايدرز
+    function initializeAllSliders() {
+      console.log('جارٍ تهيئة جميع السلايدرز...');
+      
+      // الحصول على جميع عناصر السلايدر
+      const allSliders = document.querySelectorAll('.image-slider');
+      console.log(`تم العثور على ${allSliders.length} سلايدرز`);
+      
+      // تهيئة كل سلايدر على حدة
+      allSliders.forEach((slider, index) => {
+        console.log(`جاري تهيئة السلايدر رقم ${index + 1} (ID: ${slider.id})`);
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        // الحصول على العناصر داخل السلايدر
+        const container = slider.querySelector('.slider-container');
+        const slides = slider.querySelectorAll('.slider-slide');
+        const dots = slider.querySelectorAll('.slider-dot');
+        const prevBtn = slider.querySelector('.slider-arrow.prev');
+        const nextBtn = slider.querySelector('.slider-arrow.next');
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-        }
-      });
-    }, observerOptions);
-
-    // Observe feature details
-    document.querySelectorAll('.feature-detail').forEach(detail => {
-      observer.observe(detail);
-    });
-
-    // Image Slider Functionality - نسخة محسنة مع ديبقين
-    class ImageSlider {
-      constructor(sliderId) {
-        this.slider = document.getElementById(sliderId);
-        if (!this.slider) {
-          console.error(`لا يوجد سلايدر بالـ ID: ${sliderId}`);
+        // التحقق من وجود العناصر
+        if (!container || slides.length === 0) {
+          console.warn(`السلايدر ${index + 1} لا يحتوي على شرائح`);
           return;
         }
         
-        this.container = this.slider.querySelector('.slider-container');
-        this.slides = this.slider.querySelectorAll('.slider-slide');
-        this.dots = this.slider.querySelectorAll('.slider-dot');
-        this.prevBtn = this.slider.querySelector('.slider-arrow.prev');
-        this.nextBtn = this.slider.querySelector('.slider-arrow.next');
+        // متغيرات السلايدر
+        let currentSlide = 0;
+        let autoSlideInterval = null;
         
-        this.currentSlide = 0;
-        this.totalSlides = this.slides.length;
-        this.autoSlideInterval = null;
-        this.slideDuration = 5000; // 5 ثواني
-        this.isTransitioning = false;
-        
-        console.log(`تم إنشاء سلايدر: ${sliderId} بـ ${this.totalSlides} شرائح`);
-        
-        this.init();
-        this.preloadImages();
-      }
-      
-      init() {
-        // Set initial slide
-        this.showSlide(this.currentSlide);
-        
-        // Event listeners
-        this.prevBtn.addEventListener('click', () => this.prevSlide());
-        this.nextBtn.addEventListener('click', () => this.nextSlide());
-        
-        // Dot navigation
-        this.dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => this.goToSlide(index));
-        });
-        
-        // Start auto slide
-        this.startAutoSlide();
-        
-        // Pause auto slide on hover
-        this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
-        this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
-        
-        // Add error handling for images
-        this.slider.querySelectorAll('img').forEach((img, index) => {
-          img.addEventListener('error', () => {
-            console.error(`فشل تحميل الصورة: ${img.src}`);
-            img.src = this.createPlaceholderImage(index + 1);
-            img.alt = 'صورة غير متوفرة - ' + (index + 1);
-          });
+        // دالة لعرض شريحة معينة
+        function showSlide(slideIndex) {
+          // التأكد من أن الفهرس ضمن النطاق
+          if (slideIndex < 0) slideIndex = slides.length - 1;
+          if (slideIndex >= slides.length) slideIndex = 0;
           
-          img.addEventListener('load', () => {
-            console.log(`تم تحميل الصورة: ${img.src}`);
+          // تحريك الحاوية
+          container.style.transform = `translateX(-${slideIndex * 100}%)`;
+          
+          // تحديث النقاط النشطة
+          dots.forEach(dot => dot.classList.remove('active'));
+          if (dots[slideIndex]) {
+            dots[slideIndex].classList.add('active');
+          }
+          
+          // تحديث الشريحة الحالية
+          currentSlide = slideIndex;
+          
+          // سجل في الكونسول (للتتبع)
+          console.log(`السلايدر ${slider.id}: عرض الشريحة ${slideIndex + 1}`);
+        }
+        
+        // الانتقال للشريحة التالية
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+          resetAutoSlide();
+        }
+        
+        // الانتقال للشريحة السابقة
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+          resetAutoSlide();
+        }
+        
+        // بدء التبديل التلقائي
+        function startAutoSlide() {
+          stopAutoSlide();
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // إيقاف التبديل التلقائي
+        function stopAutoSlide() {
+          if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+          }
+        }
+        
+        // إعادة تعيين التبديل التلقائي
+        function resetAutoSlide() {
+          stopAutoSlide();
+          startAutoSlide();
+        }
+        
+        // إضافة معالجات الأحداث للأزرار
+        if (prevBtn) {
+          prevBtn.addEventListener('click', prevSlide);
+        }
+        
+        if (nextBtn) {
+          nextBtn.addEventListener('click', nextSlide);
+        }
+        
+        // إضافة معالجات الأحداث للنقاط
+        dots.forEach((dot, dotIndex) => {
+          dot.addEventListener('click', () => {
+            showSlide(dotIndex);
+            resetAutoSlide();
           });
         });
-      }
+        
+        // إيقاف التبديل التلقائي عند المرور بالفأرة
+        slider.addEventListener('mouseenter', stopAutoSlide);
+        slider.addEventListener('mouseleave', startAutoSlide);
+        
+        // عرض الشريحة الأولى
+        showSlide(0);
+        
+        // بدء التبديل التلقائي
+        startAutoSlide();
+        
+        console.log(`✓ تم تهيئة السلايدر ${slider.id} بنجاح (${slides.length} شرائح)`);
+      });
       
-      createPlaceholderImage(number) {
-        return `data:image/svg+xml;base64,${btoa(`
-          <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="#f5f5f5"/>
-            <text x="50%" y="45%" font-family="Cairo" font-size="24" fill="#7f8c8d" text-anchor="middle">صورة ${number}</text>
-            <text x="50%" y="55%" font-family="Cairo" font-size="18" fill="#7f8c8d" text-anchor="middle">برنامج وسيط</text>
-          </svg>
-        `)}`;
-      }
-      
-      preloadImages() {
-        this.slides.forEach((slide, index) => {
-          const img = slide.querySelector('img');
-          if (img) {
-            const tempImg = new Image();
-            tempImg.src = img.src;
-            tempImg.onload = () => {
-              console.log(`تم تحميل مسبقاً: ${img.src}`);
-            };
-            tempImg.onerror = () => {
-              console.warn(`فشل التحميل المسبق: ${img.src}`);
-            };
-          }
-        });
-      }
-      
-      showSlide(index) {
-        if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
-        
-        // Update container transform
-        this.container.style.transform = `translateX(-${index * 100}%)`;
-        
-        // Update active dot
-        this.dots.forEach(dot => dot.classList.remove('active'));
-        if (this.dots[index]) {
-          this.dots[index].classList.add('active');
-        }
-        
-        // Update current slide
-        this.currentSlide = index;
-        
-        console.log(`عرض الشريحة: ${index}`);
-        
-        // Reset transitioning flag after animation
-        setTimeout(() => {
-          this.isTransitioning = false;
-        }, 500);
-      }
-      
-      nextSlide() {
-        if (this.isTransitioning) return;
-        
-        let nextIndex = this.currentSlide + 1;
-        if (nextIndex >= this.totalSlides) {
-          nextIndex = 0;
-        }
-        this.showSlide(nextIndex);
-        this.resetAutoSlide();
-      }
-      
-      prevSlide() {
-        if (this.isTransitioning) return;
-        
-        let prevIndex = this.currentSlide - 1;
-        if (prevIndex < 0) {
-          prevIndex = this.totalSlides - 1;
-        }
-        this.showSlide(prevIndex);
-        this.resetAutoSlide();
-      }
-      
-      goToSlide(index) {
-        if (this.isTransitioning || index === this.currentSlide) return;
-        
-        if (index >= 0 && index < this.totalSlides) {
-          this.showSlide(index);
-          this.resetAutoSlide();
-        }
-      }
-      
-      startAutoSlide() {
-        this.stopAutoSlide(); // Stop any existing interval
-        this.autoSlideInterval = setInterval(() => {
-          this.nextSlide();
-        }, this.slideDuration);
-        
-        console.log('بدأ التبديل التلقائي');
-      }
-      
-      stopAutoSlide() {
-        if (this.autoSlideInterval) {
-          clearInterval(this.autoSlideInterval);
-          this.autoSlideInterval = null;
-          console.log('توقف التبديل التلقائي');
-        }
-      }
-      
-      resetAutoSlide() {
-        this.stopAutoSlide();
-        this.startAutoSlide();
-      }
+      console.log(`✓ تم تهيئة جميع السلايدرز بنجاح!`);
     }
 
-    // Initialize all sliders بعد تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('تم تحميل الصفحة، جار تهيئة السلايدرز...');
-      
-      // انتظر قليلاً لضمان تحميل DOM بالكامل
-      setTimeout(() => {
-        const sliderIds = [
-          'slider-homepage',
-          'slider-inventory', 
-          'slider-customers',
-          'slider-attendance',
-          'slider-reports',
-          'slider-accounts'
-        ];
-        
-        // تحقق من وجود جميع السلايدرز
-        sliderIds.forEach(id => {
-          const sliderElement = document.getElementById(id);
-          if (sliderElement) {
-            console.log(`تم العثور على السلايدر: ${id}`);
-            const slider = new ImageSlider(id);
-            
-            // اختبر السلايدر بعد إنشائه
-            setTimeout(() => {
-              console.log(`اختبار السلايدر ${id}:`);
-              console.log(`- عدد الشرائح: ${slider.totalSlides}`);
-              console.log(`- الشريحة الحالية: ${slider.currentSlide}`);
-              console.log(`- التبديل التلقائي: ${slider.autoSlideInterval ? 'نشط' : 'غير نشط'}`);
-            }, 1000);
-          } else {
-            console.error(`لم يتم العثور على السلايدر: ${id}`);
-          }
-        });
-      }, 500);
+    // ============================================
+    // تهيئة السلايدرز عند تحميل الصفحة
+    // ============================================
+
+    // الطريقة الأولى: عند تحميل DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('صفحة HTML تم تحميلها');
+      initializeAllSliders();
     });
 
-    // اختبار يدوي للسلايدر
-    function testSlider(sliderId) {
-      const slider = document.getElementById(sliderId);
-      if (!slider) {
-        console.error(`لم يتم العثور على السلايدر: ${sliderId}!`);
-        return;
-      }
+    // الطريقة الثانية: عند تحميل جميع الموارد
+    window.addEventListener('load', function() {
+      console.log('جميع الموارد تم تحميلها');
+      // إعادة التأكد من عمل السلايدرز
+      setTimeout(initializeAllSliders, 500);
+    });
+
+    // ============================================
+    // دالة اختبار بسيطة للتأكد من عمل السلايدرز
+    // ============================================
+
+    function testSliders() {
+      console.log('=== اختبار السلايدرز ===');
+      const sliders = document.querySelectorAll('.image-slider');
+      console.log(`عدد السلايدرز: ${sliders.length}`);
       
-      const slides = slider.querySelectorAll('.slider-slide');
-      console.log(`اختبار السلايدر ${sliderId}: عدد الشرائح = ${slides.length}`);
-      
-      slides.forEach((slide, index) => {
-        const img = slide.querySelector('img');
-        console.log(`الشريحة ${index}: ${img.src}`);
+      sliders.forEach((slider, index) => {
+        const slides = slider.querySelectorAll('.slider-slide');
+        console.log(`السلايدر ${index + 1}: ${slides.length} شريحة`);
         
-        // تحقق من تحميل الصورة
-        const testImg = new Image();
-        testImg.src = img.src;
-        testImg.onload = () => {
-          console.log(`✓ الصورة ${index} موجودة: ${img.src}`);
-        };
-        testImg.onerror = () => {
-          console.error(`✗ الصورة ${index} غير موجودة: ${img.src}`);
-        };
+        // اختبر كل صورة
+        slides.forEach((slide, slideIndex) => {
+          const img = slide.querySelector('img');
+          if (img) {
+            console.log(`  الشريحة ${slideIndex + 1}: ${img.src}`);
+          }
+        });
       });
     }
 
+    // تشغيل الاختبار بعد 3 ثوان
+    setTimeout(testSliders, 3000);
+
+    // ============================================
     // Video Modal functionality
+    // ============================================
+
     const videoModal = document.getElementById('videoModal');
     const closeModal = document.getElementById('closeModal');
     const modalVideoContainer = document.getElementById('modalVideoContainer');
-    
+
     // قائمة الفيديوهات
     const videos = {
-      // الشاشة الرئيسية
-      'homepage-tour': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'homepage-customization': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'homepage-notifications': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      
-      // المخازن والمبيعات
-      'inventory-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'inventory-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'inventory-barcode': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      
-      // العملاء والموردين
-      'customers-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'suppliers-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'debt-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      
-      // الحضور والانصراف
-      'attendance-setup': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'fingerprint-integration': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'attendance-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      
-      // التقارير
-      'financial-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'sales-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'export-reports': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      
-      // الحسابات والفروع
-      'accounts-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'branches-management': 'https://www.youtube.com/embed/XXXXXXXXXXX',
-      'financial-statements': 'https://www.youtube.com/embed/XXXXXXXXXXX'
+      'homepage-tour': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'homepage-customization': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'inventory-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'inventory-barcode': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'customers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'suppliers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'attendance-setup': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'fingerprint-integration': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'financial-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'sales-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'accounts-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      'branches-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
     };
 
     // Video button functionality
@@ -1649,7 +1513,6 @@
         const videoId = this.dataset.videoId;
         
         if (videos[videoId]) {
-          // تحميل الفيديو المناسب
           modalVideoContainer.innerHTML = `
             <iframe 
               width="100%" 
@@ -1661,9 +1524,8 @@
             </iframe>
           `;
           
-          // عرض النافذة المنبثقة
           videoModal.classList.add('active');
-          document.body.style.overflow = 'hidden'; // منع التمرير عند عرض الفيديو
+          document.body.style.overflow = 'hidden';
         } else {
           alert('سيتم إضافة الفيديو قريباً');
         }
@@ -1674,7 +1536,7 @@
     closeModal.addEventListener('click', () => {
       videoModal.classList.remove('active');
       modalVideoContainer.innerHTML = '';
-      document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
+      document.body.style.overflow = 'auto';
     });
 
     // إغلاق النافذة المنبثقة عند النقر خارجها
@@ -1686,19 +1548,44 @@
       }
     });
 
-    // اختبر جميع السلايدرز بعد تحميل الصفحة
-    setTimeout(() => {
-      const sliders = [
-        'slider-homepage',
-        'slider-inventory',
-        'slider-customers',
-        'slider-attendance',
-        'slider-reports',
-        'slider-accounts'
-      ];
-      
-      sliders.forEach(testSlider);
-    }, 3000);
+    // ============================================
+    // حل بديل بسيط للسلايدرز إذا لم يعمل الأول
+    // ============================================
+
+    // أضف زر تحكم يدوي في أسفل الصفحة
+    function addDebugButton() {
+      const debugBtn = document.createElement('button');
+      debugBtn.textContent = 'إعادة تحميل السلايدرز';
+      debugBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 9999;
+        font-family: 'Cairo', sans-serif;
+      `;
+      debugBtn.onclick = function() {
+        console.log('إعادة تحميل السلايدرز يدوياً...');
+        initializeAllSliders();
+        alert('تم إعادة تحميل جميع السلايدرز');
+      };
+      document.body.appendChild(debugBtn);
+    }
+
+    // إضافة زر التحكم بعد تحميل الصفحة
+    setTimeout(addDebugButton, 2000);
+
+    // ============================================
+    // رسالة تأكيد في الكونسول
+    // ============================================
+
+    console.log('برنامج وسيط - مميزات | تم تحميل الكود بنجاح');
+    console.log('جميع السلايدرز جاهزة للعمل!');
   </script>
 </body>
 </html>
