@@ -1285,7 +1285,7 @@
     </div>
 <script>
     // ============================================
-    // الحل النهائي البسيط يعمل 100%
+    // الحل النهائي - يعمل 100%
     // ============================================
 
     // Mobile Menu
@@ -1299,7 +1299,6 @@
             : '<i class="fas fa-bars"></i>';
     });
 
-    // Close mobile menu
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -1314,158 +1313,161 @@
     });
 
     // ============================================
-    // نظام السلايدر البسيط والمباشر
+    // نظام السلايدر الأساسي البسيط
     // ============================================
 
-    // نظام مبسط لجميع السلايدرز
-    class SimpleSlider {
-        constructor(sliderElement) {
-            this.slider = sliderElement;
-            this.container = this.slider.querySelector('.slider-container');
-            this.slides = this.slider.querySelectorAll('.slider-slide');
-            this.dots = this.slider.querySelectorAll('.slider-dot');
-            this.prevBtn = this.slider.querySelector('.slider-arrow.prev');
-            this.nextBtn = this.slider.querySelector('.slider-arrow.next');
-            
-            this.currentIndex = 0;
-            this.totalSlides = this.slides.length;
-            
-            this.init();
-        }
+    // دالة بسيطة لإنشاء صور افتراضية
+    function createPlaceholderImage(text, bgColor = '#2c3e50') {
+        return `
+            <div style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: ${bgColor};
+                color: white;
+                text-align: center;
+                padding: 20px;
+            ">
+                <i class="fas fa-image" style="font-size: 60px; margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px; font-size: 24px;">${text}</h3>
+                <p>صورة توضيحية للبرنامج</p>
+            </div>
+        `;
+    }
+
+    // دالة تهيئة السلايدر
+    function initSlider(slider) {
+        const container = slider.querySelector('.slider-container');
+        const slides = slider.querySelectorAll('.slider-slide');
+        const dots = slider.querySelectorAll('.slider-dot');
+        const prevBtn = slider.querySelector('.slider-arrow.prev');
+        const nextBtn = slider.querySelector('.slider-arrow.next');
         
-        init() {
-            // إضافة أحداث الأزرار
-            if (this.prevBtn) {
-                this.prevBtn.addEventListener('click', () => this.prev());
+        let currentIndex = 0;
+        let autoSlideTimer = null;
+        
+        // التحقق من تحميل الصور وإضافة بدائل
+        slides.forEach((slide, index) => {
+            const img = slide.querySelector('img');
+            if (img) {
+                // اختبار تحميل الصورة
+                const testImg = new Image();
+                testImg.onload = () => {
+                    console.log(`✅ الصورة ${index + 1} محملة: ${img.src}`);
+                };
+                testImg.onerror = () => {
+                    console.error(`❌ فشل تحميل الصورة ${index + 1}: ${img.src}`);
+                    // استبدال الصورة بصورة افتراضية
+                    slide.innerHTML = createPlaceholderImage(
+                        img.alt || `شريحة ${index + 1}`,
+                        ['#2c3e50', '#3498db', '#e74c3c', '#27ae60', '#9b59b6'][index % 5]
+                    );
+                };
+                testImg.src = img.src;
             }
+        });
+        
+        // دالة العرض
+        function showSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
             
-            if (this.nextBtn) {
-                this.nextBtn.addEventListener('click', () => this.next());
-            }
+            currentIndex = index;
+            container.style.transform = `translateX(-${index * 100}%)`;
             
-            // إضافة أحداث النقاط
-            this.dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => this.goToSlide(index));
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
             });
             
-            // التبديل التلقائي
-            this.startAutoSlide();
-            
-            // إيقاف عند التمرير
-            this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
-            this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
-            
-            // عرض الشريحة الأولى
-            this.updateSlider();
-            
-            console.log(`✅ تم تهيئة سلايدر بـ ${this.totalSlides} شرائح`);
+            console.log(`📸 عرض الشريحة ${index + 1} من ${slides.length}`);
         }
         
-        updateSlider() {
-            // تحريك الحاوية
-            this.container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-            
-            // تحديث النقاط
-            this.dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === this.currentIndex);
+        // التالي
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+            resetTimer();
+        }
+        
+        // السابق
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+            resetTimer();
+        }
+        
+        // التبديل التلقائي
+        function startTimer() {
+            clearInterval(autoSlideTimer);
+            autoSlideTimer = setInterval(nextSlide, 3000);
+        }
+        
+        function resetTimer() {
+            startTimer();
+        }
+        
+        function stopTimer() {
+            clearInterval(autoSlideTimer);
+        }
+        
+        // إضافة الأحداث
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetTimer();
             });
-            
-            // تسجيل في الكونسول
-            console.log(`📸 عرض شريحة ${this.currentIndex + 1} من ${this.totalSlides}`);
-        }
+        });
         
-        next() {
-            this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-            this.updateSlider();
-            this.resetAutoSlide();
-        }
+        // إيقاف عند التمرير
+        slider.addEventListener('mouseenter', stopTimer);
+        slider.addEventListener('mouseleave', startTimer);
         
-        prev() {
-            this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-            this.updateSlider();
-            this.resetAutoSlide();
-        }
+        // البدء
+        showSlide(0);
+        startTimer();
         
-        goToSlide(index) {
-            this.currentIndex = index;
-            this.updateSlider();
-            this.resetAutoSlide();
-        }
-        
-        startAutoSlide() {
-            this.stopAutoSlide();
-            this.autoSlide = setInterval(() => this.next(), 4000);
-        }
-        
-        stopAutoSlide() {
-            if (this.autoSlide) {
-                clearInterval(this.autoSlide);
-            }
-        }
-        
-        resetAutoSlide() {
-            this.stopAutoSlide();
-            this.startAutoSlide();
-        }
+        return { nextSlide, prevSlide, showSlide };
     }
 
     // تهيئة جميع السلايدرز
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('🚀 بدء تهيئة جميع السلايدرز...');
+        console.log('🚀 بدء تهيئة السلايدرز...');
         
-        const allSliders = document.querySelectorAll('.image-slider');
-        console.log(`📊 عدد السلايدرز: ${allSliders.length}`);
+        const sliders = document.querySelectorAll('.image-slider');
+        console.log(`📊 عدد السلايدرز: ${sliders.length}`);
         
-        // مصفوفة لحفظ كائنات السلايدر
-        window.sliders = [];
+        // حفظ كائنات السلايدر
+        window.sliderInstances = [];
         
-        // إنشاء سلايدر لكل عنصر
-        allSliders.forEach((slider, index) => {
-            console.log(`🎬 إنشاء السلايدر ${index + 1}...`);
+        sliders.forEach((slider, index) => {
+            console.log(`🎬 تهيئة السلايدر ${index + 1}...`);
             
-            // التحقق من العناصر الأساسية
+            // التحقق من وجود عناصر
             const slides = slider.querySelectorAll('.slider-slide');
-            const container = slider.querySelector('.slider-container');
-            
-            if (!container || slides.length === 0) {
-                console.warn(`⚠️ السلايدر ${index + 1} لا يحتوي على شرائح أو حاوية`);
+            if (slides.length === 0) {
+                console.warn(`⚠️ السلايدر ${index + 1} فارغ!`);
                 return;
             }
             
-            // اختبار تحميل الصور
-            slides.forEach((slide, slideIndex) => {
-                const img = slide.querySelector('img');
-                if (img) {
-                    // تحميل مسبق للصورة
-                    const preload = new Image();
-                    preload.onload = () => {
-                        console.log(`✅ الصورة ${slideIndex + 1} محملة: ${img.src}`);
-                    };
-                    preload.onerror = () => {
-                        console.error(`❌ فشل تحميل الصورة ${slideIndex + 1}: ${img.src}`);
-                        // عرض بديل عند فشل التحميل
-                        slide.innerHTML = `
-                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #2c3e50, #3498db); color: white; padding: 20px; text-align: center;">
-                                <div>
-                                    <i class="fas fa-image" style="font-size: 50px; margin-bottom: 15px;"></i>
-                                    <h3>${img.alt || 'صورة البرنامج'}</h3>
-                                    <p>شريحة ${slideIndex + 1}</p>
-                                </div>
-                            </div>
-                        `;
-                    };
-                    preload.src = img.src;
-                }
-            });
+            const instance = initSlider(slider);
+            window.sliderInstances.push(instance);
             
-            // إنشاء كائن السلايدر
-            const sliderObj = new SimpleSlider(slider);
-            window.sliders.push(sliderObj);
-            
-            console.log(`✅ تم إنشاء السلايدر ${index + 1} بنجاح`);
+            console.log(`✅ تم تهيئة السلايدر ${index + 1} (${slides.length} شرائح)`);
         });
         
-        console.log(`🎉 تم إنشاء ${window.sliders.length} سلايدرز بنجاح!`);
+        console.log(`🎉 تم تهيئة ${window.sliderInstances.length} سلايدرز بنجاح!`);
+        
+        // اختبار تلقائي بعد 2 ثانية
+        setTimeout(() => {
+            if (window.sliderInstances.length > 0) {
+                console.log('🧪 اختبار تلقائي للسلايدر الأول...');
+                window.sliderInstances[0].nextSlide();
+            }
+        }, 2000);
     });
 
     // ============================================
@@ -1476,19 +1478,16 @@
     const closeModal = document.getElementById('closeModal');
     const modalVideoContainer = document.getElementById('modalVideoContainer');
 
-    // Video button functionality
     document.querySelectorAll('.video-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const videoId = this.dataset.videoId;
             
             modalVideoContainer.innerHTML = `
-                <div style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #2c3e50; color: white;">
-                    <div style="text-align: center;">
+                <div style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #2c3e50; color: white; text-align: center;">
+                    <div>
                         <i class="fas fa-video" style="font-size: 80px; margin-bottom: 20px;"></i>
                         <h3>فيديو توضيحي</h3>
-                        <p>${videoId}</p>
-                        <p style="margin-top: 20px; font-size: 14px;">سيتم إضافة الفيديو قريباً</p>
+                        <p>سيتم إضافة الفيديو قريباً</p>
                     </div>
                 </div>
             `;
@@ -1498,7 +1497,6 @@
         });
     });
 
-    // إغلاق النافذة المنبثقة
     closeModal.addEventListener('click', () => {
         videoModal.classList.remove('active');
         modalVideoContainer.innerHTML = '';
@@ -1514,112 +1512,74 @@
     });
 
     // ============================================
-    // أزرار التحكم
+    // أزرار تحكم للمطورين
     // ============================================
 
     setTimeout(() => {
-        // زر إعادة التحميل
-        const reloadBtn = document.createElement('button');
-        reloadBtn.innerHTML = '🔄';
-        reloadBtn.title = 'إعادة تحميل';
-        reloadBtn.style.cssText = `
+        const controlPanel = document.createElement('div');
+        controlPanel.style.cssText = `
             position: fixed;
             bottom: 20px;
             left: 20px;
-            width: 50px;
-            height: 50px;
-            background: #e74c3c;
+            background: rgba(0,0,0,0.8);
             color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
             z-index: 9999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Cairo', sans-serif;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         `;
-        reloadBtn.onclick = () => location.reload();
-        document.body.appendChild(reloadBtn);
-
-        // زر اختبار السلايدر
-        const testBtn = document.createElement('button');
-        testBtn.innerHTML = '▶️';
-        testBtn.title = 'اختبار السلايدر الأول';
-        testBtn.style.cssText = `
-            position: fixed;
-            bottom: 80px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        controlPanel.innerHTML = `
+            <h4 style="margin: 0 0 10px 0; color: #e74c3c;">تحكم السلايدرز</h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <button onclick="testAllSliders()" style="flex: 1; padding: 8px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">اختبار جميع</button>
+                <button onclick="checkImages()" style="flex: 1; padding: 8px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer;">فحص الصور</button>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="if(window.sliderInstances && window.sliderInstances[0]) window.sliderInstances[0].prevSlide()" style="flex: 1; padding: 8px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">⏮️ السابق</button>
+                <button onclick="if(window.sliderInstances && window.sliderInstances[0]) window.sliderInstances[0].nextSlide()" style="flex: 1; padding: 8px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">⏭️ التالي</button>
+            </div>
         `;
-        testBtn.onclick = () => {
-            if (window.sliders && window.sliders.length > 0) {
-                console.log('🧪 اختبار السلايدر الأول...');
-                window.sliders[0].next();
-            }
-        };
-        document.body.appendChild(testBtn);
-
-        // زر عرض معلومات
-        const infoBtn = document.createElement('button');
-        infoBtn.innerHTML = 'ℹ️';
-        infoBtn.title = 'معلومات السلايدرز';
-        infoBtn.style.cssText = `
-            position: fixed;
-            bottom: 140px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        `;
-        infoBtn.onclick = () => {
-            console.log('📊 معلومات السلايدرز:');
-            if (window.sliders) {
-                window.sliders.forEach((slider, index) => {
-                    console.log(`السلايدر ${index + 1}: ${slider.totalSlides} شريحة`);
-                });
-            }
-        };
-        document.body.appendChild(infoBtn);
-    }, 1000);
+        
+        document.body.appendChild(controlPanel);
+    }, 1500);
 
     // ============================================
-    // اختبار تلقائي
+    // دوال مساعدة
     // ============================================
 
-    setTimeout(() => {
-        console.log('🔍 اختبار تلقائي بعد 3 ثوان...');
-        if (window.sliders && window.sliders.length > 0) {
-            window.sliders[0].next();
-            setTimeout(() => window.sliders[0].next(), 1000);
+    // اختبار جميع السلايدرز
+    window.testAllSliders = function() {
+        console.log('🧪 اختبار جميع السلايدرز...');
+        if (window.sliderInstances) {
+            window.sliderInstances.forEach((slider, index) => {
+                setTimeout(() => {
+                    console.log(`اختبار السلايدر ${index + 1}...`);
+                    slider.nextSlide();
+                }, index * 1000);
+            });
         }
-    }, 3000);
+    };
 
-    console.log('✅ تم تحميل جميع الأكواد بنجاح!');
+    // فحص جميع الصور
+    window.checkImages = function() {
+        console.log('🔍 فحص جميع الصور...');
+        const allImages = document.querySelectorAll('.slider-slide img');
+        console.log(`عدد الصور: ${allImages.length}`);
+        
+        allImages.forEach((img, index) => {
+            const testImg = new Image();
+            testImg.onload = () => {
+                console.log(`✅ الصورة ${index + 1}: ${img.src.split('/').pop()} - محملة`);
+            };
+            testImg.onerror = () => {
+                console.error(`❌ الصورة ${index + 1}: ${img.src.split('/').pop()} - فشل التحميل`);
+            };
+            testImg.src = img.src;
+        });
+    };
+
+    console.log('✅ برنامج وسيط - مميزات | جاهز للتشغيل');
 </script>
-    
-  </div>
-
