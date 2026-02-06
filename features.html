@@ -1283,273 +1283,343 @@
         </div>
       </div>
     </div>
-  </div>
-
 <script>
     // ============================================
-    // الحل النهائي - الكود المباشر بدون مشاكل
+    // الحل النهائي البسيط يعمل 100%
     // ============================================
 
-    // Mobile Menu Toggle
+    // Mobile Menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
 
     mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
     });
 
-    // Close mobile menu when clicking on a link
+    // Close mobile menu
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
     });
 
-    // Header scroll effect
+    // Header scroll
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+        header.classList.toggle('scrolled', window.scrollY > 100);
     });
 
     // ============================================
-    // الحل المباشر للسلايدرز - التصحيح هنا
+    // نظام السلايدر البسيط والمباشر
     // ============================================
 
-    // تهيئة السلايدرز فور تحميل DOM
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('بدء تهيئة السلايدرز...');
-      
-      // تهيئة كل سلايدر على حدة
-      const sliders = document.querySelectorAll('.image-slider');
-      console.log(`تم العثور على ${sliders.length} سلايدرز`);
-      
-      sliders.forEach((slider, index) => {
-        console.log(`تهيئة السلايدر ${index + 1}`);
-        
-        const container = slider.querySelector('.slider-container');
-        const slides = slider.querySelectorAll('.slider-slide');
-        const dots = slider.querySelectorAll('.slider-dot');
-        
-        // التصحيح هنا: استخدام الكلاسات الصحيحة
-        const prevBtn = slider.querySelector('.slider-arrow.prev');
-        const nextBtn = slider.querySelector('.slider-arrow.next');
-        
-        let currentSlide = 0;
-        let autoSlideTimer = null;
-        
-        // عرض شريحة معينة
-        function showSlide(n) {
-          if (!container || slides.length === 0) return;
-          
-          // التأكد من أن الفهرس ضمن النطاق
-          if (n >= slides.length) n = 0;
-          if (n < 0) n = slides.length - 1;
-          
-          // تحريك السلايدر
-          container.style.transform = `translateX(-${n * 100}%)`;
-          
-          // تحديث النقاط
-          dots.forEach(dot => dot.classList.remove('active'));
-          if (dots[n]) dots[n].classList.add('active');
-          
-          currentSlide = n;
-          console.log(`السلايدر ${index + 1}: عرض الشريحة ${currentSlide + 1}`);
+    // نظام مبسط لجميع السلايدرز
+    class SimpleSlider {
+        constructor(sliderElement) {
+            this.slider = sliderElement;
+            this.container = this.slider.querySelector('.slider-container');
+            this.slides = this.slider.querySelectorAll('.slider-slide');
+            this.dots = this.slider.querySelectorAll('.slider-dot');
+            this.prevBtn = this.slider.querySelector('.slider-arrow.prev');
+            this.nextBtn = this.slider.querySelector('.slider-arrow.next');
+            
+            this.currentIndex = 0;
+            this.totalSlides = this.slides.length;
+            
+            this.init();
         }
         
-        // الانتقال للشريحة التالية
-        function next() {
-          showSlide(currentSlide + 1);
-          resetTimer();
+        init() {
+            // إضافة أحداث الأزرار
+            if (this.prevBtn) {
+                this.prevBtn.addEventListener('click', () => this.prev());
+            }
+            
+            if (this.nextBtn) {
+                this.nextBtn.addEventListener('click', () => this.next());
+            }
+            
+            // إضافة أحداث النقاط
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.goToSlide(index));
+            });
+            
+            // التبديل التلقائي
+            this.startAutoSlide();
+            
+            // إيقاف عند التمرير
+            this.slider.addEventListener('mouseenter', () => this.stopAutoSlide());
+            this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
+            
+            // عرض الشريحة الأولى
+            this.updateSlider();
+            
+            console.log(`✅ تم تهيئة سلايدر بـ ${this.totalSlides} شرائح`);
         }
         
-        // الانتقال للشريحة السابقة
-        function prev() {
-          showSlide(currentSlide - 1);
-          resetTimer();
+        updateSlider() {
+            // تحريك الحاوية
+            this.container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+            
+            // تحديث النقاط
+            this.dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentIndex);
+            });
+            
+            // تسجيل في الكونسول
+            console.log(`📸 عرض شريحة ${this.currentIndex + 1} من ${this.totalSlides}`);
         }
         
-        // بدء التبديل التلقائي
-        function startTimer() {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = setInterval(next, 3000); // 3 ثواني بدل 5
+        next() {
+            this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+            this.updateSlider();
+            this.resetAutoSlide();
         }
         
-        // إعادة تعيين المؤقت
-        function resetTimer() {
-          startTimer();
+        prev() {
+            this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+            this.updateSlider();
+            this.resetAutoSlide();
         }
         
-        // إضافة الأحداث - التحقق من وجود الأزرار
-        if (prevBtn) {
-          prevBtn.addEventListener('click', prev);
-          console.log(`تم إضافة حدث لزر السابق في السلايدر ${index + 1}`);
-        } else {
-          console.warn(`زر السابق غير موجود في السلايدر ${index + 1}`);
+        goToSlide(index) {
+            this.currentIndex = index;
+            this.updateSlider();
+            this.resetAutoSlide();
         }
         
-        if (nextBtn) {
-          nextBtn.addEventListener('click', next);
-          console.log(`تم إضافة حدث لزر التالي في السلايدر ${index + 1}`);
-        } else {
-          console.warn(`زر التالي غير موجود في السلايدر ${index + 1}`);
+        startAutoSlide() {
+            this.stopAutoSlide();
+            this.autoSlide = setInterval(() => this.next(), 4000);
         }
         
-        // النقر على النقاط
-        dots.forEach((dot, i) => {
-          dot.addEventListener('click', () => {
-            showSlide(i);
-            resetTimer();
-          });
+        stopAutoSlide() {
+            if (this.autoSlide) {
+                clearInterval(this.autoSlide);
+            }
+        }
+        
+        resetAutoSlide() {
+            this.stopAutoSlide();
+            this.startAutoSlide();
+        }
+    }
+
+    // تهيئة جميع السلايدرز
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('🚀 بدء تهيئة جميع السلايدرز...');
+        
+        const allSliders = document.querySelectorAll('.image-slider');
+        console.log(`📊 عدد السلايدرز: ${allSliders.length}`);
+        
+        // مصفوفة لحفظ كائنات السلايدر
+        window.sliders = [];
+        
+        // إنشاء سلايدر لكل عنصر
+        allSliders.forEach((slider, index) => {
+            console.log(`🎬 إنشاء السلايدر ${index + 1}...`);
+            
+            // التحقق من العناصر الأساسية
+            const slides = slider.querySelectorAll('.slider-slide');
+            const container = slider.querySelector('.slider-container');
+            
+            if (!container || slides.length === 0) {
+                console.warn(`⚠️ السلايدر ${index + 1} لا يحتوي على شرائح أو حاوية`);
+                return;
+            }
+            
+            // اختبار تحميل الصور
+            slides.forEach((slide, slideIndex) => {
+                const img = slide.querySelector('img');
+                if (img) {
+                    // تحميل مسبق للصورة
+                    const preload = new Image();
+                    preload.onload = () => {
+                        console.log(`✅ الصورة ${slideIndex + 1} محملة: ${img.src}`);
+                    };
+                    preload.onerror = () => {
+                        console.error(`❌ فشل تحميل الصورة ${slideIndex + 1}: ${img.src}`);
+                        // عرض بديل عند فشل التحميل
+                        slide.innerHTML = `
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #2c3e50, #3498db); color: white; padding: 20px; text-align: center;">
+                                <div>
+                                    <i class="fas fa-image" style="font-size: 50px; margin-bottom: 15px;"></i>
+                                    <h3>${img.alt || 'صورة البرنامج'}</h3>
+                                    <p>شريحة ${slideIndex + 1}</p>
+                                </div>
+                            </div>
+                        `;
+                    };
+                    preload.src = img.src;
+                }
+            });
+            
+            // إنشاء كائن السلايدر
+            const sliderObj = new SimpleSlider(slider);
+            window.sliders.push(sliderObj);
+            
+            console.log(`✅ تم إنشاء السلايدر ${index + 1} بنجاح`);
         });
         
-        // إيقاف التبديل التلقائي عند المرور بالفأرة
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
-        slider.addEventListener('mouseleave', startTimer);
-        
-        // عرض الشريحة الأولى
-        showSlide(0);
-        
-        // بدء التبديل التلقائي
-        startTimer();
-        
-        console.log(`✓ تم تهيئة السلايدر ${index + 1} (${slides.length} شرائح)`);
-      });
-      
-      console.log('✓ تم تهيئة جميع السلايدرز بنجاح!');
+        console.log(`🎉 تم إنشاء ${window.sliders.length} سلايدرز بنجاح!`);
     });
 
     // ============================================
-    // Video Modal functionality
+    // Video Modal
     // ============================================
 
     const videoModal = document.getElementById('videoModal');
     const closeModal = document.getElementById('closeModal');
     const modalVideoContainer = document.getElementById('modalVideoContainer');
 
-    // قائمة الفيديوهات
-    const videos = {
-      'homepage-tour': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'homepage-customization': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'inventory-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'inventory-barcode': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'customers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'suppliers-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'attendance-setup': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'fingerprint-integration': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'financial-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'sales-reports': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'accounts-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      'branches-management': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-    };
-
     // Video button functionality
     document.querySelectorAll('.video-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const videoId = this.dataset.videoId;
-        
-        if (videos[videoId]) {
-          modalVideoContainer.innerHTML = `
-            <iframe 
-              width="100%" 
-              height="500" 
-              src="${videos[videoId]}?autoplay=1" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          `;
-          
-          videoModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        } else {
-          alert('سيتم إضافة الفيديو قريباً');
-        }
-      });
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const videoId = this.dataset.videoId;
+            
+            modalVideoContainer.innerHTML = `
+                <div style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #2c3e50; color: white;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-video" style="font-size: 80px; margin-bottom: 20px;"></i>
+                        <h3>فيديو توضيحي</h3>
+                        <p>${videoId}</p>
+                        <p style="margin-top: 20px; font-size: 14px;">سيتم إضافة الفيديو قريباً</p>
+                    </div>
+                </div>
+            `;
+            
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
     });
 
     // إغلاق النافذة المنبثقة
     closeModal.addEventListener('click', () => {
-      videoModal.classList.remove('active');
-      modalVideoContainer.innerHTML = '';
-      document.body.style.overflow = 'auto';
-    });
-
-    // إغلاق النافذة المنبثقة عند النقر خارجها
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) {
         videoModal.classList.remove('active');
         modalVideoContainer.innerHTML = '';
         document.body.style.overflow = 'auto';
-      }
+    });
+
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.classList.remove('active');
+            modalVideoContainer.innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
     });
 
     // ============================================
-    // اختبار بسيط للتأكد من عمل الصفحة
+    // أزرار التحكم
     // ============================================
 
     setTimeout(() => {
-      console.log('=== اختبار الصفحة ===');
-      console.log('عدد السلايدرز:', document.querySelectorAll('.image-slider').length);
-      console.log('عدد الصور:', document.querySelectorAll('.slider-slide img').length);
-      
-      // اختبار أزرار السلايدر
-      const sliders = document.querySelectorAll('.image-slider');
-      sliders.forEach((slider, index) => {
-        const prevBtn = slider.querySelector('.slider-arrow.prev');
-        const nextBtn = slider.querySelector('.slider-arrow.next');
-        console.log(`السلايدر ${index + 1}: زر السابق = ${prevBtn ? 'موجود' : 'مفقود'}, زر التالي = ${nextBtn ? 'موجود' : 'مفقود'}`);
-      });
-      
-      console.log('الصفحة جاهزة!');
+        // زر إعادة التحميل
+        const reloadBtn = document.createElement('button');
+        reloadBtn.innerHTML = '🔄';
+        reloadBtn.title = 'إعادة تحميل';
+        reloadBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        reloadBtn.onclick = () => location.reload();
+        document.body.appendChild(reloadBtn);
+
+        // زر اختبار السلايدر
+        const testBtn = document.createElement('button');
+        testBtn.innerHTML = '▶️';
+        testBtn.title = 'اختبار السلايدر الأول';
+        testBtn.style.cssText = `
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        testBtn.onclick = () => {
+            if (window.sliders && window.sliders.length > 0) {
+                console.log('🧪 اختبار السلايدر الأول...');
+                window.sliders[0].next();
+            }
+        };
+        document.body.appendChild(testBtn);
+
+        // زر عرض معلومات
+        const infoBtn = document.createElement('button');
+        infoBtn.innerHTML = 'ℹ️';
+        infoBtn.title = 'معلومات السلايدرز';
+        infoBtn.style.cssText = `
+            position: fixed;
+            bottom: 140px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        infoBtn.onclick = () => {
+            console.log('📊 معلومات السلايدرز:');
+            if (window.sliders) {
+                window.sliders.forEach((slider, index) => {
+                    console.log(`السلايدر ${index + 1}: ${slider.totalSlides} شريحة`);
+                });
+            }
+        };
+        document.body.appendChild(infoBtn);
     }, 1000);
 
     // ============================================
-    // إضافة زر اختبار يدوي
+    // اختبار تلقائي
     // ============================================
 
     setTimeout(() => {
-      const testBtn = document.createElement('button');
-      testBtn.textContent = '🔍';
-      testBtn.title = 'اختبار السلايدر';
-      testBtn.style.cssText = `
-        position: fixed;
-        bottom: 70px;
-        left: 20px;
-        background: #3498db;
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 9999;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      `;
-      testBtn.onclick = function() {
-        console.log('اختبار يدوي للسلايدر الأول...');
-        const firstSlider = document.querySelector('.image-slider');
-        if (firstSlider) {
-          const nextBtn = firstSlider.querySelector('.slider-arrow.next');
-          if (nextBtn) {
-            console.log('النقر على زر التالي...');
-            nextBtn.click();
-          }
+        console.log('🔍 اختبار تلقائي بعد 3 ثوان...');
+        if (window.sliders && window.sliders.length > 0) {
+            window.sliders[0].next();
+            setTimeout(() => window.sliders[0].next(), 1000);
         }
-      };
-      document.body.appendChild(testBtn);
-    }, 2000);
-  </script>
+    }, 3000);
+
+    console.log('✅ تم تحميل جميع الأكواد بنجاح!');
+</script>
+    
+  </div>
 
