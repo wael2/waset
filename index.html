@@ -1,847 +1,1527 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>برنامج وسيط - حل متكامل لإدارة الشركات والمخازن والمبيعات</title>
-<meta name="description" content="برنامج وسيط هو الحل الذكي لإدارة الشركات والمخازن والمبيعات والفواتير بسهولة ودقة. يدعم التقارير الاحترافية وإدارة العملاء والموردين مع دعم فني مستمر.">
-<meta name="keywords" content="برنامج وسيط, إدارة الشركات, المبيعات, المخازن, الفواتير, تقارير, دعم فني, ERP, محاسبة, نظام مبيعات">
-<meta name="author" content="شركة الجندي للبرمجيات وتكنولوجيا المعلومات">
-<meta name="robots" content="index, follow">
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-<style>
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #e74c3c;
-  --accent-color: #3498db;
-  --light-color: #f9f9f9;
-  --dark-color: #1a252f;
-  --gray-color: #7f8c8d;
-  --success-color: #27ae60;
-  --border-radius: 10px;
-  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Cairo', sans-serif;
-  background-color: var(--light-color);
-  color: var(--dark-color);
-  direction: rtl;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Header & Navigation */
-header {
-  background-color: rgba(44, 62, 80, 0.95);
-  color: white;
-  padding: 15px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: var(--transition);
-}
-
-header.scrolled {
-  padding: 10px 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px;
-  font-weight: 900;
-  color: white;
-  text-decoration: none;
-}
-
-.logo-icon {
-  color: var(--secondary-color);
-  font-size: 32px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 5px;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 15px;
-  border-radius: 6px;
-  transition: var(--transition);
-  font-size: 15px;
-  display: block;
-}
-
-.nav-links li a:hover, 
-.nav-links li a.active {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
-  color: white;
-  padding: 160px 0 100px;
-  margin-top: 70px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.3;
-}
-
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.hero-text {
-  flex: 1;
-  z-index: 2;
-}
-
-.hero-text h1 {
-  font-size: 3.2rem;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.hero-buttons .btn {
-  padding: 14px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn-primary {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #c0392b;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: white;
-  transform: translateY(-3px);
-}
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-  z-index: 2;
-}
-
-.hero-image img {
-  max-width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
-/* Features Section */
-.section-title {
-  text-align: center;
-  margin-bottom: 60px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 4px;
-  background-color: var(--secondary-color);
-  bottom: -10px;
-  right: 50%;
-  transform: translateX(50%);
-}
-
-.section-title p {
-  color: var(--gray-color);
-  max-width: 700px;
-  margin: 20px auto 0;
-  font-size: 1.1rem;
-}
-
-.features {
-  padding: 100px 0;
-  background-color: white;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.feature-card {
-  background-color: white;
-  border-radius: var(--border-radius);
-  padding: 30px;
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
-  text-align: center;
-  border-top: 4px solid var(--accent-color);
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.feature-icon {
-  font-size: 48px;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-  height: 80px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(231, 76, 60, 0.1);
-  border-radius: 50%;
-  margin: 0 auto 20px;
-}
-
-.feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--primary-color);
-}
-
-.feature-card p {
-  color: var(--gray-color);
-  margin-bottom: 20px;
-}
-
-.feature-link {
-  color: var(--secondary-color);
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: var(--transition);
-}
-
-.feature-link:hover {
-  gap: 12px;
-}
-
-/* CTA Section */
-.cta {
-  background: linear-gradient(135deg, var(--secondary-color) 0%, #c0392b 100%);
-  color: white;
-  padding: 80px 0;
-  text-align: center;
-}
-
-.cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.cta p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Footer */
-.footer1-outer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 70px 0 40px;
-}
-
-.footer1 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-col h3 {
-  font-size: 1.5rem;
-  margin-bottom: 25px;
-  color: white;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.footer-col h3::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 3px;
-  background-color: var(--secondary-color);
-  bottom: 0;
-  right: 0;
-}
-
-.footer-col p {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 12px;
-}
-
-.footer-col ul li a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-col ul li a:hover {
-  color: var(--secondary-color);
-  padding-right: 5px;
-}
-
-.contact-info li {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.contact-info i {
-  color: var(--secondary-color);
-  font-size: 18px;
-  margin-top: 3px;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-5px);
-}
-
-.footer2-outer {
-  background-color: var(--dark-color);
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.copyright {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.footer-links a:hover {
-  color: var(--secondary-color);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مميزات برنامج وسيط - الحل المتكامل لإدارة الأعمال</title>
+  <meta name="description" content="اكتشف جميع مميزات برنامج وسيط لإدارة الشركات، المخازن، المبيعات، والمحاسبة مع شروحات بالفيديو والصور التوضيحية." />
   
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-  
-  .section-title h2 {
-    font-size: 2rem;
-  }
-}
+  <!-- Cairo font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-@media (max-width: 768px) {
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    flex-direction: column;
-    background-color: var(--primary-color);
-    width: 80%;
-    height: calc(100vh - 70px);
-    padding: 30px;
-    transition: var(--transition);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-  
-  .nav-links.active {
-    right: 0;
-  }
-  
-  .hero-text h1 {
-    font-size: 2.2rem;
-  }
-  
-  .hero {
-    padding: 140px 0 80px;
-  }
-  
-  .features {
-    padding: 80px 0;
-  }
-  
-  .footer1 {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer2 {
-    flex-direction: column;
-    text-align: center;
-  }
-}
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #3498db;
+      --light-color: #f9f9f9;
+      --dark-color: #1a252f;
+      --gray-color: #7f8c8d;
+      --success-color: #27ae60;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
 
-@media (max-width: 576px) {
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-buttons .btn {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .section-title h2 {
-    font-size: 1.8rem;
-  }
-}
-</style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      direction: rtl;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(44, 62, 80, 0.95);
+      color: white;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      color: var(--secondary-color);
+      font-size: 32px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 5px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: var(--transition);
+      font-size: 15px;
+      display: block;
+    }
+
+    .nav-links li a:hover, 
+    .nav-links li a.active {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+      color: white;
+      padding: 100px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .page-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Video Section */
+    .video-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .video-container {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+    }
+
+    .video-placeholder i {
+      font-size: 100px;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .video-placeholder h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    /* Features Sections */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    .section-title p {
+      color: var(--gray-color);
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 1.1rem;
+    }
+
+    .features-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .features-section:nth-child(even) {
+      background-color: white;
+    }
+
+    .feature-detail {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .feature-detail:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    /* ====== تصميم السلايدر الجديد - مثل index.html ====== */
+    .feature-media {
+      flex: 1;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      position: relative;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 10;
+      padding: 0 15px;
+    }
+
+    .carousel-btn {
+      background-color: rgba(44, 62, 80, 0.8);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      pointer-events: all;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      right: 50%;
+      transform: translateX(50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-dot.active {
+      background-color: var(--secondary-color);
+      transform: scale(1.2);
+    }
+
+    /* Feature Content */
+    .feature-content {
+      flex: 1;
+    }
+
+    .feature-content h3 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-content h3 i {
+      color: var(--secondary-color);
+    }
+
+    .feature-content p {
+      font-size: 1.1rem;
+      color: var(--gray-color);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .feature-list li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .feature-list li i {
+      color: var(--success-color);
+      margin-top: 5px;
+    }
+
+    .video-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+
+    .video-btn:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    .video-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #c0392b 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: var(--secondary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer1-outer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 70px 0 40px;
+    }
+
+    .footer1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: white;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: 0;
+      right: 0;
+    }
+
+    .footer-col p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--secondary-color);
+      padding-right: 5px;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-info i {
+      color: var(--secondary-color);
+      font-size: 18px;
+      margin-top: 3px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    .footer2-outer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .feature-detail, .feature-detail:nth-child(even) {
+        flex-direction: column;
+      }
+      
+      .feature-media, .feature-content {
+        width: 100%;
+      }
+      
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .carousel-container {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 80%;
+        height: calc(100vh - 70px);
+        padding: 30px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .page-hero {
+        padding: 120px 0 50px;
+      }
+      
+      .video-section, .features-section {
+        padding: 60px 0;
+      }
+      
+      .video-placeholder {
+        height: 350px;
+      }
+      
+      .footer1 {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer2 {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .carousel-container {
+        height: 350px;
+      }
+      
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .video-placeholder {
+        height: 250px;
+      }
+      
+      .video-placeholder i {
+        font-size: 70px;
+      }
+      
+      .carousel-container {
+        height: 300px;
+      }
+      
+      .video-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<!-- Header -->
-<header id="header">
-  <div class="container">
-    <nav>
-      <a href="index.html" class="logo">
-        <i class="fas fa-hands-helping logo-icon"></i>
-        وسيط
-      </a>
-      
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="features.html"><i class="fas fa-star"></i> المميزات</a></li>
-        <li><a href="pricing.html"><i class="fas fa-tags"></i> الباقات</a></li>
-        <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
-        <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
-        <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
-         <li><a href="programs.html" <i class="fas fa-download"></i> البرامج</a></li>
-        <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
-     
-        <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero" id="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-text animate__animated animate__fadeInRight">
-        <h1>برنامج وسيط لإدارة الشركات والمخازن والمبيعات</h1>
-        <p>حل متكامل لإدارة مؤسستك التجارية أو الصناعية بسهولة واحترافية. نظام إدارة شامل يدعم جميع عملياتك التجارية من المخازن والمبيعات إلى الفواتير والتقارير.</p>
-        <div class="hero-buttons">
-          <a href="pricing.html" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> ابدأ الآن مجاناً
-          </a>
-          <a href="features.html" class="btn btn-secondary">
-            <i class="fas fa-play-circle"></i> شاهد العرض التوضيحي
-          </a>
-        </div>
-      </div>
-      <div class="hero-image animate__animated animate__fadeInLeft">
-        <img src="images/Homepage.png" alt="واجهة برنامج وسيط لإدارة الشركات والمخازن" style="m
-        <div style="background: linear-gradient(135deg, #3498db, #2c3e50); width: 100%; height: 350px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-          <i class="fas fa-chart-line" style="font-size: 120px; color: rgba(255,255,255,0.2);"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section class="features" id="features">
-  <div class="container">
-    <div class="section-title">
-      <h2>مميزات برنامج وسيط</h2>
-      <p>نقدم لك مجموعة متكاملة من المميزات التي تجعل إدارة أعمالك أسهل وأكثر احترافية</p>
-    </div>
-    
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-warehouse"></i>
-        </div>
-        <h3>إدارة المخازن الشاملة</h3>
-        <p>تحكم كامل في المخزون مع نظام جرد ذكي، تنبيهات نفاذ السلع، وإدارة الفروع المتعددة.</p>
-        <a href="features.html#inventory" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-hands-helping logo-icon"></i>
+          وسيط
         </a>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-shopping-cart"></i>
-        </div>
-        <h3>نظام المبيعات المتكامل</h3>
-        <p>إدارة الفواتير والمبيعات والمرتجعات مع تقارير أداء المبيعات وتحليل البيانات.</p>
-        <a href="features.html#sales" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
-        </a>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-chart-pie"></i>
-        </div>
-        <h3>تقارير وتحليلات دقيقة</h3>
-        <p>تقارير مالية وتجارية مفصلة تساعدك على اتخاذ قرارات استراتيجية مستنيرة.</p>
-        <a href="features.html#reports" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
-        </a>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <h3>إدارة العملاء والموردين</h3>
-        <p>سجل كامل للعملاء والموردين مع تقارير المديونيات وتاريخ التعاملات.</p>
-        <a href="features.html#clients" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
-        </a>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-file-invoice-dollar"></i>
-        </div>
-        <h3>الفواتير الإلكترونية</h3>
-        <p>إنشاء فواتير احترافية متوافقة مع أنظمة الضرائب مع إمكانية الإرسال بالبريد الإلكتروني.</p>
-        <a href="features.html#invoices" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
-        </a>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-mobile-alt"></i>
-        </div>
-        <h3>دعم متعدد المنصات</h3>
-        <p>استخدم البرنامج على جهاز الكمبيوتر، التابلت أو الهاتف الذكي مع مزامنة فورية للبيانات.</p>
-        <a href="features.html#platforms" class="feature-link">
-          المزيد <i class="fas fa-arrow-left"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta">
-  <div class="container">
-    <h2>جاهز لتحويل إدارة أعمالك إلى تجربة احترافية؟</h2>
-    <p>انضم إلى الآلاف من الشركات التي تستخدم برنامج وسيط لإدارة أعمالها بشكل أكثر كفاءة واحترافية.</p>
-    <a href="pricing.html" class="btn btn-primary" style="background-color: white; color: #e74c3c;">
-      <i class="fas fa-crown"></i> ابدأ نسختك التجريبية المجانية الآن
-    </a>
-  </div>
-</section>
-
-<!-- Footer -->
-<div class="footer1-outer">
-  <div class="container">
-    <div class="footer1">
-      <div class="footer-col">
-        <h3>عن برنامج وسيط</h3>
-        <p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      
-      <div class="footer-col">
-        <h3>روابط سريعة</h3>
-        <ul>
-          <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
-          <li><a href="features.html"><i class="fas fa-arrow-left"></i> المميزات</a></li>
-          <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
-          <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
-          <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء العملاء</a></li>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+          <li><a href="features.html" class="active"><i class="fas fa-star"></i> المميزات</a></li>
+          <li><a href="pricing.html"><i class="fas fa-tags"></i> الباقات</a></li>
+          <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+          <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
+          <li><a href="offers.html"><i class="fas fa-gift"></i> العروض</a></li>
+          <li><a href="programs.html"><i class="fas fa-download"></i> البرامج</a></li>
+          <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
         </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">مميزات برنامج وسيط</h1>
+      <p class="animate__animated animate__fadeInUp">اكتشف جميع إمكانيات برنامج وسيط المتكامل لإدارة أعمالك بسهولة واحترافية. كل وظيفة مرفقة بشرح مفصل وصور وفيديو توضيحي.</p>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>فيديو تعريفي بالبرنامج</h2>
+        <p>شاهد هذا الفيديو القصير للتعرف على واجهة البرنامج والإمكانيات الرئيسية</p>
       </div>
       
-      <div class="footer-col">
-        <h3>اتصل بنا</h3>
-        <ul class="contact-info">
-          <li>
-            <i class="fas fa-map-marker-alt"></i>
-            <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
-          </li>
-          <li>
-            <i class="fas fa-phone"></i>
-            <span>
-              <a href="tel:+201060350015">01060350015</a> - 
-              <a href="tel:+20123456789">0123456789</a>
-            </span>
-          </li>
-          <li>
-            <i class="fas fa-envelope"></i>
-            <span>
-              <a href="mailto:support@waset.services">support@waset.services</a>
-            </span>
-          </li>
-          <li>
-            <i class="fas fa-clock"></i>
-            <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
-          </li>
-        </ul>
+      <div class="video-container">
+        <div class="video-placeholder">
+          <i class="fas fa-play-circle"></i>
+          <h3>فيديو تعريفي ببرنامج وسيط</h3>
+          <p>مدة الفيديو: 3 دقائق | شرح شامل للإمكانيات</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الشاشة الرئيسية -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>الشاشة الرئيسية والتنقل</h2>
+        <p>واجهة مستخدم بديهية تتيح لك الوصول السريع إلى جميع أقسام البرنامج</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر الشاشة الرئيسية -->
+          <div class="carousel-container" id="carousel-1">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/SalesManthly.png" alt="الشاشة الرئيسية لبرنامج وسيط" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/Homepage.png" alt="احصائيات المبيعات الشهرية" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/ProductAlarm.png" alt="تنبيهات المنتجات" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="1">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="1">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="1">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-home"></i> الشاشة الرئيسية</h3>
+          <p>تم تصميم الشاشة الرئيسية لتمنحك تجربة استخدام مريحة ومنظمة، حيث يمكنك التنقل بين أقسام البرنامج بسهولة تامة من خلال الأيقونات الكبيرة والواضحة.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> لوحة تحكم رئيسية تعرض أهم الإحصائيات</li>
+            <li><i class="fas fa-check-circle"></i> وصول سريع إلى الأقسام الرئيسية</li>
+            <li><i class="fas fa-check-circle"></i> إشعارات فورية بالمهام والتنبيهات</li>
+            <li><i class="fas fa-check-circle"></i> تصميم متجاوب يعمل على جميع الشاشات</li>
+            <li><i class="fas fa-check-circle"></i> إمكانية تخصيص الواجهة حسب احتياجاتك</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="homepage-tour">
+              <i class="fas fa-play-circle"></i> جولة في الشاشة الرئيسية
+            </a>
+            <a href="#" class="video-btn" data-video-id="homepage-customization">
+              <i class="fas fa-cogs"></i> تخصيص الواجهة
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- إدارة المخازن والمبيعات -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>إدارة المخازن والمبيعات</h2>
+        <p>تحكم كامل في المخزون والمبيعات والفواتير والمرتجعات</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر المخازن والمبيعات -->
+          <div class="carousel-container" id="carousel-2">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/SalesInvoice.png" alt="فاتورة المبيعات" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/Products.png" alt="قائمة المنتجات" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/invoice-print.png" alt="طباعة الفواتير" loading="lazy">
+            </div>
+            <!-- الصورة 4 -->
+            <div class="carousel-slide">
+              <img src="images/barcode.png" alt="نظام الباركود" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="2">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="2">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="2">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+              <span class="carousel-dot" data-index="3"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-warehouse"></i> إدارة المخازن والمبيعات</h3>
+          <p>تحكم في حركة الأصناف، الكميات، الأسعار، المخزون الفعلي والمتاح، والفواتير المرتبطة. إمكانية طباعة باركود لكل منتج وتتبعه.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> إدارة مخازن متعددة وفروع</li>
+            <li><i class="fas fa-check-circle"></i> نظام جرد ذكي مع تنبيهات نفاذ السلع</li>
+            <li><i class="fas fa-check-circle"></i> إنشاء فواتير مبيعات ومشتريات بسهولة</li>
+            <li><i class="fas fa-check-circle"></i> إدارة المرتجعات والخصومات</li>
+            <li><i class="fas fa-check-circle"></i> طباعة باركود للمنتجات وتتبعها</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="inventory-management">
+              <i class="fas fa-play-circle"></i> إدارة المخازن الأساسية
+            </a>
+            <a href="#" class="video-btn" data-video-id="inventory-barcode">
+              <i class="fas fa-barcode"></i> نظام الباركود
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- إدارة العملاء والموردين -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>إدارة العملاء والموردين</h2>
+        <p>قاعدة بيانات متكاملة لتسجيل ومتابعة جميع التعاملات</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر العملاء والموردين -->
+          <div class="carousel-container" id="carousel-3">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/Customers.png" alt="قائمة العملاء" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/Suppliers.png" alt="قائمة الموردين" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/DebtReport.png" alt="تقارير المديونيات" loading="lazy">
+            </div>
+            <!-- الصورة 4 -->
+            <div class="carousel-slide">
+              <img src="images/Cheques.png" alt="إدارة الشيكات" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="3">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="3">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="3">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+              <span class="carousel-dot" data-index="3"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-users"></i> إدارة العملاء والموردين</h3>
+          <p>أنشئ قاعدة بيانات كاملة لكل العملاء والموردين وسجل كل الفواتير، المرتجعات، المدفوعات، الشيكات، والرصيد الحالي تلقائيًا.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> سجل كامل للعملاء والموردين</li>
+            <li><i class="fas fa-check-circle"></i> تقارير المديونيات وتاريخ التعاملات</li>
+            <li><i class="fas fa-check-circle"></i> إدارة حسابات العملاء والموردين</li>
+            <li><i class="fas fa-check-circle"></i> متابعة الشيكات والمدفوعات</li>
+            <li><i class="fas fa-check-circle"></i> إشعارات بمذكرات الاستحقاق</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="customers-management">
+              <i class="fas fa-play-circle"></i> إدارة العملاء
+            </a>
+            <a href="#" class="video-btn" data-video-id="suppliers-management">
+              <i class="fas fa-truck"></i> إدارة الموردين
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الحضور والانصراف -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>الحضور والانصراف وربط البصمة</h2>
+        <p>نظام متكامل لإدارة الموارد البشرية وسجلات الموظفين</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر الحضور والانصراف -->
+          <div class="carousel-container" id="carousel-4">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/Attendance.png" alt="سجل الحضور والانصراف" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/Employees.png" alt="قائمة الموظفين" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/Vacations.png" alt="إدارة الإجازات" loading="lazy">
+            </div>
+            <!-- الصورة 4 -->
+            <div class="carousel-slide">
+              <img src="images/AttendanceReport.png" alt="تقارير الحضور" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="4">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="4">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="4">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+              <span class="carousel-dot" data-index="3"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-fingerprint"></i> الحضور والانصراف وربط البصمة</h3>
+          <p>يتيح لك البرنامج تسجيل الحضور والانصراف يدويًا أو تلقائيًا عبر أجهزة البصمة، مع حساب عدد ساعات العمل والتأخير والانصراف المبكر.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> ربط مع أجهزة البصمة المتعددة</li>
+            <li><i class="fas fa-check-circle"></i> حساب ساعات العمل والإضافي</li>
+            <li><i class="fas fa-check-circle"></i> متابعة التأخير والانصراف المبكر</li>
+            <li><i class="fas fa-check-circle"></i> إدارة الإجازات والتصاريح</li>
+            <li><i class="fas fa-check-circle"></i> تقارير حضور الموظفين الشهرية</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="attendance-setup">
+              <i class="fas fa-play-circle"></i> إعداد نظام الحضور
+            </a>
+            <a href="#" class="video-btn" data-video-id="fingerprint-integration">
+              <i class="fas fa-fingerprint"></i> ربط أجهزة البصمة
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- التقارير وتحليل الأداء -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>التقارير وتحليل الأداء</h2>
+        <p>تقارير تفصيلية تساعدك في اتخاذ القرارات الصحيحة</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر التقارير -->
+          <div class="carousel-container" id="carousel-5">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/SalesReports.png" alt="تقارير المبيعات" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/FinancialReports.png" alt="التقارير المالية" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/InventoryReports.png" alt="تقارير المخزون" loading="lazy">
+            </div>
+            <!-- الصورة 4 -->
+            <div class="carousel-slide">
+              <img src="images/ProfitReports.png" alt="تقارير الربحية" loading="lazy">
+            </div>
+            <!-- الصورة 5 -->
+            <div class="carousel-slide">
+              <img src="images/ExportReports.png" alt="تصدير التقارير" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="5">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="5">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="5">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+              <span class="carousel-dot" data-index="3"></span>
+              <span class="carousel-dot" data-index="4"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-chart-pie"></i> التقارير وتحليل الأداء</h3>
+          <p>اطلع على تقارير مفصلة لجميع أقسام النشاط مثل الربحية، العملاء، المبيعات اليومية، ومقارنة الأداء بين الفروع.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> تقارير مالية وتجارية مفصلة</li>
+            <li><i class="fas fa-check-circle"></i> تحليل الربحية والأداء</li>
+            <li><i class="fas fa-check-circle"></i> تقارير المبيعات والمشتريات</li>
+            <li><i class="fas fa-check-circle"></i> تقارير المخزون والحركة</li>
+            <li><i class="fas fa-check-circle"></i> إمكانية تصدير التقارير بصيغ متعددة</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="financial-reports">
+              <i class="fas fa-file-invoice-dollar"></i> التقارير المالية
+            </a>
+            <a href="#" class="video-btn" data-video-id="sales-reports">
+              <i class="fas fa-chart-line"></i> تقارير المبيعات
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- إدارة حسابات وفروع -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>إدارة حسابات وفروع</h2>
+        <p>نظام محاسبي متكامل وإدارة فروع متعددة</p>
+      </div>
+      
+      <div class="feature-detail">
+        <div class="feature-media">
+          <!-- سلايدر الحسابات والفروع -->
+          <div class="carousel-container" id="carousel-6">
+            <!-- الصورة 1 -->
+            <div class="carousel-slide active">
+              <img src="images/Accounts.png" alt="الحسابات المالية" loading="lazy">
+            </div>
+            <!-- الصورة 2 -->
+            <div class="carousel-slide">
+              <img src="images/Branches.png" alt="إدارة الفروع" loading="lazy">
+            </div>
+            <!-- الصورة 3 -->
+            <div class="carousel-slide">
+              <img src="images/Journal.png" alt="دفتر اليومية" loading="lazy">
+            </div>
+            <!-- الصورة 4 -->
+            <div class="carousel-slide">
+              <img src="images/BalanceSheet.png" alt="الميزانية العمومية" loading="lazy">
+            </div>
+            
+            <!-- أزرار التحكم -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev-btn" data-carousel="6">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="carousel-btn next-btn" data-carousel="6">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            
+            <!-- النقاط -->
+            <div class="carousel-dots" data-carousel="6">
+              <span class="carousel-dot active" data-index="0"></span>
+              <span class="carousel-dot" data-index="1"></span>
+              <span class="carousel-dot" data-index="2"></span>
+              <span class="carousel-dot" data-index="3"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-content">
+          <h3><i class="fas fa-calculator"></i> إدارة حسابات وفروع</h3>
+          <p>نظام محاسبي متكامل يتضمن دفتر يومية، ميزان مراجعة، قائمة دخل، وميزانية عمومية مع دعم لإدارة فروع متعددة.</p>
+          
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> نظام محاسبي متكامل (دفتر يومية - ميزان مراجعة)</li>
+            <li><i class="fas fa-check-circle"></i> إدارة فروع متعددة مع مزامنة البيانات</li>
+            <li><i class="fas fa-check-circle"></i> قائمة دخل وميزانية عمومية</li>
+            <li><i class="fas fa-check-circle"></i> دعم العملات المتعددة</li>
+            <li><i class="fas fa-check-circle"></i> تقارير مالية شهرية وسنوية</li>
+          </ul>
+          
+          <div class="video-buttons">
+            <a href="#" class="video-btn" data-video-id="accounts-management">
+              <i class="fas fa-play-circle"></i> النظام المحاسبي
+            </a>
+            <a href="#" class="video-btn" data-video-id="branches-management">
+              <i class="fas fa-code-branch"></i> إدارة الفروع
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>جاهز لبدء رحلتك مع وسيط؟</h2>
+      <p>جرب البرنامج الآن واكتشف بنفسك كيف يمكن لبرنامج وسيط تحويل إدارة أعمالك إلى تجربة سهلة وممتعة.</p>
+      
+      <div class="cta-buttons">
+        <a href="pricing.html" class="btn btn-primary">
+          <i class="fas fa-rocket"></i> ابدأ النسخة التجريبية المجانية
+        </a>
+        <a href="contact.html" class="btn btn-secondary">
+          <i class="fas fa-phone"></i> تواصل معنا للحصول على استشارة
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer1-outer">
+    <div class="container">
+      <div class="footer1">
+        <div class="footer-col">
+          <h3>عن برنامج وسيط</h3>
+          <p>برنامج وسيط هو الحل الأمثل لإدارة الشركات والمخازن والمبيعات بسهولة وبطريقة احترافية، مع دعم فني مستمر وتقارير دقيقة لتطوير أعمالك.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+            <li><a href="features.html"><i class="fas fa-arrow-left"></i> المميزات</a></li>
+            <li><a href="pricing.html"><i class="fas fa-arrow-left"></i> الباقات والأسعار</a></li>
+            <li><a href="support.html"><i class="fas fa-arrow-left"></i> الدعم الفني</a></li>
+            <li><a href="feedback.html"><i class="fas fa-arrow-left"></i> آراء العملاء</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>اتصل بنا</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>طنطا - عمارة الست مباركة - المحطة، مصر</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>
+                <a href="tel:+201060350015">01060350015</a> - 
+                <a href="tel:+20123456789">0123456789</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>
+                <a href="mailto:support@waset.services">support@waset.services</a>
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>أوقات العمل: السبت - الخميس 9:00 ص - 5:00 م<br>الجمعة عطلة</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="footer2-outer">
-  <div class="container">
-    <div class="footer2">
-      <div class="copyright">
-        &copy; جميع الحقوق محفوظة 2025 - برنامج وسيط
-      </div>
-      <div class="footer-links">
-        <a href="privacy.html">سياسة الخصوصية</a>
-        <a href="terms.html">الشروط والأحكام</a>
-        <a href="sitemap.html">خريطة الموقع</a>
+  <div class="footer2-outer">
+    <div class="container">
+      <div class="footer2">
+        <div class="copyright">
+          &copy; جميع الحقوق محفوظة 2025 - برنامج وسيط
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="terms.html">الشروط والأحكام</a>
+          <a href="sitemap.html">خريطة الموقع</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navLinks = document.getElementById('navLinks');
+  <script>
+    // ============================================
+    // الحل النهائي: JavaScript لكل سلايدر منفصل
+    // ============================================
 
-mobileMenuBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-    ? '<i class="fas fa-times"></i>' 
-    : '<i class="fas fa-bars"></i>';
-});
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-  });
-});
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
 
-// Header scroll effect
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80,
-        behavior: 'smooth'
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
-    }
-  });
-});
+    });
 
-// Animate elements on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-    }
-  });
-}, observerOptions);
+    // ============================================
+    // نظام السلايدر البسيط - كل سلايدر يعمل منفرداً
+    // ============================================
 
-// Observe feature cards
-document.querySelectorAll('.feature-card').forEach(card => {
-  observer.observe(card);
-});
-</script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('بدء تهيئة السلايدرز...');
+      
+      // قائمة بجميع السلايدرز
+      const carousels = [
+        { id: 'carousel-1', slides: 3 },
+        { id: 'carousel-2', slides: 4 },
+        { id: 'carousel-3', slides: 4 },
+        { id: 'carousel-4', slides: 4 },
+        { id: 'carousel-5', slides: 5 },
+        { id: 'carousel-6', slides: 4 }
+      ];
+      
+      // تهيئة كل سلايدر
+      carousels.forEach((carousel, index) => {
+        const carouselId = carousel.id;
+        const carouselElement = document.getElementById(carouselId);
+        
+        if (!carouselElement) {
+          console.log(`❌ لم يتم العثور على السلايدر: ${carouselId}`);
+          return;
+        }
+        
+        console.log(`✅ تهيئة السلايدر: ${carouselId} (${carousel.slides} شرائح)`);
+        
+        // تهيئة متغيرات السلايدر
+        let currentSlide = 0;
+        let autoSlideTimer = null;
+        
+        // الحصول على العناصر
+        const slides = carouselElement.querySelectorAll('.carousel-slide');
+        const dots = carouselElement.querySelectorAll(`.carousel-dots[data-carousel="${index + 1}"] .carousel-dot`);
+        const prevBtn = carouselElement.querySelector(`.prev-btn[data-carousel="${index + 1}"]`);
+        const nextBtn = carouselElement.querySelector(`.next-btn[data-carousel="${index + 1}"]`);
+        
+        // ضمان تحميل الصور
+        slides.forEach((slide, slideIndex) => {
+          const img = slide.querySelector('img');
+          if (img) {
+            img.onerror = function() {
+              console.log(`❌ فشل تحميل صورة في ${carouselId} - الشريحة ${slideIndex + 1}`);
+              img.style.display = 'none';
+              slide.innerHTML = `
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 8px;">
+                  <div style="text-align: center; color: #666;">
+                    <i class="fas fa-image" style="font-size: 50px; margin-bottom: 15px; opacity: 0.5;"></i>
+                    <h4 style="font-size: 16px; margin-bottom: 5px;">${img.alt || 'صورة'}</h4>
+                    <p style="font-size: 14px; color: #999;">برنامج وسيط</p>
+                  </div>
+                </div>
+              `;
+            };
+            
+            img.onload = function() {
+              console.log(`✅ تحميل صورة: ${img.src.split('/').pop()}`);
+            };
+          }
+        });
+        
+        // دالة عرض شريحة محددة
+        function showSlide(n) {
+          // التأكد من أن الفهرس ضمن النطاق
+          if (n >= slides.length) n = 0;
+          if (n < 0) n = slides.length - 1;
+          
+          // إخفاء كل الشرائح
+          slides.forEach(slide => {
+            slide.classList.remove('active');
+          });
+          
+          // إظهار الشريحة الحالية
+          slides[n].classList.add('active');
+          
+          // تحديث النقاط
+          dots.forEach(dot => dot.classList.remove('active'));
+          if (dots[n]) dots[n].classList.add('active');
+          
+          currentSlide = n;
+        }
+        
+        // الانتقال للشريحة التالية
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+          resetTimer();
+        }
+        
+        // الانتقال للشريحة السابقة
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+          resetTimer();
+        }
+        
+        // بدء التوقيت التلقائي
+        function startTimer() {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = setInterval(nextSlide, 5000);
+        }
+        
+        // إعادة تعيين التوقيت
+        function resetTimer() {
+          startTimer();
+        }
+        
+        // إضافة الأحداث للأزرار
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        
+        // إضافة الأحداث للنقاط
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            showSlide(i);
+            resetTimer();
+          });
+        });
+        
+        // إيقاف التبديل التلقائي عند المرور بالفأرة
+        carouselElement.addEventListener('mouseenter', () => {
+          clearInterval(autoSlideTimer);
+        });
+        
+        carouselElement.addEventListener('mouseleave', () => {
+          startTimer();
+        });
+        
+        // بدء السلايدر
+        setTimeout(() => {
+          showSlide(0);
+          startTimer();
+          console.log(`🎉 تم تشغيل السلايدر: ${carouselId}`);
+        }, 100 * index); // تأخير بسيط لتفادي التحميل الزائد
+      });
+    });
+
+    // ============================================
+    // اختبار نهائي
+    // ============================================
+
+    setTimeout(() => {
+      console.log('=== اختبار الصفحة ===');
+      
+      // عد السلايدرز
+      const totalSliders = document.querySelectorAll('.carousel-container').length;
+      console.log(`عدد السلايدرز: ${totalSliders}`);
+      
+      // عد الصور
+      const totalImages = document.querySelectorAll('.carousel-slide img').length;
+      console.log(`عدد الصور: ${totalImages}`);
+      
+      // اختبار كل صورة
+      document.querySelectorAll('.carousel-slide img').forEach((img, i) => {
+        if (img.complete && img.naturalHeight > 0) {
+          console.log(`✅ الصورة ${i + 1}: ${img.src.split('/').pop()} - ${img.naturalWidth}x${img.naturalHeight}`);
+        } else if (img.complete) {
+          console.log(`❌ الصورة ${i + 1}: ${img.src.split('/').pop()} - فشل التحميل`);
+          
+          // محاولة إعادة تحميل
+          const src = img.src;
+          img.src = '';
+          setTimeout(() => {
+            img.src = src;
+          }, 500);
+        }
+      });
+    }, 3000);
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
