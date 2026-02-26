@@ -954,7 +954,7 @@ nav {
           <li><a href="support.html"><i class="fas fa-headset"></i> الدعم الفني</a></li>
           <li><a href="distributors.html"><i class="fas fa-users"></i> الموزعين</a></li>
           <li><a href="offers.html" class="active"><i class="fas fa-gift"></i> العروض</a></li>
-           <li><a href="programs.html" <i class="fas fa-download"></i> البرامج</a></li>
+           <li><a href="programs.html"><i class="fas fa-download"></i> البرامج</a></li>
           <li><a href="feedback.html"><i class="fas fa-comments"></i> آراء المستخدمين</a></li>
           <li><a href="contact.html"><i class="fas fa-phone"></i> اتصل بنا</a></li>
         </ul>
@@ -968,24 +968,24 @@ nav {
       <h1 class="animate__animated animate__fadeInDown">🎁 العروض الموسمية لبرنامج وسيط</h1>
       <p class="animate__animated animate__fadeInUp">استفد من أفضل العروض الحصرية حسب عدد أجهزتك - خصومات متدرجة تصل إلى 25% لفترة محدودة فقط!</p>
       
-      <!-- Countdown Timer -->
+      <!-- Countdown Timer with REAL date: Starts 20/2/2026 and lasts 14 days -->
       <div class="countdown-timer">
         <h3>⏰ العرض ينتهي خلال:</h3>
         <div class="countdown-container">
           <div class="countdown-item">
-            <div class="countdown-value" id="days">2</div>
+            <div class="countdown-value" id="days">00</div>
             <div class="countdown-label">أيام</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-value" id="hours">18</div>
+            <div class="countdown-value" id="hours">00</div>
             <div class="countdown-label">ساعات</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-value" id="minutes">32</div>
+            <div class="countdown-value" id="minutes">00</div>
             <div class="countdown-label">دقائق</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-value" id="seconds">15</div>
+            <div class="countdown-value" id="seconds">00</div>
             <div class="countdown-label">ثواني</div>
           </div>
         </div>
@@ -1413,13 +1413,32 @@ nav {
       }
     });
 
-    // Countdown Timer
+    // REAL COUNTDOWN TIMER based on a start date + 14 days
+    // Start date: 20 February 2026 (20/2/2026)
     function updateCountdown() {
-      const targetDate = new Date();
-      targetDate.setDate(targetDate.getDate() + 14); // 14 days from now
+      // Set the start date: 20 February 2026
+      const startDate = new Date(2026, 1, 20, 0, 0, 0); // Month is 0-indexed, so 1 = February
+      
+      // End date = startDate + 14 days
+      const endDate = new Date(startDate.getTime() + (14 * 24 * 60 * 60 * 1000));
       
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const distance = endDate - now;
+      
+      if (distance < 0) {
+        // If expired
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        
+        // Optionally change message
+        const timerHeader = document.querySelector('.countdown-timer h3');
+        if (timerHeader) timerHeader.textContent = '⏰ انتهت فترة العرض!';
+        
+        clearInterval(countdownInterval);
+        return;
+      }
       
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1430,14 +1449,9 @@ nav {
       document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
       document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
       document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-      
-      if (distance < 0) {
-        clearInterval(countdownInterval);
-        document.querySelector('.countdown-timer').innerHTML = '<h3>⏰ انتهت فترة العرض!</h3>';
-      }
     }
     
-    updateCountdown();
+    updateCountdown(); // initial call
     const countdownInterval = setInterval(updateCountdown, 1000);
 
     // Price Calculator
@@ -1496,7 +1510,7 @@ nav {
     
     // Calculate price
     function calculatePrice(deviceCount, type) {
-      const tier = getPricingTier(deviceCount);
+      const tier = getPricingTier(parseInt(deviceCount));
       
       // Update discount percentage
       discountPercentageDisplay.textContent = `${tier.discount}%`;
@@ -1508,7 +1522,7 @@ nav {
       
       // Update results
       resultDevicesDisplay.textContent = deviceCount;
-      resultMonthlyDisplay.textContent = `${monthlyTotal.toLocaleString()} ج`;
+      resultMonthlyDisplay.textContent = `${Math.round(monthlyTotal).toLocaleString()} ج`;
       resultYearlyDisplay.textContent = `${Math.round(yearlyWithDiscount).toLocaleString()} ج`;
       resultSavingsDisplay.textContent = `${Math.round(yearlySavings).toLocaleString()} ج`;
       
@@ -1528,14 +1542,14 @@ nav {
     };
     
     // Open WhatsApp with offer message
-    function openWhatsAppOffer(offerType) {
+    window.openWhatsAppOffer = function(offerType) {
       let message = offerMessages[offerType] || 'مرحبًا، أريد معرفة المزيد عن العروض الحالية لبرنامج وسيط.';
       const url = `https://wa.me/201060350015?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
-    }
+    };
     
     // Open WhatsApp with calculation result
-    function openWhatsAppWithCalculation() {
+    window.openWhatsAppWithCalculation = function() {
       const deviceCount = deviceCountSlider.value;
       const tier = getPricingTier(parseInt(deviceCount));
       const yearlyPrice = Math.round(deviceCount * tier.yearlyPrice * (1 - tier.discount/100));
@@ -1544,7 +1558,7 @@ nav {
       
       const url = `https://wa.me/201060350015?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
-    }
+    };
     
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(question => {
@@ -1554,7 +1568,7 @@ nav {
       });
     });
     
-    // Animate elements on scroll
+    // Animate elements on scroll (optional)
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -100px 0px'
