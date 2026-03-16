@@ -346,25 +346,6 @@
             margin-left: 8px;
         }
 
-        .team-card {
-            text-align: center;
-        }
-
-        .team-avatar {
-            width: 150px;
-            height: 150px;
-            background: var(--gradient);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            border: 5px solid white;
-            box-shadow: 0 15px 25px #00000030;
-        }
-
         .faq-item {
             background: white;
             border-radius: 30px;
@@ -779,12 +760,6 @@
                 padding: 20px;
             }
             
-            .team-avatar {
-                width: 120px;
-                height: 120px;
-                font-size: 3rem;
-            }
-            
             .booking-section {
                 padding: 30px 20px;
             }
@@ -866,12 +841,6 @@
                 font-size: 1.3rem;
             }
             
-            .team-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
             .booking-form {
                 padding: 20px;
             }
@@ -891,7 +860,6 @@
         <a href="#services">خدماتنا</a>
         <a href="#products">المنتجات</a>
         <a href="#branches">الفروع</a>
-        <a href="#team">فريق الإدارة</a>
         <a href="#faq">الأسئلة</a>
         <a href="#booking">احجز استشارة</a>
         <a href="#contact">اتصل بنا</a>
@@ -904,7 +872,7 @@
         <div class="hero">
             <div class="hero-text">
                 <h1>عودة <span>الصوت النقي</span> للحياة</h1>
-                <p>أكبر شركة متخصصة في حلول السمع بمصر والشرق الأوسط. نقدم أحدث التكنولوجيا الألمانية والدنماركية مع فريق من أمهر الأخصائيين.</p>
+                <p>أكبر شركة متخصصة في حلول السمع نقدم أحدث التكنولوجيا الألمانية والدنماركية مع فريق من أمهر الأخصائيين.</p>
                 <div class="hero-buttons">
                     <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-headphones-alt"></i> احجز استشارة</button>
                     <button class="btn-outline"><i class="fas fa-video"></i> جولة افتراضية</button>
@@ -919,7 +887,7 @@
     <section id="about">
         <div class="section-header">
             <h2 class="section-title">من نحن</h2>
-            <div class="section-subtitle">شركة يونيتك للسمعيات - الريادة والثقة منذ ٢٠١٠</div>
+            <div class="section-subtitle">شركة يونيتك للسمعيات - الريادة والثقة</div>
         </div>
         <div class="about-company">
             <p style="font-size:1.5rem; font-weight:500; margin-bottom:30px;">نحن لسنا مجرد مركز لبيع السماعات، بل شريك حياتي في رحلة استعادة السمع. تأسست يونيتك بهدف واحد: تحسين جودة الحياة عبر أفضل الحلول السمعية.</p>
@@ -927,12 +895,12 @@
                 <div class="vm-item">
                     <i class="fas fa-eye"></i>
                     <h3>رؤيتنا</h3>
-                    <p>أن نكون الخيار الأول في العالم العربي للرعاية السمعية المتكاملة، من خلال الجمع بين التكنولوجيا المتطورة والاهتمام الإنساني.</p>
+                    <p>أن نكون الخيار الأول في الحلول والرعاية السمعية المتكاملة، من خلال الجمع بين التكنولوجيا المتطورة والاهتمام الإنساني.</p>
                 </div>
                 <div class="vm-item">
                     <i class="fas fa-bullseye"></i>
                     <h3>رسالتنا</h3>
-                    <p>تمكين كل فرد من تجربة سمع طبيعية عبر توفير أحدث الأجهزة الطبية، وخدمات التشخيص الدقيق، والمتابعة مدى الحياة.</p>
+                    <p>تمكين كل فرد من تجربة سمع طبيعية عبر توفير أحدث السماعات الطبية، وخدمات التشخيص الدقيق، والمتابعة مدى الحياة.</p>
                 </div>
                 <div class="vm-item">
                     <i class="fas fa-hand-holding-heart"></i>
@@ -950,14 +918,9 @@
         </div>
         <div class="grid-3">
             <div class="card">
-                <i class="fas fa-stethoscope card-icon"></i>
-                <h3>فحص سمع شامل</h3>
-                <p>باستخدام أحدث الأجهزة الألمانية، نقوم بتقييم دقيق للقدرة السمعية مع تقرير مفصل.</p>
-            </div>
-            <div class="card">
                 <i class="fas fa-microphone-alt card-icon"></i>
-                <h3>قياس السماعات</h3>
-                <p>تركيب وبرمجة السماعات الطبية حسب فقدان السمع لديك، مع معاينة حية للنتيجة.</p>
+                <h3>تركيب وبرمجة السماعات الطبية</h3>
+                <p>تركيب وبرمجة السماعات الطبية حسب مقياس السمع مع معاينة حية للنتيجة.</p>
             </div>
             <div class="card">
                 <i class="fas fa-hand-holding-medical card-icon"></i>
@@ -979,6 +942,11 @@
                 <h3>خدمة منزلية لكبار السن</h3>
                 <p>نأتي إليك في المنزل إذا كان العميل غير قادر على الحركة، ونقدم الخدمة كاملة.</p>
             </div>
+            <div class="card">
+                <i class="fas fa-heart card-icon"></i>
+                <h3>استشارات سمعية</h3>
+                <p>نقدم استشارات مجانية حول مشاكل السمع والحلول المناسبة لكل حالة.</p>
+            </div>
         </div>
     </section>
 
@@ -991,7 +959,7 @@
             <div class="card" style="border-top: 8px solid #004c99;">
                 <span class="product-badge">🇩🇪 صنع في ألمانيا</span>
                 <i class="fas fa-microchip card-icon" style="color:#004c99;"></i>
-                <h3>سلسلة بيرلايت الألمانية</h3>
+                <h3>سلسلة سماعات ألمانية</h3>
                 <p>بتقنية معالج الصوت المبتكر HD Sound. توفر وضوحًا أسطوريًا حتى في الأماكن المزدحمة. حجم مجهري لا يُرى.</p>
                 <ul style="margin-top:15px; list-style:none;">
                     <li><i class="fas fa-check" style="color:#00a6c7;"></i> عزل ضوضاء 360 درجة</li>
@@ -1001,7 +969,7 @@
             <div class="card" style="border-top: 8px solid #b22222;">
                 <span class="product-badge">🇩🇰 صنع في الدنمارك</span>
                 <i class="fas fa-wifi card-icon" style="color:#b22222;"></i>
-                <h3>سلسلة ريزون الدنماركية</h3>
+                <h3>سلسلة سماعات دنماركية</h3>
                 <p>بتقنية الصوت الطبيعي ثلاثي الأبعاد. مريحة للغاية لفترات الاستخدام الطويلة وبطارية تدوم ٣٠ ساعة.</p>
                 <ul style="margin-top:15px; list-style:none;">
                     <li><i class="fas fa-check" style="color:#00a6c7;"></i> مقاومة للماء والغبار</li>
@@ -1033,30 +1001,6 @@
                 <i class="fas fa-map-pin"></i> 
                 <strong>فرع الدقي</strong><br>
                 ٤١ شارع الدقي، بجوار التوحيد والنور، الدور الاول
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <div class="section-header">
-            <h2 class="section-title">فريق الإدارة</h2>
-            <div class="section-subtitle">نخبة من القيادات ذات الخبرة لخدمتكم</div>
-        </div>
-        <div class="grid-3">
-            <div class="card team-card">
-                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
-                <h3>م.هبه الجندى</h3>
-                <p>المؤسس والرئيس التنفيذي - ٢٠ عاماً من الخبرة في مجال التكنولوجيا الطبية</p>
-            </div>
-            <div class="card team-card">
-                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
-                <h3>أ/منى </h3>
-                <p>مدير المبيعات والتسويق - خبير في تطوير قنوات التوزيع وخدمة العملاء</p>
-            </div>
-            <div class="card team-card">
-                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
-                <h3>د. منى عبد الرحمن</h3>
-                <p>مديرة التدريب والتأهيل - دكتوراه في السمعيات من جامعة القاهرة</p>
             </div>
         </div>
     </section>
@@ -1112,8 +1056,8 @@
             <h2 class="section-title">الأسئلة الشائعة</h2>
         </div>
         <div class="faq-item">
-            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> هل هناك فحص سمع مجاني حقًا؟</div>
-            <p>نعم، نوفر فحص سمع شامل ومجاني بدون أي التزام، كجزء من مبادرتنا للتوعية بصحة السمع.</p>
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> هل هناك استشارة مجانية حقًا؟</div>
+            <p>نعم، نوفر استشارات سمعية مجانية بدون أي التزام، كجزء من مبادرتنا للتوعية بصحة السمع.</p>
         </div>
         <div class="faq-item">
             <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> كم تستغرق مدة تركيب السماعة؟</div>
@@ -1125,7 +1069,7 @@
         </div>
         <div class="faq-item">
             <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> ما هي مدة الضمان؟</div>
-            <p>جميع السماعات تأتي بضمان مصنع لمدة تصل إلى ٤ سنوات، مع ضمان يونيتك للصيانة الدورية المجانية أول سنة.</p>
+            <p>ضمان لمدة سنة ضد عيوب الصناعة، وبنشيل معاك في حالات سوء الاستخدام، والصيانة الدورية مجانية مدى الحياة.</p>
         </div>
         <div class="faq-item">
             <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> كيف يمكنني العناية بالسماعة؟</div>
@@ -1155,7 +1099,7 @@
             <div class="info-item">
                 <i class="fas fa-clock"></i><br>
                 <h3>مواعيد العمل</h3>
-                <p>السبت - الخميس ١٠ص–٩م</p>
+                <p>السبت - الخميس ١٠ص–٦م</p>
             </div>
         </div>
         <div class="social-icons">
