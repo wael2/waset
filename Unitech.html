@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يونيتك للسمعيات - الموقع الرسمي الشامل</title>
+    <!-- Google Fonts: خطوط احترافية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (أيقونات جامدة) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== المتغيرات والإعدادات الأساسية ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            background: #f0f7ff;
+            color: #1e2f4a;
+            line-height: 1.7;
+        }
+
+        :root {
+            --primary: #0a4b7a;
+            --primary-light: #2b6c9e;
+            --secondary: #00a6c7;
+            --accent: #00d4b0;
+            --dark: #0a253b;
+            --light: #f8fcff;
+            --gray: #eef3f9;
+            --whatsapp: #25D366;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,40,80,0.1);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.8rem;
+            color: var(--primary);
+            filter: drop-shadow(0 5px 10px #00a6c780);
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .logo-text span {
+            color: var(--secondary);
+            font-size: 2.3rem;
+            display: block;
+            margin-top: -10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .cta-nav {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 15px #00a6c770;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .cta-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px #0a4b7a;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px 25px;
+        }
+
+        section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #3d6079;
+            margin-top: 15px;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0a2f4a, #154c6e), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwKSIvPjwvc3ZnPg==');
+            background-blend-mode: overlay;
+            border-radius: 60px;
+            padding: 80px 50px;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 30px 40px -10px #00000050;
+            border: 1px solid #00d4ff50;
+        }
+
+        .hero-text {
+            flex: 1 1 400px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-shadow: 0 0 20px cyan;
+        }
+
+        .hero-text h1 span {
+            color: #00ffea;
+            display: block;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin: 25px 0 35px;
+            color: #e6f7ff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid white;
+            box-shadow: 0 10px 20px #00000040;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid white;
+            padding: 15px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: 12rem;
+            color: #ffffff30;
+            text-shadow: 0 0 50px cyan;
+        }
+
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+        .card {
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: 0 20px 30px -10px #c0d0e0;
+            transition: 0.3s;
+            border: 1px solid #d4e5f0;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px -10px #0a4b7a70;
+            border-color: var(--secondary);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #2f4d6e;
+        }
+
+        .about-company {
+            background: var(--gradient);
+            border-radius: 60px;
+            padding: 60px;
+            color: white;
+        }
+
+        .vision-mission {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .vm-item {
+            flex: 1 1 250px;
+            background: #ffffff20;
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 35px;
+            border: 1px solid #ffffff50;
+        }
+
+        .vm-item i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .product-badge {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 20px;
+            border-radius: 60px;
+            font-weight: 900;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .branch-card {
+            background: white;
+            padding: 25px;
+            border-radius: 35px;
+            border-right: 8px solid var(--secondary);
+        }
+
+        .branch-card i {
+            color: var(--primary);
+            margin-left: 8px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            background: var(--gradient);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 5px solid white;
+            box-shadow: 0 15px 25px #00000030;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 15px;
+            border: 1px solid #b9d9f0;
+        }
+
+        .faq-question {
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* نموذج الحجز */
+        .booking-section {
+            background: linear-gradient(145deg, #0a2f4a, #154c6e);
+            border-radius: 60px;
+            padding: 60px;
+            color: white;
+            margin-bottom: 80px;
+        }
+
+        .booking-form {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: white;
+        }
+
+        .form-control::placeholder {
+            color: #666;
+        }
+
+        select.form-control {
+            color: #333;
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            border: 2px solid white;
+            box-shadow: 0 10px 20px #25D36680;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px #25D366;
+        }
+
+        .contact-section {
+            background: #0a253b;
+            border-radius: 60px;
+            padding: 60px;
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item i {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .info-item a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .info-item a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            background: #ffffff20;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--whatsapp);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 20px 30px #25D36680;
+            z-index: 100;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 30px 40px #25D366;
+        }
+
+        footer {
+            background: #061c2b;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .booking-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <i class="fas fa-ear-listen logo-icon"></i>
+        <div class="logo-text">يونيتك<span>للسمعيات</span></div>
+    </div>
+    <div class="nav-links">
+        <a href="#home" class="active">الرئيسية</a>
+        <a href="#about">عن الشركة</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#products">المنتجات</a>
+        <a href="#branches">الفروع</a>
+        <a href="#team">فريق الإدارة</a>
+        <a href="#faq">الأسئلة</a>
+        <a href="#booking">احجز استشارة</a>
+        <a href="#contact">اتصل بنا</a>
+    </div>
+    <button class="cta-nav" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-calendar-check"></i> احجز فحص مجاني</button>
+</div>
+
+<div class="container">
+    <section id="home">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>عودة <span>الصوت النقي</span> للحياة</h1>
+                <p>أكبر شركة متخصصة في حلول السمع بمصر والشرق الأوسط. نقدم أحدث التكنولوجيا الألمانية والدنماركية مع فريق من أمهر الأخصائيين.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-headphones-alt"></i> احجز استشارة</button>
+                    <button class="btn-outline"><i class="fas fa-video"></i> جولة افتراضية</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-ear-deaf"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">من نحن</h2>
+            <div class="section-subtitle">شركة يونيتك للسمعيات - الريادة والثقة منذ ٢٠١٠</div>
+        </div>
+        <div class="about-company">
+            <p style="font-size:1.5rem; font-weight:500; margin-bottom:30px;">نحن لسنا مجرد مركز لبيع السماعات، بل شريك حياتي في رحلة استعادة السمع. تأسست يونيتك بهدف واحد: تحسين جودة الحياة عبر أفضل الحلول السمعية.</p>
+            <div class="vision-mission">
+                <div class="vm-item">
+                    <i class="fas fa-eye"></i>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الخيار الأول في العالم العربي للرعاية السمعية المتكاملة، من خلال الجمع بين التكنولوجيا المتطورة والاهتمام الإنساني.</p>
+                </div>
+                <div class="vm-item">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>رسالتنا</h3>
+                    <p>تمكين كل فرد من تجربة سمع طبيعية عبر توفير أحدث الأجهزة الطبية، وخدمات التشخيص الدقيق، والمتابعة مدى الحياة.</p>
+                </div>
+                <div class="vm-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>قيمنا</h3>
+                    <p>النزاهة، الدقة، الابتكار، والاهتمام العميق بكل عميل كأنه فرد من عائلتنا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
+            <div class="section-subtitle">من الفحص إلى المتابعة - كل ما يخص السمع في مكان واحد</div>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-stethoscope card-icon"></i>
+                <h3>فحص سمع شامل</h3>
+                <p>باستخدام أحدث الأجهزة الألمانية، نقوم بتقييم دقيق للقدرة السمعية مع تقرير مفصل.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-microphone-alt card-icon"></i>
+                <h3>قياس السماعات</h3>
+                <p>تركيب وبرمجة السماعات الطبية حسب فقدان السمع لديك، مع معاينة حية للنتيجة.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hand-holding-medical card-icon"></i>
+                <h3>متابعة دورية</h3>
+                <p>نبقى معك حتى بعد الشراء. متابعة مجانية وتعديلات وإعادة برمجة لضمان رضاك التام.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tools card-icon"></i>
+                <h3>صيانة وتنظيف</h3>
+                <p>خدمة تنظيف عميق وصيانة لجميع أنواع السماعات الطبية بقطع غيار أصلية.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-battery-three-quarters card-icon"></i>
+                <h3>بطاريات واكسسوارات</h3>
+                <p>توفير جميع مستلزمات السماعات من بطاريات طويلة الأمد، وعلاجات تجفيف، وقطع غيار.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-home card-icon"></i>
+                <h3>خدمة منزلية لكبار السن</h3>
+                <p>نأتي إليك في المنزل إذا كان العميل غير قادر على الحركة، ونقدم الخدمة كاملة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="section-header">
+            <h2 class="section-title">منتجاتنا الطبية</h2>
+            <div class="section-subtitle">أحدث ما توصلت إليه التكنولوجيا الأوروبية</div>
+        </div>
+        <div class="grid-2">
+            <div class="card" style="border-top: 8px solid #004c99;">
+                <span class="product-badge">🇩🇪 صنع في ألمانيا</span>
+                <i class="fas fa-microchip card-icon" style="color:#004c99;"></i>
+                <h3>سلسلة بيرلايت الألمانية</h3>
+                <p>بتقنية معالج الصوت المبتكر HD Sound. توفر وضوحًا أسطوريًا حتى في الأماكن المزدحمة. حجم مجهري لا يُرى.</p>
+                <ul style="margin-top:15px; list-style:none;">
+                    <li><i class="fas fa-check" style="color:#00a6c7;"></i> عزل ضوضاء 360 درجة</li>
+                    <li><i class="fas fa-check" style="color:#00a6c7;"></i> اتصال مباشر بالتليفون</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top: 8px solid #b22222;">
+                <span class="product-badge">🇩🇰 صنع في الدنمارك</span>
+                <i class="fas fa-wifi card-icon" style="color:#b22222;"></i>
+                <h3>سلسلة ريزون الدنماركية</h3>
+                <p>بتقنية الصوت الطبيعي ثلاثي الأبعاد. مريحة للغاية لفترات الاستخدام الطويلة وبطارية تدوم ٣٠ ساعة.</p>
+                <ul style="margin-top:15px; list-style:none;">
+                    <li><i class="fas fa-check" style="color:#00a6c7;"></i> مقاومة للماء والغبار</li>
+                    <li><i class="fas fa-check" style="color:#00a6c7;"></i> شحن لاسلكي</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px;">
+            <div class="card" style="text-align:center;"><i class="fas fa-child"></i> سماعات للأطفال</div>
+            <div class="card" style="text-align:center;"><i class="fas fa-tint"></i> مقاومة للماء</div>
+            <div class="card" style="text-align:center;"><i class="fas fa-bluetooth"></i> تدعم البلوتوث</div>
+            <div class="card" style="text-align:center;"><i class="fas fa-battery-bolt"></i> شحن سريع</div>
+        </div>
+    </section>
+
+    <!-- الفروع -->
+    <section id="branches">
+        <div class="section-header">
+            <h2 class="section-title">فروعنا</h2>
+            <div class="section-subtitle">أقرب فرع ليك في منطقتك</div>
+        </div>
+        <div class="branches-grid">
+            <div class="branch-card">
+                <i class="fas fa-map-pin"></i> 
+                <strong>الفرع الرئيسي - طنطا</strong><br>
+                شارع المديرية القبلى، عمارة الست مباركه (ب) الدور السادس
+            </div>
+            <div class="branch-card">
+                <i class="fas fa-map-pin"></i> 
+                <strong>فرع الدقي</strong><br>
+                ٤١ شارع الدقي، بجوار التوحيد والنور، الدور الاول
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="section-header">
+            <h2 class="section-title">فريق الإدارة</h2>
+            <div class="section-subtitle">نخبة من القيادات ذات الخبرة لخدمتكم</div>
+        </div>
+        <div class="grid-3">
+            <div class="card team-card">
+                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                <h3>م.هبه الجندى</h3>
+                <p>المؤسس والرئيس التنفيذي - ٢٠ عاماً من الخبرة في مجال التكنولوجيا الطبية</p>
+            </div>
+            <div class="card team-card">
+                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                <h3>أ/منى </h3>
+                <p>مدير المبيعات والتسويق - خبير في تطوير قنوات التوزيع وخدمة العملاء</p>
+            </div>
+            <div class="card team-card">
+                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                <h3>د. منى عبد الرحمن</h3>
+                <p>مديرة التدريب والتأهيل - دكتوراه في السمعيات من جامعة القاهرة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج حجز استشارة مجانية -->
+    <section id="booking" class="booking-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: white;">احجز استشارة مجانية</h2>
+            <div class="section-subtitle" style="color: #e6f7ff;">املأ البيانات وسيتم إرسال طلبك عبر الواتساب</div>
+        </div>
+        
+        <div class="booking-form">
+            <form id="bookingForm" onsubmit="sendWhatsApp(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> الاسم الكامل *</label>
+                        <input type="text" id="name" class="form-control" placeholder="أدخل اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف *</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="مثال: 01234567890" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age"><i class="fas fa-calendar-alt"></i> العمر</label>
+                        <input type="number" id="age" class="form-control" placeholder="أدخل عمرك">
+                    </div>
+                    <div class="form-group">
+                        <label for="branch"><i class="fas fa-map-marker-alt"></i> الفرع المفضل *</label>
+                        <select id="branch" class="form-control" required>
+                            <option value="">اختر الفرع</option>
+                            <option value="الفرع الرئيسي - طنطا">الفرع الرئيسي - طنطا</option>
+                            <option value="فرع الدقي">فرع الدقي</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> ملاحظات إضافية</label>
+                    <textarea id="message" class="form-control" rows="3" placeholder="أخبرنا بأي استفسار أو ملاحظة..."></textarea>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="section-header">
+            <h2 class="section-title">الأسئلة الشائعة</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> هل هناك فحص سمع مجاني حقًا؟</div>
+            <p>نعم، نوفر فحص سمع شامل ومجاني بدون أي التزام، كجزء من مبادرتنا للتوعية بصحة السمع.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> كم تستغرق مدة تركيب السماعة؟</div>
+            <p>عملية القياس والتركيب والبرمجة تستغرق عادة من ساعة إلى ساعتين، ويشعر العميل بالتحسن فور الارتداء.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> هل يناسب كبار السن؟</div>
+            <p>طبعًا، معظم عملائنا من كبار السن. السماعات مبرمجة خصيصًا لتعويض الترددات المفقودة مع تقدم العمر، ولدينا خدمة منزلية لهم.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> ما هي مدة الضمان؟</div>
+            <p>جميع السماعات تأتي بضمان مصنع لمدة تصل إلى ٤ سنوات، مع ضمان يونيتك للصيانة الدورية المجانية أول سنة.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> كيف يمكنني العناية بالسماعة؟</div>
+            <p>ننصح بتنظيف السماعة يومياً بقطعة قماش جافة، واستخدام علبة التجفيف المخصصة ليلاً، وتجنب التعرض للماء والرطوبة.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle" style="color:var(--secondary);"></i> هل هناك عمر محدد لاستخدام السماعة؟</div>
+            <p>متوسط عمر السماعة الطبية يتراوح بين ٤ إلى ٦ سنوات حسب الاستخدام والعناية، ويمكننا مساعدتك في اختيار السماعة المناسبة.</p>
+        </div>
+    </section>
+
+    <!-- اتصل بنا -->
+    <section id="contact" class="contact-section">
+        <h2 style="font-size:3rem; font-weight:900; text-align:center;">تواصل معنا</h2>
+        <p style="text-align:center; font-size:1.3rem;">نحن هنا لمساعدتك على مدار الأسبوع</p>
+        <div class="contact-info">
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i><br>
+                <h3>اتصل</h3>
+                <a href="tel:+201201330111">+20 12 01330111</a>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i><br>
+                <h3>بريد إلكتروني</h3>
+                <a href="mailto:unitech.HearingAidCompany@gmail.com">unitech.HearingAidCompany<br>@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-clock"></i><br>
+                <h3>مواعيد العمل</h3>
+                <p>السبت - الخميس ١٠ص–٩م</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/Unitech.MH" target="_blank" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" title="تويتر"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" title="انستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/201201330111" target="_blank" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/company/unitech-for-hearing-aids/" target="_blank" title="لينكد إن"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div style="text-align:center; margin-top:40px;">
+            <a href="https://unitech.inyad.com" target="_blank" style="text-decoration:none;">
+                <button class="btn-primary" style="background:white; color:var(--primary);">موقعنا الإلكتروني</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- شريط الواتساب العائم -->
+    <a href="https://wa.me/201201330111" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <i class="fas fa-copyright"></i> 2026 جميع الحقوق محفوظة لشركة <strong>يونيتك للسماعات الاذن الطبية - Unitech Hearing Aid</strong>. التميز في الرعاية السمعية.
+    </footer>
+
+</div>
+
+<script>
+    function sendWhatsApp(event) {
+        event.preventDefault();
+        
+        // جمع البيانات من النموذج
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const age = document.getElementById('age').value;
+        const branch = document.getElementById('branch').value;
+        const message = document.getElementById('message').value;
+        
+        // تكوين رسالة جاهزة
+        let whatsappMessage = `🔊 *استشارة سمعية مجانية - يونيتك*\n\n`;
+        whatsappMessage += `👤 *الاسم:* ${name}\n`;
+        whatsappMessage += `📱 *رقم الهاتف:* ${phone}\n`;
+        
+        if (age) {
+            whatsappMessage += `🎂 *العمر:* ${age}\n`;
+        }
+        
+        whatsappMessage += `📍 *الفرع:* ${branch}\n`;
+        
+        if (message) {
+            whatsappMessage += `💬 *ملاحظات:* ${message}\n`;
+        }
+        
+        // ترميز الرسالة للواتساب
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        
+        // رابط واتساب (تم التصحيح)
+        const whatsappURL = `https://wa.me/201201330111?text=${encodedMessage}`;
+        
+        // فتح الواتساب في نافذة جديدة
+        window.open(whatsappURL, '_blank');
+        
+        // رسالة تأكيد للمستخدم
+        alert('✅ تم تجهيز طلبك! سيتم فتح الواتساب لإرسال الرسالة.');
+    }
+</script>
+
+</body>
+</html>
