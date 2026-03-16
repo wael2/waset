@@ -560,16 +560,320 @@
             margin-top: 50px;
         }
 
+        /* ========== تحسينات Responsive فقط ========== */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 25px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+            
+            .cta-nav {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 60px 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-image i {
+                font-size: 10rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 15px;
+                padding: 15px 20px;
             }
+            
+            .logo-icon {
+                font-size: 2.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text span {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 5px 10px;
+            }
+            
+            .hero {
+                padding: 40px 30px;
+                border-radius: 40px;
+                text-align: center;
+                justify-content: center;
+            }
+            
             .hero-text h1 {
                 font-size: 3rem;
             }
+            
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .hero-image {
+                flex: 0 0 200px;
+            }
+            
+            .hero-image i {
+                font-size: 8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-company {
+                padding: 40px;
+            }
+            
             .booking-section {
+                padding: 40px 30px;
+            }
+            
+            .contact-section {
+                padding: 40px;
+            }
+            
+            .contact-info {
+                gap: 20px;
+            }
+            
+            .info-item i {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+            
+            .logo-icon {
+                font-size: 2.2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text span {
+                font-size: 1.8rem;
+                margin-top: -8px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 4px 8px;
+            }
+            
+            .cta-nav {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                padding: 30px 20px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+                margin: 15px 0 25px;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .hero-image i {
+                font-size: 6rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title:after {
+                width: 60px;
+                height: 3px;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card-icon {
+                font-size: 2.5rem;
+            }
+            
+            .about-company {
                 padding: 30px;
+            }
+            
+            .vm-item {
+                padding: 25px;
+            }
+            
+            .branch-card {
+                padding: 20px;
+            }
+            
+            .team-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+            
+            .booking-section {
+                padding: 30px 20px;
+            }
+            
+            .booking-form {
+                padding: 30px;
+            }
+            
+            .form-control {
+                padding: 12px 15px;
+            }
+            
+            .btn-whatsapp {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .contact-section {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .info-item i {
+                font-size: 2.2rem;
+            }
+            
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            footer {
+                padding: 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 3px 6px;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .hero-image i {
+                font-size: 5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+            
+            .booking-form {
+                padding: 20px;
             }
         }
     </style>
@@ -908,7 +1212,7 @@
         // ترميز الرسالة للواتساب
         const encodedMessage = encodeURIComponent(whatsappMessage);
         
-        // رابط واتساب (تم التصحيح)
+        // رابط واتساب
         const whatsappURL = `https://wa.me/201201330111?text=${encodedMessage}`;
         
         // فتح الواتساب في نافذة جديدة
